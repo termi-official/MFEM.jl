@@ -1,0 +1,12 @@
+module_name         = "MFEM"
+
+input               = [ "mfem/mesh/mesh.hpp", "mfem/fem/intrules.hpp", "mfem/fem/coefficient.hpp", "mfem/fem/bilinearform.hpp", "mfem/fem/linearform.hpp", "mfem/fem/datacollection.hpp", "mfem/linalg/vector.hpp", "mfem/linalg/sparsemat.hpp", "mfem/linalg/solvers.hpp"]
+
+include_dirs        = [ "%MFEM_INC_DIR%" ]
+
+clang_opts          = ["-resource-dir", "/home/dogiermann/Repos/spack/opt/spack/linux-manjaro21-zen/gcc-11.2.0/llvm-13.0.1-ujjeg2kym5yi5vzurktjtknit5xexaow/lib/clang/13.0.1"]
+
+cxx-std             = "c++11"
+
+# all generated code in a single file:
+n_classes_per_file = 0
