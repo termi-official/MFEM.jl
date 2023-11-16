@@ -4915,6 +4915,89 @@ std::shared_ptr<Wrapper> newJlmfem_PWCoefficient(jlcxx::Module& module){
 }
 
 namespace jlcxx {
+  template<> struct IsMirroredType<mfem::FunctionCoefficient> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::FunctionCoefficient> : std::false_type { };
+template<> struct SuperType<mfem::FunctionCoefficient> { typedef mfem::Coefficient type; };
+}
+
+// struct Jlmfem_FunctionCoefficient: public Wrapper {
+
+//   Jlmfem_FunctionCoefficient(jlcxx::Module& jlModule): Wrapper(jlModule){
+//     DEBUG_MSG("Adding wrapper for type mfem::FunctionCoefficient (" __HERE__ ")");
+//     // defined in mfem/fem/coefficient.hpp:219:7
+//     jlcxx::TypeWrapper<mfem::FunctionCoefficient>  t = jlModule.add_type<mfem::FunctionCoefficient>("mfem!FunctionCoefficient"    , jlcxx::julia_base_type<mfem::Coefficient>());
+//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::FunctionCoefficient>>(new jlcxx::TypeWrapper<mfem::FunctionCoefficient>(jlModule, t));
+//   }
+
+//   void add_methods() const{
+//     auto& t = *type_;
+
+
+//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(std::function<double (const mfem::Vector &)>) (" __HERE__ ")");
+//     // defined in mfem/fem/coefficient.hpp:228:4
+//     t.constructor<std::function<double (const mfem::Vector &)>>(/*finalize=*/true);
+
+
+//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(std::function<double (const mfem::Vector &, double)>) (" __HERE__ ")");
+//     // defined in mfem/fem/coefficient.hpp:234:4
+//     t.constructor<std::function<double (const mfem::Vector &, double)>>(/*finalize=*/true);
+
+
+//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(double (*)(mfem::Vector &)) (" __HERE__ ")");
+//     // defined in mfem/fem/coefficient.hpp:241:20
+//     t.constructor<double (*)(mfem::Vector &)>(/*finalize=*/true);
+
+
+//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(double (*)(mfem::Vector &, double)) (" __HERE__ ")");
+//     // defined in mfem/fem/coefficient.hpp:250:20
+//     t.constructor<double (*)(mfem::Vector &, double)>(/*finalize=*/true);
+
+//     DEBUG_MSG("Adding wrapper for double mfem::FunctionCoefficient::Eval(mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
+//     // signature to use in the veto list: double mfem::FunctionCoefficient::Eval(mfem::ElementTransformation &, const mfem::IntegrationPoint &)
+//     // defined in mfem/fem/coefficient.hpp:257:19
+//     t.method("Eval", static_cast<double (mfem::FunctionCoefficient::*)(mfem::ElementTransformation &, const mfem::IntegrationPoint &) >(&mfem::FunctionCoefficient::Eval));
+//   }
+
+// private:
+//   std::unique_ptr<jlcxx::TypeWrapper<mfem::FunctionCoefficient>> type_;
+// };
+// std::shared_ptr<Wrapper> newJlmfem_FunctionCoefficient(jlcxx::Module& module){
+//   return std::shared_ptr<Wrapper>(new Jlmfem_FunctionCoefficient(module));
+// }
+
+namespace jlcxx {
+
+  template<>
+  struct BuildParameterList<std::function<>>
+  {
+    typedef ParameterList<> type;
+  };
+
+  template<> struct IsMirroredType<std::function<>> : std::false_type { };
+  template<> struct DefaultConstructible<std::function<>> : std::false_type { };
+}
+
+struct Jlstd_function: public Wrapper {
+
+  Jlstd_function(jlcxx::Module& jlModule): Wrapper(jlModule){
+  // defined in /usr/lib64/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/bits/std_function.h:334:11
+    jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>  t =  jlModule.add_type<jlcxx::Parametric<jlcxx::TypeVar<1>>>("std!function");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>>(new jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>> type_;
+};
+std::shared_ptr<Wrapper> newJlstd_function(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlstd_function(module));
+}
+
+namespace jlcxx {
   template<> struct IsMirroredType<mfem::CartesianCoefficient> : std::false_type { };
   template<> struct DefaultConstructible<mfem::CartesianCoefficient> : std::false_type { };
 template<> struct SuperType<mfem::CartesianCoefficient> { typedef mfem::Coefficient type; };
@@ -10255,7 +10338,7 @@ class Jlmfem_QuadratureFunction;
 class Jlmfem_ConstantCoefficient;
 class Jlmfem_PWConstCoefficient;
 class Jlmfem_PWCoefficient;
-class Jlmfem_FunctionCoefficient;
+// class Jlmfem_FunctionCoefficient;
 // class Jlstd_function;
 class Jlmfem_CartesianCoefficient;
 class Jlmfem_CartesianXCoefficient;
@@ -10528,8 +10611,8 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_ConstantCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWConstCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWCoefficient(jlModule)),
-    // std::shared_ptr<Wrapper>(newJlmfem_FunctionCoefficient(jlModule)),
-    // std::shared_ptr<Wrapper>(newJlstd_function(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_FunctionCoefficient(jlModule)),
+    std::shared_ptr<Wrapper>(newJlstd_function(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianXCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianYCoefficient(jlModule)),

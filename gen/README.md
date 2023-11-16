@@ -8,9 +8,10 @@ Make sure julia is in the PATH otherwise it won't work.
 1. Compile mfem (serial for now) with -fPIC
 2. Set include and library paths
 3. Execute makefile
-4. Comment out erroring methods (IntRules copy ctor, code invovled in FunctionCoefficient, NURBSExt, Mesquite)
-5. Deduplicate generated_cxx
-6. Execute makefile
+4. Replace "Array<" with "mfem::Array<"
+5. Comment out erroring methods again (IntRules copy ctor, code invovled in FunctionCoefficient, NURBSExt, Mesquite)
+6. Deduplicate generated_cxx
+7. Execute makefile
 
 # Write up issues
 
