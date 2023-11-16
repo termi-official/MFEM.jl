@@ -10677,8 +10677,8 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   DEBUG_MSG("Adding wrapper for enum mfem::BlockILU::Reordering (" __HERE__ ")");
   // defined in mfem/linalg/solvers.hpp:968:15
   jlModule.add_bits<mfem::BlockILU::Reordering>("mfem!BlockILU!Reordering", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!BlockILU!MINIMUM_DISCARDED_FILL", mfem::BlockILU::Reordering::MINIMUM_DISCARDED_FILL);
-  jlModule.set_const("mfem!BlockILU!NONE", mfem::BlockILU::Reordering::NONE);
+  jlModule.set_const("mfem!BlockILU!Reordering!MINIMUM_DISCARDED_FILL", mfem::BlockILU::Reordering::MINIMUM_DISCARDED_FILL);
+  jlModule.set_const("mfem!BlockILU!Reordering!NONE", mfem::BlockILU::Reordering::NONE);
 
   DEBUG_MSG("Adding anonymous enum defined in mfem/fem/intrules.hpp:393:4 (" __HERE__ ")");
   // defined in mfem/fem/intrules.hpp:393:4
@@ -10693,16 +10693,16 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   DEBUG_MSG("Adding wrapper for enum mfem::CoefficientStorage (" __HERE__ ")");
   // defined in mfem/fem/coefficient.hpp:2288:12
   jlModule.add_bits<mfem::CoefficientStorage>("mfem!CoefficientStorage", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!FULL", mfem::CoefficientStorage::FULL);
-  jlModule.set_const("mfem!CONSTANTS", mfem::CoefficientStorage::CONSTANTS);
-  jlModule.set_const("mfem!SYMMETRIC", mfem::CoefficientStorage::SYMMETRIC);
-  jlModule.set_const("mfem!COMPRESSED", mfem::CoefficientStorage::COMPRESSED);
+  jlModule.set_const("mfem!CoefficientStorage!FULL", mfem::CoefficientStorage::FULL);
+  jlModule.set_const("mfem!CoefficientStorage!CONSTANTS", mfem::CoefficientStorage::CONSTANTS);
+  jlModule.set_const("mfem!CoefficientStorage!SYMMETRIC", mfem::CoefficientStorage::SYMMETRIC);
+  jlModule.set_const("mfem!CoefficientStorage!COMPRESSED", mfem::CoefficientStorage::COMPRESSED);
 
   DEBUG_MSG("Adding wrapper for enum mfem::FaceType (" __HERE__ ")");
   // defined in mfem/mesh/../fem/../mesh/mesh.hpp:45:12
   jlModule.add_bits<mfem::FaceType>("mfem!FaceType", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!Interior", mfem::FaceType::Interior);
-  jlModule.set_const("mfem!Boundary", mfem::FaceType::Boundary);
+  jlModule.set_const("mfem!FaceType!Interior", mfem::FaceType::Interior);
+  jlModule.set_const("mfem!FaceType!Boundary", mfem::FaceType::Boundary);
 
   DEBUG_MSG("Adding wrapper for enum mfem::Mesh::Operation (" __HERE__ ")");
   // defined in mfem/mesh/../fem/../mesh/mesh.hpp:270:9
@@ -10741,37 +10741,37 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   DEBUG_MSG("Adding wrapper for enum mfem::Mesh::FaceTopology (" __HERE__ ")");
   // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1598:15
   jlModule.add_bits<mfem::Mesh::FaceTopology>("mfem!Mesh!FaceTopology", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!Mesh!Boundary", mfem::Mesh::FaceTopology::Boundary);
-  jlModule.set_const("mfem!Mesh!Conforming", mfem::Mesh::FaceTopology::Conforming);
-  jlModule.set_const("mfem!Mesh!Nonconforming", mfem::Mesh::FaceTopology::Nonconforming);
-  jlModule.set_const("mfem!Mesh!NA", mfem::Mesh::FaceTopology::NA);
+  jlModule.set_const("mfem!Mesh!FaceTopology!Boundary", mfem::Mesh::FaceTopology::Boundary);
+  jlModule.set_const("mfem!Mesh!FaceTopology!Conforming", mfem::Mesh::FaceTopology::Conforming);
+  jlModule.set_const("mfem!Mesh!FaceTopology!Nonconforming", mfem::Mesh::FaceTopology::Nonconforming);
+  jlModule.set_const("mfem!Mesh!FaceTopology!NA", mfem::Mesh::FaceTopology::NA);
 
   DEBUG_MSG("Adding wrapper for enum mfem::Mesh::ElementLocation (" __HERE__ ")");
   // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1610:15
   jlModule.add_bits<mfem::Mesh::ElementLocation>("mfem!Mesh!ElementLocation", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!Mesh!Local", mfem::Mesh::ElementLocation::Local);
-  jlModule.set_const("mfem!Mesh!FaceNbr", mfem::Mesh::ElementLocation::FaceNbr);
-  jlModule.set_const("mfem!Mesh!NA", mfem::Mesh::ElementLocation::NA);
+  jlModule.set_const("mfem!Mesh!ElementLocation!Local", mfem::Mesh::ElementLocation::Local);
+  jlModule.set_const("mfem!Mesh!ElementLocation!FaceNbr", mfem::Mesh::ElementLocation::FaceNbr);
+  jlModule.set_const("mfem!Mesh!ElementLocation!NA", mfem::Mesh::ElementLocation::NA);
 
   DEBUG_MSG("Adding wrapper for enum mfem::Mesh::ElementConformity (" __HERE__ ")");
   // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1625:15
   jlModule.add_bits<mfem::Mesh::ElementConformity>("mfem!Mesh!ElementConformity", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!Mesh!Coincident", mfem::Mesh::ElementConformity::Coincident);
-  jlModule.set_const("mfem!Mesh!Superset", mfem::Mesh::ElementConformity::Superset);
-  jlModule.set_const("mfem!Mesh!Subset", mfem::Mesh::ElementConformity::Subset);
-  jlModule.set_const("mfem!Mesh!NA", mfem::Mesh::ElementConformity::NA);
+  jlModule.set_const("mfem!Mesh!ElementConformity!Coincident", mfem::Mesh::ElementConformity::Coincident);
+  jlModule.set_const("mfem!Mesh!ElementConformity!Superset", mfem::Mesh::ElementConformity::Superset);
+  jlModule.set_const("mfem!Mesh!ElementConformity!Subset", mfem::Mesh::ElementConformity::Subset);
+  jlModule.set_const("mfem!Mesh!ElementConformity!NA", mfem::Mesh::ElementConformity::NA);
 
   DEBUG_MSG("Adding wrapper for enum mfem::Mesh::FaceInfoTag (" __HERE__ ")");
   // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1644:15
   jlModule.add_bits<mfem::Mesh::FaceInfoTag>("mfem!Mesh!FaceInfoTag", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!Mesh!Boundary", mfem::Mesh::FaceInfoTag::Boundary);
-  jlModule.set_const("mfem!Mesh!LocalConforming", mfem::Mesh::FaceInfoTag::LocalConforming);
-  jlModule.set_const("mfem!Mesh!LocalSlaveNonconforming", mfem::Mesh::FaceInfoTag::LocalSlaveNonconforming);
-  jlModule.set_const("mfem!Mesh!SharedConforming", mfem::Mesh::FaceInfoTag::SharedConforming);
-  jlModule.set_const("mfem!Mesh!SharedSlaveNonconforming", mfem::Mesh::FaceInfoTag::SharedSlaveNonconforming);
-  jlModule.set_const("mfem!Mesh!MasterNonconforming", mfem::Mesh::FaceInfoTag::MasterNonconforming);
-  jlModule.set_const("mfem!Mesh!GhostSlave", mfem::Mesh::FaceInfoTag::GhostSlave);
-  jlModule.set_const("mfem!Mesh!GhostMaster", mfem::Mesh::FaceInfoTag::GhostMaster);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!Boundary", mfem::Mesh::FaceInfoTag::Boundary);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!LocalConforming", mfem::Mesh::FaceInfoTag::LocalConforming);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!LocalSlaveNonconforming", mfem::Mesh::FaceInfoTag::LocalSlaveNonconforming);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!SharedConforming", mfem::Mesh::FaceInfoTag::SharedConforming);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!SharedSlaveNonconforming", mfem::Mesh::FaceInfoTag::SharedSlaveNonconforming);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!MasterNonconforming", mfem::Mesh::FaceInfoTag::MasterNonconforming);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!GhostSlave", mfem::Mesh::FaceInfoTag::GhostSlave);
+  jlModule.set_const("mfem!Mesh!FaceInfoTag!GhostMaster", mfem::Mesh::FaceInfoTag::GhostMaster);
 
   DEBUG_MSG("Adding wrapper for enum mfem::VTKFormat (" __HERE__ ")");
   // defined in mfem/mesh/vtk.hpp:98:12
@@ -10798,12 +10798,12 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   DEBUG_MSG("Adding wrapper for enum mfem::AssemblyLevel (" __HERE__ ")");
   // defined in mfem/fem/bilinearform.hpp:31:12
   jlModule.add_bits<mfem::AssemblyLevel>("mfem!AssemblyLevel", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!LEGACY", mfem::AssemblyLevel::LEGACY);
-  jlModule.set_const("mfem!LEGACYFULL", mfem::AssemblyLevel::LEGACYFULL);
-  jlModule.set_const("mfem!FULL", mfem::AssemblyLevel::FULL);
-  jlModule.set_const("mfem!ELEMENT", mfem::AssemblyLevel::ELEMENT);
-  jlModule.set_const("mfem!PARTIAL", mfem::AssemblyLevel::PARTIAL);
-  jlModule.set_const("mfem!NONE", mfem::AssemblyLevel::NONE);
+  jlModule.set_const("mfem!AssemblyLevel!LEGACY", mfem::AssemblyLevel::LEGACY);
+  jlModule.set_const("mfem!AssemblyLevel!LEGACYFULL", mfem::AssemblyLevel::LEGACYFULL);
+  jlModule.set_const("mfem!AssemblyLevel!FULL", mfem::AssemblyLevel::FULL);
+  jlModule.set_const("mfem!AssemblyLevel!ELEMENT", mfem::AssemblyLevel::ELEMENT);
+  jlModule.set_const("mfem!AssemblyLevel!PARTIAL", mfem::AssemblyLevel::PARTIAL);
+  jlModule.set_const("mfem!AssemblyLevel!NONE", mfem::AssemblyLevel::NONE);
 
   DEBUG_MSG("Adding wrapper for enum mfem::DataCollection::Format (" __HERE__ ")");
   // defined in mfem/fem/datacollection.hpp:148:9
