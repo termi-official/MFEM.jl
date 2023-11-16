@@ -4965,37 +4965,37 @@ template<> struct SuperType<mfem::FunctionCoefficient> { typedef mfem::Coefficie
 //   return std::shared_ptr<Wrapper>(new Jlmfem_FunctionCoefficient(module));
 // }
 
-namespace jlcxx {
+// namespace jlcxx {
 
-  template<>
-  struct BuildParameterList<std::function<>>
-  {
-    typedef ParameterList<> type;
-  };
+//   template<>
+//   struct BuildParameterList<std::function<>>
+//   {
+//     typedef ParameterList<> type;
+//   };
 
-  template<> struct IsMirroredType<std::function<>> : std::false_type { };
-  template<> struct DefaultConstructible<std::function<>> : std::false_type { };
-}
+//   template<> struct IsMirroredType<std::function<>> : std::false_type { };
+//   template<> struct DefaultConstructible<std::function<>> : std::false_type { };
+// }
 
-struct Jlstd_function: public Wrapper {
+// struct Jlstd_function: public Wrapper {
 
-  Jlstd_function(jlcxx::Module& jlModule): Wrapper(jlModule){
-  // defined in /usr/lib64/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/bits/std_function.h:334:11
-    jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>  t =  jlModule.add_type<jlcxx::Parametric<jlcxx::TypeVar<1>>>("std!function");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>>(new jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>(jlModule, t));
-  }
+//   Jlstd_function(jlcxx::Module& jlModule): Wrapper(jlModule){
+//   // defined in /usr/lib64/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/bits/std_function.h:334:11
+//     jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>  t =  jlModule.add_type<jlcxx::Parametric<jlcxx::TypeVar<1>>>("std!function");
+//     type_ = std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>>(new jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>(jlModule, t));
+//   }
 
-  void add_methods() const{
-    auto& t = *type_;
-    t.template constructor<>(/*finalize=*/true);
-  }
+//   void add_methods() const{
+//     auto& t = *type_;
+//     t.template constructor<>(/*finalize=*/true);
+//   }
 
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>> type_;
-};
-std::shared_ptr<Wrapper> newJlstd_function(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlstd_function(module));
-}
+// private:
+//   std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>> type_;
+// };
+// std::shared_ptr<Wrapper> newJlstd_function(jlcxx::Module& module){
+//   return std::shared_ptr<Wrapper>(new Jlstd_function(module));
+// }
 
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::CartesianCoefficient> : std::false_type { };
@@ -10611,8 +10611,8 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_ConstantCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWConstCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWCoefficient(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_FunctionCoefficient(jlModule)),
-    std::shared_ptr<Wrapper>(newJlstd_function(jlModule)),
+    // std::shared_ptr<Wrapper>(newJlmfem_FunctionCoefficient(jlModule)),
+    // std::shared_ptr<Wrapper>(newJlstd_function(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianXCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianYCoefficient(jlModule)),
