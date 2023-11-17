@@ -11,7 +11,8 @@ Make sure julia is in the PATH otherwise it won't work.
 4. Replace "Array<" with "mfem::Array<"
 5. Comment out erroring methods again (IntRules copy ctor, code invovled in FunctionCoefficient, NURBSExt, Mesquite)
 6. Deduplicate generated_cxx
-7. Execute makefile
+7. `make all`
+8. `make run_demo`
 
 # Write up issues
 
@@ -22,3 +23,4 @@ Make sure julia is in the PATH otherwise it won't work.
 * functions with keyword name collisions are generated without warning
 * enum class is not correctly wrapped
 * include path should be excluded from files (at least I need the option)
+* option to ignore deprecations

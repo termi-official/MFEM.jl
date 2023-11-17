@@ -1,5 +1,7 @@
+#include "mfem/general/array.hpp"
 #include "mfem/mesh/mesh.hpp"
 #include "mfem/fem/fe_coll.hpp"
+#include "mfem/fem/fespace.hpp"
 #include "mfem/fem/intrules.hpp"
 #include "mfem/fem/coefficient.hpp"
 #include "mfem/fem/bilinearform.hpp"

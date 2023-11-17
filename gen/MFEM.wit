@@ -1,6 +1,6 @@
 module_name         = "MFEM"
 
-input               = [ "mfem/mesh/mesh.hpp", "mfem/fem/intrules.hpp", "mfem/fem/coefficient.hpp", "mfem/fem/bilinearform.hpp", "mfem/fem/linearform.hpp", "mfem/fem/datacollection.hpp", "mfem/linalg/vector.hpp", "mfem/linalg/sparsemat.hpp", "mfem/linalg/solvers.hpp"]
+input               = ["mfem/general/array.hpp", "mfem/mesh/mesh.hpp", "mfem/fem/fe_coll.hpp", "mfem/fem/fespace.hpp", "mfem/fem/intrules.hpp", "mfem/fem/coefficient.hpp", "mfem/fem/bilinearform.hpp", "mfem/fem/linearform.hpp", "mfem/fem/datacollection.hpp", "mfem/linalg/vector.hpp", "mfem/linalg/sparsemat.hpp", "mfem/linalg/solvers.hpp"]
 
 include_dirs        = [ "%MFEM_INC_DIR%" ]
 

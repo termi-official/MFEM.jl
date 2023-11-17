@@ -7,6 +7,56 @@
 #include "dbg_msg.h"
 #include "Wrapper.h"
 
+// namespace jlcxx {
+//   template<> struct IsMirroredType<mfem::BlockArray::iterator> : std::false_type { };
+//   template<> struct DefaultConstructible<mfem::BlockArray::iterator> : std::false_type { };
+// }
+
+// struct Jlmfem_BlockArray_iterator: public Wrapper {
+
+//   Jlmfem_BlockArray_iterator(jlcxx::Module& jlModule): Wrapper(jlModule){
+//     DEBUG_MSG("Adding wrapper for type mfem::BlockArray::iterator (" __HERE__ ")");
+//     // defined in mfem/mesh/../general/array.hpp:570:10
+//     jlcxx::TypeWrapper<mfem::BlockArray::iterator>  t = jlModule.add_type<mfem::BlockArray::iterator>("mfem!BlockArray!iterator");
+//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::iterator>>(new jlcxx::TypeWrapper<mfem::BlockArray::iterator>(jlModule, t));
+//   }
+
+//   void add_methods() const{
+//     auto& t = *type_;
+//   }
+
+// private:
+//   std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::iterator>> type_;
+// };
+// std::shared_ptr<Wrapper> newJlmfem_BlockArray_iterator(jlcxx::Module& module){
+//   return std::shared_ptr<Wrapper>(new Jlmfem_BlockArray_iterator(module));
+// }
+
+// namespace jlcxx {
+//   template<> struct IsMirroredType<mfem::BlockArray::const_iterator> : std::false_type { };
+//   template<> struct DefaultConstructible<mfem::BlockArray::const_iterator> : std::false_type { };
+// }
+
+// struct Jlmfem_BlockArray_const_iterator: public Wrapper {
+
+//   Jlmfem_BlockArray_const_iterator(jlcxx::Module& jlModule): Wrapper(jlModule){
+//     DEBUG_MSG("Adding wrapper for type mfem::BlockArray::const_iterator (" __HERE__ ")");
+//     // defined in mfem/mesh/../general/array.hpp:587:10
+//     jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>  t = jlModule.add_type<mfem::BlockArray::const_iterator>("mfem!BlockArray!const_iterator");
+//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>>(new jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>(jlModule, t));
+//   }
+
+//   void add_methods() const{
+//     auto& t = *type_;
+//   }
+
+// private:
+//   std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>> type_;
+// };
+// std::shared_ptr<Wrapper> newJlmfem_BlockArray_const_iterator(jlcxx::Module& module){
+//   return std::shared_ptr<Wrapper>(new Jlmfem_BlockArray_const_iterator(module));
+// }
+
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::Vector> : std::false_type { };
   template<> struct DefaultConstructible<mfem::Vector> : std::false_type { };
@@ -8885,6 +8935,419 @@ struct Jlmfem_FiniteElementSpace: public Wrapper {
   void add_methods() const{
     auto& t = *type_;
     t.template constructor<>(/*finalize=*/true);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::FiniteElementSpace(const mfem::FiniteElementSpace &, mfem::Mesh *, const mfem::FiniteElementCollection *) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fespace.hpp:532:4
+    t.constructor<const mfem::FiniteElementSpace &>(/*finalize=*/true);
+    t.constructor<const mfem::FiniteElementSpace &, mfem::Mesh *>(/*finalize=*/true);
+    t.constructor<const mfem::FiniteElementSpace &, mfem::Mesh *, const mfem::FiniteElementCollection *>(/*finalize=*/true);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::FiniteElementSpace(mfem::Mesh *, const mfem::FiniteElementCollection *, int, int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fespace.hpp:535:4
+    t.constructor<mfem::Mesh *, const mfem::FiniteElementCollection *>(/*finalize=*/true);
+    t.constructor<mfem::Mesh *, const mfem::FiniteElementCollection *, int>(/*finalize=*/true);
+    t.constructor<mfem::Mesh *, const mfem::FiniteElementCollection *, int, int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for mfem::Mesh * mfem::FiniteElementSpace::GetMesh() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Mesh * mfem::FiniteElementSpace::GetMesh()
+    // defined in mfem/mesh/../fem/fespace.hpp:553:17
+    t.method("GetMesh", static_cast<mfem::Mesh * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetMesh));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::FiniteElementSpace::Conforming() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::FiniteElementSpace::Conforming()
+    // defined in mfem/mesh/../fem/fespace.hpp:559:9
+    t.method("Conforming", static_cast<bool (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::Conforming));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::FiniteElementSpace::Nonconforming() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::FiniteElementSpace::Nonconforming()
+    // defined in mfem/mesh/../fem/fespace.hpp:560:9
+    t.method("Nonconforming", static_cast<bool (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::Nonconforming));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::SetElementOrder(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::SetElementOrder(int, int)
+    // defined in mfem/mesh/../fem/fespace.hpp:565:9
+    t.method("SetElementOrder", static_cast<void (mfem::FiniteElementSpace::*)(int, int) >(&mfem::FiniteElementSpace::SetElementOrder));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetElementOrder(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetElementOrder(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:568:8
+    t.method("GetElementOrder", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetElementOrder));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetMaxElementOrder() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetMaxElementOrder()
+    // defined in mfem/mesh/../fem/fespace.hpp:571:8
+    t.method("GetMaxElementOrder", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetMaxElementOrder));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::FiniteElementSpace::IsVariableOrder() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::FiniteElementSpace::IsVariableOrder()
+    // defined in mfem/mesh/../fem/fespace.hpp:575:9
+    t.method("IsVariableOrder", static_cast<bool (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::IsVariableOrder));
+
+    DEBUG_MSG("Adding wrapper for const mfem::SparseMatrix * mfem::FiniteElementSpace::GetConformingProlongation() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::SparseMatrix * mfem::FiniteElementSpace::GetConformingProlongation()
+    // defined in mfem/mesh/../fem/fespace.hpp:578:24
+    t.method("GetConformingProlongation", static_cast<const mfem::SparseMatrix * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetConformingProlongation));
+
+    DEBUG_MSG("Adding wrapper for const mfem::SparseMatrix * mfem::FiniteElementSpace::GetConformingRestriction() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::SparseMatrix * mfem::FiniteElementSpace::GetConformingRestriction()
+    // defined in mfem/mesh/../fem/fespace.hpp:581:24
+    t.method("GetConformingRestriction", static_cast<const mfem::SparseMatrix * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetConformingRestriction));
+
+    DEBUG_MSG("Adding wrapper for const mfem::SparseMatrix * mfem::FiniteElementSpace::GetHpConformingRestriction() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::SparseMatrix * mfem::FiniteElementSpace::GetHpConformingRestriction()
+    // defined in mfem/mesh/../fem/fespace.hpp:588:24
+    t.method("GetHpConformingRestriction", static_cast<const mfem::SparseMatrix * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetHpConformingRestriction));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::FiniteElementSpace::GetProlongationMatrix() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::FiniteElementSpace::GetProlongationMatrix()
+    // defined in mfem/mesh/../fem/fespace.hpp:591:28
+    t.method("GetProlongationMatrix", static_cast<const mfem::Operator * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetProlongationMatrix));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::FiniteElementSpace::GetRestrictionTransposeOperator() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::FiniteElementSpace::GetRestrictionTransposeOperator()
+    // defined in mfem/mesh/../fem/fespace.hpp:597:28
+    t.method("GetRestrictionTransposeOperator", static_cast<const mfem::Operator * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetRestrictionTransposeOperator));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::FiniteElementSpace::GetRestrictionOperator() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::FiniteElementSpace::GetRestrictionOperator()
+    // defined in mfem/mesh/../fem/fespace.hpp:603:28
+    t.method("GetRestrictionOperator", static_cast<const mfem::Operator * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetRestrictionOperator));
+
+    DEBUG_MSG("Adding wrapper for const mfem::SparseMatrix * mfem::FiniteElementSpace::GetRestrictionMatrix() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::SparseMatrix * mfem::FiniteElementSpace::GetRestrictionMatrix()
+    // defined in mfem/mesh/../fem/fespace.hpp:607:32
+    t.method("GetRestrictionMatrix", static_cast<const mfem::SparseMatrix * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetRestrictionMatrix));
+
+    DEBUG_MSG("Adding wrapper for const mfem::SparseMatrix * mfem::FiniteElementSpace::GetHpRestrictionMatrix() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::SparseMatrix * mfem::FiniteElementSpace::GetHpRestrictionMatrix()
+    // defined in mfem/mesh/../fem/fespace.hpp:611:32
+    t.method("GetHpRestrictionMatrix", static_cast<const mfem::SparseMatrix * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetHpRestrictionMatrix));
+
+    DEBUG_MSG("Adding wrapper for const mfem::ElementRestrictionOperator * mfem::FiniteElementSpace::GetElementRestriction(mfem::ElementDofOrdering) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::ElementRestrictionOperator * mfem::FiniteElementSpace::GetElementRestriction(mfem::ElementDofOrdering)
+    // defined in mfem/mesh/../fem/fespace.hpp:631:38
+    t.method("GetElementRestriction", static_cast<const mfem::ElementRestrictionOperator * (mfem::FiniteElementSpace::*)(mfem::ElementDofOrdering)  const>(&mfem::FiniteElementSpace::GetElementRestriction));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FaceRestriction * mfem::FiniteElementSpace::GetFaceRestriction(mfem::ElementDofOrdering, mfem::FaceType, mfem::L2FaceValues) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FaceRestriction * mfem::FiniteElementSpace::GetFaceRestriction(mfem::ElementDofOrdering, mfem::FaceType, mfem::L2FaceValues)
+    // defined in mfem/mesh/../fem/fespace.hpp:635:35
+    t.method("GetFaceRestriction", static_cast<const mfem::FaceRestriction * (mfem::FiniteElementSpace::*)(mfem::ElementDofOrdering, mfem::FaceType, mfem::L2FaceValues)  const>(&mfem::FiniteElementSpace::GetFaceRestriction));
+    t.method("GetFaceRestriction", [](mfem::FiniteElementSpace const& a, mfem::ElementDofOrdering arg0, mfem::FaceType arg1)->const mfem::FaceRestriction *{ return a.GetFaceRestriction(arg0, arg1); });
+    t.method("GetFaceRestriction", [](mfem::FiniteElementSpace const* a, mfem::ElementDofOrdering arg0, mfem::FaceType arg1)->const mfem::FaceRestriction *{ return a->GetFaceRestriction(arg0, arg1); });
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetOrder(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetOrder(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:683:8
+    t.method("GetOrder", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetOrder));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetEdgeOrder(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetEdgeOrder(int, int)
+    // defined in mfem/mesh/../fem/fespace.hpp:687:8
+    t.method("GetEdgeOrder", static_cast<int (mfem::FiniteElementSpace::*)(int, int)  const>(&mfem::FiniteElementSpace::GetEdgeOrder));
+    t.method("GetEdgeOrder", [](mfem::FiniteElementSpace const& a, int arg0)->int{ return a.GetEdgeOrder(arg0); });
+    t.method("GetEdgeOrder", [](mfem::FiniteElementSpace const* a, int arg0)->int{ return a->GetEdgeOrder(arg0); });
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetFaceOrder(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetFaceOrder(int, int)
+    // defined in mfem/mesh/../fem/fespace.hpp:690:8
+    t.method("GetFaceOrder", static_cast<int (mfem::FiniteElementSpace::*)(int, int)  const>(&mfem::FiniteElementSpace::GetFaceOrder));
+    t.method("GetFaceOrder", [](mfem::FiniteElementSpace const& a, int arg0)->int{ return a.GetFaceOrder(arg0); });
+    t.method("GetFaceOrder", [](mfem::FiniteElementSpace const* a, int arg0)->int{ return a->GetFaceOrder(arg0); });
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetVDim() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetVDim()
+    // defined in mfem/mesh/../fem/fespace.hpp:693:15
+    t.method("GetVDim", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetVDim));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNDofs() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNDofs()
+    // defined in mfem/mesh/../fem/fespace.hpp:697:15
+    t.method("GetNDofs", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNDofs));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetVSize() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetVSize()
+    // defined in mfem/mesh/../fem/fespace.hpp:700:15
+    t.method("GetVSize", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetVSize));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetTrueVSize() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetTrueVSize()
+    // defined in mfem/mesh/../fem/fespace.hpp:703:16
+    t.method("GetTrueVSize", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetTrueVSize));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNConformingDofs() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNConformingDofs()
+    // defined in mfem/mesh/../fem/fespace.hpp:707:8
+    t.method("GetNConformingDofs", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNConformingDofs));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetConformingVSize() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetConformingVSize()
+    // defined in mfem/mesh/../fem/fespace.hpp:709:8
+    t.method("GetConformingVSize", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetConformingVSize));
+
+    DEBUG_MSG("Adding wrapper for mfem::Ordering::Type mfem::FiniteElementSpace::GetOrdering() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Ordering::Type mfem::FiniteElementSpace::GetOrdering()
+    // defined in mfem/mesh/../fem/fespace.hpp:712:26
+    t.method("GetOrdering", static_cast<mfem::Ordering::Type (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetOrdering));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElementCollection * mfem::FiniteElementSpace::FEColl() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElementCollection * mfem::FiniteElementSpace::FEColl()
+    // defined in mfem/mesh/../fem/fespace.hpp:714:35
+    t.method("FEColl", static_cast<const mfem::FiniteElementCollection * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::FEColl));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNVDofs() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNVDofs()
+    // defined in mfem/mesh/../fem/fespace.hpp:717:8
+    t.method("GetNVDofs", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNVDofs));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNEDofs() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNEDofs()
+    // defined in mfem/mesh/../fem/fespace.hpp:719:8
+    t.method("GetNEDofs", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNEDofs));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNFDofs() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNFDofs()
+    // defined in mfem/mesh/../fem/fespace.hpp:721:8
+    t.method("GetNFDofs", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNFDofs));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNV() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNV()
+    // defined in mfem/mesh/../fem/fespace.hpp:724:15
+    t.method("GetNV", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNV));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNE() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNE()
+    // defined in mfem/mesh/../fem/fespace.hpp:727:15
+    t.method("GetNE", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNE));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNF() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNF()
+    // defined in mfem/mesh/../fem/fespace.hpp:733:15
+    t.method("GetNF", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNF));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNBE() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNBE()
+    // defined in mfem/mesh/../fem/fespace.hpp:736:15
+    t.method("GetNBE", static_cast<int (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetNBE));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNFbyType(mfem::FaceType) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNFbyType(mfem::FaceType)
+    // defined in mfem/mesh/../fem/fespace.hpp:744:15
+    t.method("GetNFbyType", static_cast<int (mfem::FiniteElementSpace::*)(mfem::FaceType)  const>(&mfem::FiniteElementSpace::GetNFbyType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetElementType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetElementType(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:748:15
+    t.method("GetElementType", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetElementType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetBdrElementType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetBdrElementType(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:756:15
+    t.method("GetBdrElementType", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetBdrElementType));
+
+    DEBUG_MSG("Adding wrapper for mfem::ElementTransformation * mfem::FiniteElementSpace::GetElementTransformation(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::ElementTransformation * mfem::FiniteElementSpace::GetElementTransformation(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:760:27
+    t.method("GetElementTransformation", static_cast<mfem::ElementTransformation * (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetElementTransformation));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::GetElementTransformation(int, mfem::IsoparametricTransformation *) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::GetElementTransformation(int, mfem::IsoparametricTransformation *)
+    // defined in mfem/mesh/../fem/fespace.hpp:765:9
+    t.method("GetElementTransformation", static_cast<void (mfem::FiniteElementSpace::*)(int, mfem::IsoparametricTransformation *) >(&mfem::FiniteElementSpace::GetElementTransformation));
+
+    DEBUG_MSG("Adding wrapper for mfem::ElementTransformation * mfem::FiniteElementSpace::GetBdrElementTransformation(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::ElementTransformation * mfem::FiniteElementSpace::GetBdrElementTransformation(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:769:27
+    t.method("GetBdrElementTransformation", static_cast<mfem::ElementTransformation * (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetBdrElementTransformation));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetAttribute(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetAttribute(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:772:8
+    t.method("GetAttribute", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetAttribute));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetBdrAttribute(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetBdrAttribute(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:774:8
+    t.method("GetBdrAttribute", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetBdrAttribute));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetNumElementInteriorDofs(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetNumElementInteriorDofs(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:881:8
+    t.method("GetNumElementInteriorDofs", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetNumElementInteriorDofs));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::DofToVDof(int, int, int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::DofToVDof(int, int, int)
+    // defined in mfem/mesh/../fem/fespace.hpp:958:8
+    t.method("DofToVDof", static_cast<int (mfem::FiniteElementSpace::*)(int, int, int)  const>(&mfem::FiniteElementSpace::DofToVDof));
+    t.method("DofToVDof", [](mfem::FiniteElementSpace const& a, int arg0, int arg1)->int{ return a.DofToVDof(arg0, arg1); });
+    t.method("DofToVDof", [](mfem::FiniteElementSpace const* a, int arg0, int arg1)->int{ return a->DofToVDof(arg0, arg1); });
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::VDofToDof(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::VDofToDof(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:965:8
+    t.method("VDofToDof", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::VDofToDof));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::EncodeDof(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::EncodeDof(int, int)
+    // defined in mfem/mesh/../fem/fespace.hpp:983:22
+    t.method("mfem!FiniteElementSpace!EncodeDof", static_cast<int (*)(int, int) >(&mfem::FiniteElementSpace::EncodeDof));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::DecodeDof(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::DecodeDof(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:987:22
+    t.method("mfem!FiniteElementSpace!DecodeDof", static_cast<int (*)(int) >(&mfem::FiniteElementSpace::DecodeDof));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::DecodeDof(int, double &) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::DecodeDof(int, double &)
+    // defined in mfem/mesh/../fem/fespace.hpp:991:22
+    t.method("mfem!FiniteElementSpace!DecodeDof", static_cast<int (*)(int, double &) >(&mfem::FiniteElementSpace::DecodeDof));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::RebuildElementToDofTable() (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::RebuildElementToDofTable()
+    // defined in mfem/mesh/../fem/fespace.hpp:1073:25
+    t.method("RebuildElementToDofTable", static_cast<void (mfem::FiniteElementSpace::*)() >(&mfem::FiniteElementSpace::RebuildElementToDofTable));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::ReorderElementToDofTable() (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::ReorderElementToDofTable()
+    // defined in mfem/mesh/../fem/fespace.hpp:1082:9
+    t.method("ReorderElementToDofTable", static_cast<void (mfem::FiniteElementSpace::*)() >(&mfem::FiniteElementSpace::ReorderElementToDofTable));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Table * mfem::FiniteElementSpace::GetElementToFaceOrientationTable() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Table * mfem::FiniteElementSpace::GetElementToFaceOrientationTable()
+    // defined in mfem/mesh/../fem/fespace.hpp:1084:17
+    t.method("GetElementToFaceOrientationTable", static_cast<const mfem::Table * (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetElementToFaceOrientationTable));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Table & mfem::FiniteElementSpace::GetElementToDofTable() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Table & mfem::FiniteElementSpace::GetElementToDofTable()
+    // defined in mfem/mesh/../fem/fespace.hpp:1088:17
+    t.method("GetElementToDofTable", static_cast<const mfem::Table & (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetElementToDofTable));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Table & mfem::FiniteElementSpace::GetBdrElementToDofTable() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Table & mfem::FiniteElementSpace::GetBdrElementToDofTable()
+    // defined in mfem/mesh/../fem/fespace.hpp:1093:17
+    t.method("GetBdrElementToDofTable", static_cast<const mfem::Table & (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetBdrElementToDofTable));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Table & mfem::FiniteElementSpace::GetFaceToDofTable() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Table & mfem::FiniteElementSpace::GetFaceToDofTable()
+    // defined in mfem/mesh/../fem/fespace.hpp:1101:17
+    t.method("GetFaceToDofTable", static_cast<const mfem::Table & (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetFaceToDofTable));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::BuildDofToArrays() (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::BuildDofToArrays()
+    // defined in mfem/mesh/../fem/fespace.hpp:1106:9
+    t.method("BuildDofToArrays", static_cast<void (mfem::FiniteElementSpace::*)() >(&mfem::FiniteElementSpace::BuildDofToArrays));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetElementForDof(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetElementForDof(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:1111:8
+    t.method("GetElementForDof", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetElementForDof));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementSpace::GetLocalDofForDof(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementSpace::GetLocalDofForDof(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:1115:8
+    t.method("GetLocalDofForDof", static_cast<int (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetLocalDofForDof));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementSpace::GetFE(int) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementSpace::GetFE(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:1121:33
+    t.method("GetFE", static_cast<const mfem::FiniteElement * (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetFE));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementSpace::GetBE(int) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementSpace::GetBE(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:1125:25
+    t.method("GetBE", static_cast<const mfem::FiniteElement * (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetBE));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementSpace::GetFaceElement(int) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementSpace::GetFaceElement(int)
+    // defined in mfem/mesh/../fem/fespace.hpp:1131:25
+    t.method("GetFaceElement", static_cast<const mfem::FiniteElement * (mfem::FiniteElementSpace::*)(int)  const>(&mfem::FiniteElementSpace::GetFaceElement));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementSpace::GetEdgeElement(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementSpace::GetEdgeElement(int, int)
+    // defined in mfem/mesh/../fem/fespace.hpp:1135:25
+    t.method("GetEdgeElement", static_cast<const mfem::FiniteElement * (mfem::FiniteElementSpace::*)(int, int)  const>(&mfem::FiniteElementSpace::GetEdgeElement));
+    t.method("GetEdgeElement", [](mfem::FiniteElementSpace const& a, int arg0)->const mfem::FiniteElement *{ return a.GetEdgeElement(arg0); });
+    t.method("GetEdgeElement", [](mfem::FiniteElementSpace const* a, int arg0)->const mfem::FiniteElement *{ return a->GetEdgeElement(arg0); });
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementSpace::GetTraceElement(int, mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementSpace::GetTraceElement(int, mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fespace.hpp:1138:25
+    t.method("GetTraceElement", static_cast<const mfem::FiniteElement * (mfem::FiniteElementSpace::*)(int, mfem::Geometry::Type)  const>(&mfem::FiniteElementSpace::GetTraceElement));
+
+    DEBUG_MSG("Adding wrapper for mfem::SparseMatrix * mfem::FiniteElementSpace::D2C_GlobalRestrictionMatrix(mfem::FiniteElementSpace *) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::SparseMatrix * mfem::FiniteElementSpace::D2C_GlobalRestrictionMatrix(mfem::FiniteElementSpace *)
+    // defined in mfem/mesh/../fem/fespace.hpp:1188:18
+    t.method("D2C_GlobalRestrictionMatrix", static_cast<mfem::SparseMatrix * (mfem::FiniteElementSpace::*)(mfem::FiniteElementSpace *) >(&mfem::FiniteElementSpace::D2C_GlobalRestrictionMatrix));
+
+    DEBUG_MSG("Adding wrapper for mfem::SparseMatrix * mfem::FiniteElementSpace::D2Const_GlobalRestrictionMatrix(mfem::FiniteElementSpace *) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::SparseMatrix * mfem::FiniteElementSpace::D2Const_GlobalRestrictionMatrix(mfem::FiniteElementSpace *)
+    // defined in mfem/mesh/../fem/fespace.hpp:1192:18
+    t.method("D2Const_GlobalRestrictionMatrix", static_cast<mfem::SparseMatrix * (mfem::FiniteElementSpace::*)(mfem::FiniteElementSpace *) >(&mfem::FiniteElementSpace::D2Const_GlobalRestrictionMatrix));
+
+    DEBUG_MSG("Adding wrapper for mfem::SparseMatrix * mfem::FiniteElementSpace::H2L_GlobalRestrictionMatrix(mfem::FiniteElementSpace *) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::SparseMatrix * mfem::FiniteElementSpace::H2L_GlobalRestrictionMatrix(mfem::FiniteElementSpace *)
+    // defined in mfem/mesh/../fem/fespace.hpp:1197:18
+    t.method("H2L_GlobalRestrictionMatrix", static_cast<mfem::SparseMatrix * (mfem::FiniteElementSpace::*)(mfem::FiniteElementSpace *) >(&mfem::FiniteElementSpace::H2L_GlobalRestrictionMatrix));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::GetTransferOperator(const mfem::FiniteElementSpace &, mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::GetTransferOperator(const mfem::FiniteElementSpace &, mfem::OperatorHandle &)
+    // defined in mfem/mesh/../fem/fespace.hpp:1211:9
+    t.method("GetTransferOperator", static_cast<void (mfem::FiniteElementSpace::*)(const mfem::FiniteElementSpace &, mfem::OperatorHandle &)  const>(&mfem::FiniteElementSpace::GetTransferOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::GetTrueTransferOperator(const mfem::FiniteElementSpace &, mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::GetTrueTransferOperator(const mfem::FiniteElementSpace &, mfem::OperatorHandle &)
+    // defined in mfem/mesh/../fem/fespace.hpp:1228:17
+    t.method("GetTrueTransferOperator", static_cast<void (mfem::FiniteElementSpace::*)(const mfem::FiniteElementSpace &, mfem::OperatorHandle &)  const>(&mfem::FiniteElementSpace::GetTrueTransferOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::Update(bool) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::Update(bool)
+    // defined in mfem/mesh/../fem/fespace.hpp:1234:17
+    t.method("Update", static_cast<void (mfem::FiniteElementSpace::*)(bool) >(&mfem::FiniteElementSpace::Update));
+    t.method("Update", [](mfem::FiniteElementSpace& a)->void{ a.Update(); });
+    t.method("Update", [](mfem::FiniteElementSpace* a)->void{ a->Update(); });
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::FiniteElementSpace::GetUpdateOperator() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::FiniteElementSpace::GetUpdateOperator()
+    // defined in mfem/mesh/../fem/fespace.hpp:1237:20
+    t.method("GetUpdateOperator", static_cast<const mfem::Operator * (mfem::FiniteElementSpace::*)() >(&mfem::FiniteElementSpace::GetUpdateOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::GetUpdateOperator(mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::GetUpdateOperator(mfem::OperatorHandle &)
+    // defined in mfem/mesh/../fem/fespace.hpp:1240:9
+    t.method("GetUpdateOperator", static_cast<void (mfem::FiniteElementSpace::*)(mfem::OperatorHandle &) >(&mfem::FiniteElementSpace::GetUpdateOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::SetUpdateOperatorOwner(bool) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::SetUpdateOperatorOwner(bool)
+    // defined in mfem/mesh/../fem/fespace.hpp:1247:9
+    t.method("SetUpdateOperatorOwner", static_cast<void (mfem::FiniteElementSpace::*)(bool) >(&mfem::FiniteElementSpace::SetUpdateOperatorOwner));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::SetUpdateOperatorType(mfem::Operator::Type) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::SetUpdateOperatorType(mfem::Operator::Type)
+    // defined in mfem/mesh/../fem/fespace.hpp:1255:9
+    t.method("SetUpdateOperatorType", static_cast<void (mfem::FiniteElementSpace::*)(mfem::Operator::Type) >(&mfem::FiniteElementSpace::SetUpdateOperatorType));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::UpdatesFinished() (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::UpdatesFinished()
+    // defined in mfem/mesh/../fem/fespace.hpp:1258:17
+    t.method("UpdatesFinished", static_cast<void (mfem::FiniteElementSpace::*)() >(&mfem::FiniteElementSpace::UpdatesFinished));
+
+    DEBUG_MSG("Adding wrapper for long mfem::FiniteElementSpace::GetSequence() (" __HERE__ ")");
+    // signature to use in the veto list: long mfem::FiniteElementSpace::GetSequence()
+    // defined in mfem/mesh/../fem/fespace.hpp:1262:9
+    t.method("GetSequence", static_cast<long (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::GetSequence));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::FiniteElementSpace::IsDGSpace() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::FiniteElementSpace::IsDGSpace()
+    // defined in mfem/mesh/../fem/fespace.hpp:1265:9
+    t.method("IsDGSpace", static_cast<bool (mfem::FiniteElementSpace::*)()  const>(&mfem::FiniteElementSpace::IsDGSpace));
+
+    DEBUG_MSG("Adding wrapper for void mfem::FiniteElementSpace::SetRelaxedHpConformity(bool) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::FiniteElementSpace::SetRelaxedHpConformity(bool)
+    // defined in mfem/mesh/../fem/fespace.hpp:1279:9
+    t.method("SetRelaxedHpConformity", static_cast<void (mfem::FiniteElementSpace::*)(bool) >(&mfem::FiniteElementSpace::SetRelaxedHpConformity));
+    t.method("SetRelaxedHpConformity", [](mfem::FiniteElementSpace& a)->void{ a.SetRelaxedHpConformity(); });
+    t.method("SetRelaxedHpConformity", [](mfem::FiniteElementSpace* a)->void{ a->SetRelaxedHpConformity(); });
   }
 
 private:
@@ -11380,6 +11843,172 @@ std::shared_ptr<Wrapper> newJlmfem_Local_FECollection(jlcxx::Module& module){
 }
 
 namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Ordering> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Ordering> : std::false_type { };
+}
+
+// struct Jlmfem_Ordering: public Wrapper {
+
+//   Jlmfem_Ordering(jlcxx::Module& jlModule): Wrapper(jlModule){
+//     DEBUG_MSG("Adding wrapper for type mfem::Ordering (" __HERE__ ")");
+//     // defined in mfem/mesh/../fem/fespace.hpp:29:7
+//     jlcxx::TypeWrapper<mfem::Ordering>  t = jlModule.add_type<mfem::Ordering>("mfem!Ordering");
+//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Ordering>>(new jlcxx::TypeWrapper<mfem::Ordering>(jlModule, t));
+//   }
+
+//   void add_methods() const{
+//     auto& t = *type_;
+//     t.template constructor<>(/*finalize=*/true);
+
+//     DEBUG_MSG("Adding wrapper for int mfem::Ordering::Map(int, int, int, int) (" __HERE__ ")");
+//     // signature to use in the veto list: int mfem::Ordering::Map(int, int, int, int)
+//     // defined in mfem/mesh/../fem/fespace.hpp:59:11
+//     t.method("Map", static_cast<int (mfem::Ordering::*)(int, int, int, int) >(&mfem::Ordering::Map));
+
+//     DEBUG_MSG("Adding wrapper for int mfem::Ordering::Map(int, int, int, int) (" __HERE__ ")");
+//     // signature to use in the veto list: int mfem::Ordering::Map(int, int, int, int)
+//     // defined in mfem/mesh/../fem/fespace.hpp:66:11
+//     t.method("Map", static_cast<int (mfem::Ordering::*)(int, int, int, int) >(&mfem::Ordering::Map));
+//   }
+
+// private:
+//   std::unique_ptr<jlcxx::TypeWrapper<mfem::Ordering>> type_;
+// };
+// std::shared_ptr<Wrapper> newJlmfem_Ordering(jlcxx::Module& module){
+//   return std::shared_ptr<Wrapper>(new Jlmfem_Ordering(module));
+// }
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ElementRestrictionOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ElementRestrictionOperator> : std::false_type { };
+template<> struct SuperType<mfem::ElementRestrictionOperator> { typedef mfem::Operator type; };
+}
+
+struct Jlmfem_ElementRestrictionOperator: public Wrapper {
+
+  Jlmfem_ElementRestrictionOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ElementRestrictionOperator (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/restriction.hpp:25:7
+    jlcxx::TypeWrapper<mfem::ElementRestrictionOperator>  t = jlModule.add_type<mfem::ElementRestrictionOperator>("mfem!ElementRestrictionOperator"    , jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ElementRestrictionOperator>>(new jlcxx::TypeWrapper<mfem::ElementRestrictionOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ElementRestrictionOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ElementRestrictionOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ElementRestrictionOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::FaceRestriction> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::FaceRestriction> : std::false_type { };
+template<> struct SuperType<mfem::FaceRestriction> { typedef mfem::Operator type; };
+}
+
+struct Jlmfem_FaceRestriction: public Wrapper {
+
+  Jlmfem_FaceRestriction(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::FaceRestriction (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/restriction.hpp:159:7
+    jlcxx::TypeWrapper<mfem::FaceRestriction>  t = jlModule.add_type<mfem::FaceRestriction>("mfem!FaceRestriction"    , jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::FaceRestriction>>(new jlcxx::TypeWrapper<mfem::FaceRestriction>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::FaceRestriction>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_FaceRestriction(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_FaceRestriction(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::QuadratureSpace> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::QuadratureSpace> : std::false_type { };
+template<> struct SuperType<mfem::QuadratureSpace> { typedef mfem::QuadratureSpaceBase type; };
+}
+
+struct Jlmfem_QuadratureSpace: public Wrapper {
+
+  Jlmfem_QuadratureSpace(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::QuadratureSpace (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/qspace.hpp:92:7
+    jlcxx::TypeWrapper<mfem::QuadratureSpace>  t = jlModule.add_type<mfem::QuadratureSpace>("mfem!QuadratureSpace"    , jlcxx::julia_base_type<mfem::QuadratureSpaceBase>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadratureSpace>>(new jlcxx::TypeWrapper<mfem::QuadratureSpace>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadratureSpace>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_QuadratureSpace(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_QuadratureSpace(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::DofTransformation> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::DofTransformation> : std::false_type { };
+template<> struct SuperType<mfem::DofTransformation> { typedef mfem::StatelessDofTransformation type; };
+}
+
+struct Jlmfem_DofTransformation: public Wrapper {
+
+  Jlmfem_DofTransformation(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::DofTransformation (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/doftrans.hpp:136:7
+    jlcxx::TypeWrapper<mfem::DofTransformation>  t = jlModule.add_type<mfem::DofTransformation>("mfem!DofTransformation"    , jlcxx::julia_base_type<mfem::StatelessDofTransformation>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::DofTransformation>>(new jlcxx::TypeWrapper<mfem::DofTransformation>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::DofTransformation>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_DofTransformation(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_DofTransformation(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::OperatorHandle> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::OperatorHandle> : std::false_type { };
+}
+
+struct Jlmfem_OperatorHandle: public Wrapper {
+
+  Jlmfem_OperatorHandle(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::OperatorHandle (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/../linalg/handle.hpp:33:7
+    jlcxx::TypeWrapper<mfem::OperatorHandle>  t = jlModule.add_type<mfem::OperatorHandle>("mfem!OperatorHandle");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>>(new jlcxx::TypeWrapper<mfem::OperatorHandle>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_OperatorHandle(module));
+}
+
+namespace jlcxx {
   template<> struct IsMirroredType<mfem::LinearForm> : std::false_type { };
   template<> struct DefaultConstructible<mfem::LinearForm> : std::false_type { };
 template<> struct SuperType<mfem::LinearForm> { typedef mfem::Vector type; };
@@ -11589,32 +12218,6 @@ private:
 };
 std::shared_ptr<Wrapper> newJlmfem_BilinearFormIntegrator(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new Jlmfem_BilinearFormIntegrator(module));
-}
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::OperatorHandle> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::OperatorHandle> : std::false_type { };
-}
-
-struct Jlmfem_OperatorHandle: public Wrapper {
-
-  Jlmfem_OperatorHandle(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::OperatorHandle (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../linalg/handle.hpp:33:7
-    jlcxx::TypeWrapper<mfem::OperatorHandle>  t = jlModule.add_type<mfem::OperatorHandle>("mfem!OperatorHandle");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>>(new jlcxx::TypeWrapper<mfem::OperatorHandle>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-    t.template constructor<>(/*finalize=*/true);
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_OperatorHandle(module));
 }
 
 namespace jlcxx {
@@ -12642,6 +13245,11 @@ struct JlGlobal: public Wrapper {
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2312:13
     t.method("mfem!ShiftRight", static_cast<void (*)(int &, int &, int &) >(&mfem::ShiftRight));
 
+    DEBUG_MSG("Adding wrapper for bool mfem::UsesTensorBasis(const mfem::FiniteElementSpace &) (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::UsesTensorBasis(const mfem::FiniteElementSpace &)
+    // defined in mfem/mesh/../fem/fespace.hpp:1297:13
+    t.method("mfem!UsesTensorBasis", static_cast<bool (*)(const mfem::FiniteElementSpace &) >(&mfem::UsesTensorBasis));
+
     DEBUG_MSG("Adding mfem!IntRules methods to provide access to the global variable mfem::IntRules (" __HERE__ ")");
     // defined in mfem/fem/intrules.hpp:480:37
     t.method("mfem!IntRules", []()-> mfem::IntegrationRules& { return mfem::IntRules; });
@@ -12662,6 +13270,8 @@ std::shared_ptr<Wrapper> newJlGlobal(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new JlGlobal(module));
 }
 
+// class Jlmfem_BlockArray_iterator;
+// class Jlmfem_BlockArray_const_iterator;
 class Jlmfem_Vector;
 class Jlmfem_RowNode;
 class Jlmfem_AbstractSparseMatrix;
@@ -12827,11 +13437,16 @@ class Jlmfem_ND1_3DFECollection;
 class Jlmfem_RT0_3DFECollection;
 class Jlmfem_RT1_3DFECollection;
 class Jlmfem_Local_FECollection;
+// class Jlmfem_Ordering;
+class Jlmfem_ElementRestrictionOperator;
+class Jlmfem_FaceRestriction;
+class Jlmfem_QuadratureSpace;
+class Jlmfem_DofTransformation;
+class Jlmfem_OperatorHandle;
 class Jlmfem_LinearForm;
 class Jlmfem_LinearFormIntegrator;
 class Jlmfem_Hybridization;
 class Jlmfem_BilinearFormIntegrator;
-class Jlmfem_OperatorHandle;
 class Jlmfem_MixedBilinearForm;
 class Jlmfem_DiscreteLinearOperator;
 class Jlmfem_DiscreteInterpolator;
@@ -12841,6 +13456,8 @@ class Jlmfem_VisItDataCollection;
 class Jlmfem_ParaViewDataCollection;
 class JlGlobal;
 
+// std::shared_ptr<Wrapper> newJlmfem_BlockArray_iterator(jlcxx::Module&);
+// std::shared_ptr<Wrapper> newJlmfem_BlockArray_const_iterator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Vector(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RowNode(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_AbstractSparseMatrix(jlcxx::Module&);
@@ -13006,11 +13623,16 @@ std::shared_ptr<Wrapper> newJlmfem_ND1_3DFECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RT0_3DFECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RT1_3DFECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Local_FECollection(jlcxx::Module&);
+// std::shared_ptr<Wrapper> newJlmfem_Ordering(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ElementRestrictionOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_FaceRestriction(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_QuadratureSpace(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_DofTransformation(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_LinearForm(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_LinearFormIntegrator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Hybridization(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_BilinearFormIntegrator(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_MixedBilinearForm(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_DiscreteLinearOperator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_DiscreteInterpolator(jlcxx::Module&);
@@ -13023,6 +13645,8 @@ std::shared_ptr<Wrapper> newJlGlobal(jlcxx::Module&);
 
 JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   std::vector<std::shared_ptr<Wrapper>> wrappers = {
+    // std::shared_ptr<Wrapper>(newJlmfem_BlockArray_iterator(jlModule)),
+    // std::shared_ptr<Wrapper>(newJlmfem_BlockArray_const_iterator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Vector(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_RowNode(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_AbstractSparseMatrix(jlModule)),
@@ -13188,11 +13812,16 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_RT0_3DFECollection(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_RT1_3DFECollection(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Local_FECollection(jlModule)),
+    // std::shared_ptr<Wrapper>(newJlmfem_Ordering(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ElementRestrictionOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_FaceRestriction(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_QuadratureSpace(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_DofTransformation(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_OperatorHandle(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_LinearForm(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_LinearFormIntegrator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Hybridization(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_BilinearFormIntegrator(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_OperatorHandle(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_MixedBilinearForm(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_DiscreteLinearOperator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_DiscreteInterpolator(jlModule)),
@@ -13387,6 +14016,30 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   DEBUG_MSG("Adding anonymous enum defined in mfem/mesh/../fem/fe_coll.hpp:666:4 (" __HERE__ ")");
   // defined in mfem/mesh/../fem/fe_coll.hpp:666:4
   jlModule.set_const("mfem!NURBSFECollection!VariableOrder", static_cast<int>(mfem::NURBSFECollection::VariableOrder));
+
+  DEBUG_MSG("Adding wrapper for enum mfem::Ordering::Type (" __HERE__ ")");
+  // defined in mfem/mesh/../fem/fespace.hpp:33:9
+  jlModule.add_bits<mfem::Ordering::Type>("mfem!Ordering!Type", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!Ordering!byNODES", mfem::Ordering::byNODES);
+  jlModule.set_const("mfem!Ordering!byVDIM", mfem::Ordering::byVDIM);
+
+  DEBUG_MSG("Adding wrapper for enum mfem::QVectorLayout (" __HERE__ ")");
+  // defined in mfem/mesh/../fem/fespace.hpp:52:12
+  jlModule.add_bits<mfem::QVectorLayout>("mfem!QVectorLayout", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!QVectorLayout!byNODES", mfem::QVectorLayout::byNODES);
+  jlModule.set_const("mfem!QVectorLayout!byVDIM", mfem::QVectorLayout::byVDIM);
+
+  DEBUG_MSG("Adding wrapper for enum mfem::ElementDofOrdering (" __HERE__ ")");
+  // defined in mfem/mesh/../fem/fespace.hpp:74:12
+  jlModule.add_bits<mfem::ElementDofOrdering>("mfem!ElementDofOrdering", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!ElementDofOrdering!NATIVE", mfem::ElementDofOrdering::NATIVE);
+  jlModule.set_const("mfem!ElementDofOrdering!LEXICOGRAPHIC", mfem::ElementDofOrdering::LEXICOGRAPHIC);
+
+  DEBUG_MSG("Adding wrapper for enum mfem::L2FaceValues (" __HERE__ ")");
+  // defined in mfem/mesh/../fem/restriction.hpp:136:12
+  jlModule.add_bits<mfem::L2FaceValues>("mfem!L2FaceValues", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!L2FaceValues!SingleValued", mfem::L2FaceValues::SingleValued);
+  jlModule.set_const("mfem!L2FaceValues!DoubleValued", mfem::L2FaceValues::DoubleValued);
 
   DEBUG_MSG("Adding wrapper for enum mfem::AssemblyLevel (" __HERE__ ")");
   // defined in mfem/fem/bilinearform.hpp:31:12
