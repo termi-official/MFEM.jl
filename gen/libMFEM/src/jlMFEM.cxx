@@ -3199,8 +3199,9 @@ struct Jlmfem_Mesh: public Wrapper {
 
     DEBUG_MSG("Adding wrapper for void mfem::Mesh::Mesh(int, int, int, int, int) (" __HERE__ ")");
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:637:4
-    t.constructor<int, int, int>(/*finalize=*/true);
-    t.constructor<int, int, int, int>(/*finalize=*/true);
+    // TODO investigate these. They break incremental compilation somehow.
+    // t.constructor<int, int, int>(/*finalize=*/true);
+    // t.constructor<int, int, int, int>(/*finalize=*/true);
     t.constructor<int, int, int, int, int>(/*finalize=*/true);
 
 
@@ -4393,36 +4394,36 @@ struct Jlmfem_Mesh: public Wrapper {
     DEBUG_MSG("Adding attributes methods  to provide read access to the field attributes (" __HERE__ ")");
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:273:15
     // signature to use in the veto list: mfem::Mesh::attributes
-    t.method("attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.attributes; });
-    t.method("attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.attributes; });
-    t.method("attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->attributes; });
-    t.method("attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->attributes; });
+    // t.method("attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.attributes; });
+    // t.method("attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.attributes; });
+    // t.method("attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->attributes; });
+    // t.method("attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->attributes; });
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:273:15
     // signature to use in the veto list: mfem::Mesh::attributes
     // with ! suffix to veto the setter only
 
     DEBUG_MSG("Adding attributes! methods to provide write access to the field attributes (" __HERE__ ")");
-    t.method("attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.attributes = val; });
+    // t.method("attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.attributes = val; });
 
     DEBUG_MSG("Adding attributes! methods to provide write access to the field attributes (" __HERE__ ")");
-    t.method("attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->attributes = val; });
+    // t.method("attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->attributes = val; });
 
     DEBUG_MSG("Adding bdr_attributes methods  to provide read access to the field bdr_attributes (" __HERE__ ")");
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:275:15
     // signature to use in the veto list: mfem::Mesh::bdr_attributes
-    t.method("bdr_attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.bdr_attributes; });
-    t.method("bdr_attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.bdr_attributes; });
-    t.method("bdr_attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->bdr_attributes; });
-    t.method("bdr_attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->bdr_attributes; });
+    // t.method("bdr_attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.bdr_attributes; });
+    // t.method("bdr_attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.bdr_attributes; });
+    // t.method("bdr_attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->bdr_attributes; });
+    // t.method("bdr_attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->bdr_attributes; });
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:275:15
     // signature to use in the veto list: mfem::Mesh::bdr_attributes
     // with ! suffix to veto the setter only
 
     DEBUG_MSG("Adding bdr_attributes! methods to provide write access to the field bdr_attributes (" __HERE__ ")");
-    t.method("bdr_attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.bdr_attributes = val; });
+    // t.method("bdr_attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.bdr_attributes = val; });
 
     DEBUG_MSG("Adding bdr_attributes! methods to provide write access to the field bdr_attributes (" __HERE__ ")");
-    t.method("bdr_attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->bdr_attributes = val; });
+    // t.method("bdr_attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->bdr_attributes = val; });
 
     // DEBUG_MSG("Adding NURBSext methods  to provide read access to the field NURBSext (" __HERE__ ")");
     // // defined in mfem/mesh/../fem/../mesh/mesh.hpp:277:20
@@ -4461,36 +4462,36 @@ struct Jlmfem_Mesh: public Wrapper {
     DEBUG_MSG("Adding geom_factors methods  to provide read access to the field geom_factors (" __HERE__ ")");
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:279:29
     // signature to use in the veto list: mfem::Mesh::geom_factors
-    t.method("geom_factors", [](const mfem::Mesh& a) -> const mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors; });
-    t.method("geom_factors", [](mfem::Mesh& a) -> mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors; });
-    t.method("geom_factors", [](const mfem::Mesh* a) -> const mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors; });
-    t.method("geom_factors", [](mfem::Mesh* a) -> mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors; });
+    // t.method("geom_factors", [](const mfem::Mesh& a) -> const mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors; });
+    // t.method("geom_factors", [](mfem::Mesh& a) -> mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors; });
+    // t.method("geom_factors", [](const mfem::Mesh* a) -> const mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors; });
+    // t.method("geom_factors", [](mfem::Mesh* a) -> mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors; });
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:279:29
     // signature to use in the veto list: mfem::Mesh::geom_factors
     // with ! suffix to veto the setter only
 
     DEBUG_MSG("Adding geom_factors! methods to provide write access to the field geom_factors (" __HERE__ ")");
-    t.method("geom_factors!", [](mfem::Mesh& a, const mfem::Array<mfem::GeometricFactors *>& val) -> mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors = val; });
+    // t.method("geom_factors!", [](mfem::Mesh& a, const mfem::Array<mfem::GeometricFactors *>& val) -> mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors = val; });
 
     DEBUG_MSG("Adding geom_factors! methods to provide write access to the field geom_factors (" __HERE__ ")");
-    t.method("geom_factors!", [](mfem::Mesh* a, const mfem::Array<mfem::GeometricFactors *>& val) -> mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors = val; });
+    // t.method("geom_factors!", [](mfem::Mesh* a, const mfem::Array<mfem::GeometricFactors *>& val) -> mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors = val; });
 
     DEBUG_MSG("Adding face_geom_factors methods  to provide read access to the field face_geom_factors (" __HERE__ ")");
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:280:33
     // signature to use in the veto list: mfem::Mesh::face_geom_factors
-    t.method("face_geom_factors", [](const mfem::Mesh& a) -> const mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors; });
-    t.method("face_geom_factors", [](mfem::Mesh& a) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors; });
-    t.method("face_geom_factors", [](const mfem::Mesh* a) -> const mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors; });
-    t.method("face_geom_factors", [](mfem::Mesh* a) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors; });
+    // t.method("face_geom_factors", [](const mfem::Mesh& a) -> const mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors; });
+    // t.method("face_geom_factors", [](mfem::Mesh& a) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors; });
+    // t.method("face_geom_factors", [](const mfem::Mesh* a) -> const mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors; });
+    // t.method("face_geom_factors", [](mfem::Mesh* a) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors; });
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:280:33
     // signature to use in the veto list: mfem::Mesh::face_geom_factors
     // with ! suffix to veto the setter only
 
     DEBUG_MSG("Adding face_geom_factors! methods to provide write access to the field face_geom_factors (" __HERE__ ")");
-    t.method("face_geom_factors!", [](mfem::Mesh& a, const mfem::Array<mfem::FaceGeometricFactors *>& val) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors = val; });
+    // t.method("face_geom_factors!", [](mfem::Mesh& a, const mfem::Array<mfem::FaceGeometricFactors *>& val) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors = val; });
 
     DEBUG_MSG("Adding face_geom_factors! methods to provide write access to the field face_geom_factors (" __HERE__ ")");
-    t.method("face_geom_factors!", [](mfem::Mesh* a, const mfem::Array<mfem::FaceGeometricFactors *>& val) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors = val; });
+    // t.method("face_geom_factors!", [](mfem::Mesh* a, const mfem::Array<mfem::FaceGeometricFactors *>& val) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors = val; });
   }
 
 private:
@@ -5741,16 +5742,16 @@ struct Jlmfem_VectorFunctionCoefficient: public Wrapper {
     auto& t = *type_;
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::VectorFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:750:4
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::VectorFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:750:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::VectorFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:760:4
-    t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::VectorFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:760:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
 
     DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::Eval(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::VectorFunctionCoefficient::Eval(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &)
@@ -6357,10 +6358,10 @@ struct Jlmfem_MatrixFunctionCoefficient: public Wrapper {
     auto& t = *type_;
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1247:4
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:1247:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
 
 
     DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(const mfem::DenseMatrix &, mfem::Coefficient &) (" __HERE__ ")");
@@ -6368,16 +6369,16 @@ struct Jlmfem_MatrixFunctionCoefficient: public Wrapper {
     t.constructor<const mfem::DenseMatrix &, mfem::Coefficient &>(/*finalize=*/true);
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1266:4
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:1266:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1276:4
-    t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:1276:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
 
     DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::SetTime(double) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::MatrixFunctionCoefficient::SetTime(double)
@@ -6729,10 +6730,10 @@ struct Jlmfem_SymmetricMatrixFunctionCoefficient: public Wrapper {
     auto& t = *type_;
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1508:4
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:1508:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
 
 
     DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(const mfem::DenseSymmetricMatrix &, mfem::Coefficient &) (" __HERE__ ")");
@@ -6740,10 +6741,10 @@ struct Jlmfem_SymmetricMatrixFunctionCoefficient: public Wrapper {
     t.constructor<const mfem::DenseSymmetricMatrix &, mfem::Coefficient &>(/*finalize=*/true);
 
 
-    DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1526:4
-    t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>>(/*finalize=*/true);
-    t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
+    // DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
+    // // defined in mfem/fem/coefficient.hpp:1526:4
+    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>>(/*finalize=*/true);
+    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
 
     DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SetTime(double) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::SymmetricMatrixFunctionCoefficient::SetTime(double)
@@ -10000,10 +10001,10 @@ struct JlGlobal: public Wrapper {
   void add_methods() const{
     auto& t = module_;
 
-    DEBUG_MSG("Adding wrapper for int mfem::CheckFinite(const double *, const int) (" __HERE__ ")");
-    // signature to use in the veto list: int mfem::CheckFinite(const double *, const int)
-    // defined in mfem/linalg/vector.hpp:40:12
-    t.method("mfem!CheckFinite", static_cast<int (*)(const double *, const int) >(&mfem::CheckFinite));
+    // DEBUG_MSG("Adding wrapper for int mfem::CheckFinite(const double *, const int) (" __HERE__ ")");
+    // // signature to use in the veto list: int mfem::CheckFinite(const double *, const int)
+    // // defined in mfem/linalg/vector.hpp:40:12
+    // t.method("mfem!CheckFinite", static_cast<int (*)(const double *, const int) >(&mfem::CheckFinite));
 
     DEBUG_MSG("Adding wrapper for double mfem::infinity() (" __HERE__ ")");
     // signature to use in the veto list: double mfem::infinity()
@@ -10237,15 +10238,15 @@ struct JlGlobal: public Wrapper {
     t.method("mfem!aGMRES", static_cast<int (*)(const mfem::Operator &, mfem::Vector &, const mfem::Vector &, const mfem::Operator &, int &, int, int, int, double, double &, double &, int) >(&mfem::aGMRES));
   module_.set_override_module(jl_base_module);
 
-    DEBUG_MSG("Adding wrapper for mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage) (" __HERE__ ")");
-    // signature to use in the veto list: mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage)
-    // defined in mfem/fem/coefficient.hpp:2296:27
-    t.method("|", static_cast<mfem::CoefficientStorage (*)(mfem::CoefficientStorage, mfem::CoefficientStorage) >(&mfem::operator|));
+    // DEBUG_MSG("Adding wrapper for mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage) (" __HERE__ ")");
+    // // signature to use in the veto list: mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage)
+    // // defined in mfem/fem/coefficient.hpp:2296:27
+    // t.method("|", static_cast<mfem::CoefficientStorage (*)(mfem::CoefficientStorage, mfem::CoefficientStorage) >(&mfem::operator|));
 
-    DEBUG_MSG("Adding wrapper for int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage) (" __HERE__ ")");
-    // signature to use in the veto list: int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage)
-    // defined in mfem/fem/coefficient.hpp:2301:12
-    t.method("&", static_cast<int (*)(mfem::CoefficientStorage, mfem::CoefficientStorage) >(&mfem::operator&));
+    // DEBUG_MSG("Adding wrapper for int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage) (" __HERE__ ")");
+    // // signature to use in the veto list: int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage)
+    // // defined in mfem/fem/coefficient.hpp:2301:12
+    // t.method("&", static_cast<int (*)(mfem::CoefficientStorage, mfem::CoefficientStorage) >(&mfem::operator&));
 
   module_.unset_override_module();
 
