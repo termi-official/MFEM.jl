@@ -9014,6 +9014,2372 @@ std::shared_ptr<Wrapper> newJlmfem_NodeExtrudeCoefficient(jlcxx::Module& module)
 }
 
 namespace jlcxx {
+  template<> struct IsMirroredType<mfem::FiniteElementCollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::FiniteElementCollection> : std::false_type { };
+}
+
+struct Jlmfem_FiniteElementCollection: public Wrapper {
+
+  Jlmfem_FiniteElementCollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::FiniteElementCollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:26:7
+    jlcxx::TypeWrapper<mfem::FiniteElementCollection>  t = jlModule.add_type<mfem::FiniteElementCollection>("mfem!FiniteElementCollection");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::FiniteElementCollection>>(new jlcxx::TypeWrapper<mfem::FiniteElementCollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementCollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementCollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:52:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::FiniteElementCollection::*)(mfem::Geometry::Type)  const>(&mfem::FiniteElementCollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementCollection::FiniteElementForDim(int) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementCollection::FiniteElementForDim(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:60:4
+    t.method("FiniteElementForDim", static_cast<const mfem::FiniteElement * (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::FiniteElementForDim));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:62:16
+    t.method("DofForGeometry", static_cast<int (mfem::FiniteElementCollection::*)(mfem::Geometry::Type)  const>(&mfem::FiniteElementCollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for mfem::StatelessDofTransformation * mfem::FiniteElementCollection::DofTransformationForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::StatelessDofTransformation * mfem::FiniteElementCollection::DofTransformationForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:68:4
+    t.method("DofTransformationForGeometry", static_cast<mfem::StatelessDofTransformation * (mfem::FiniteElementCollection::*)(mfem::Geometry::Type)  const>(&mfem::FiniteElementCollection::DofTransformationForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::FiniteElementCollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::FiniteElementCollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:77:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::FiniteElementCollection::*)(mfem::Geometry::Type, int)  const>(&mfem::FiniteElementCollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::FiniteElementCollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::FiniteElementCollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:80:25
+    t.method("Name", static_cast<const char * (mfem::FiniteElementCollection::*)()  const>(&mfem::FiniteElementCollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:82:16
+    t.method("GetContType", static_cast<int (mfem::FiniteElementCollection::*)()  const>(&mfem::FiniteElementCollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetRangeType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetRangeType(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:88:16
+    t.method("GetRangeType", static_cast<int (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::GetRangeType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetDerivRangeType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetDerivRangeType(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:89:16
+    t.method("GetDerivRangeType", static_cast<int (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::GetDerivRangeType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetMapType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetMapType(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:90:16
+    t.method("GetMapType", static_cast<int (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::GetMapType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetDerivType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetDerivType(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:91:16
+    t.method("GetDerivType", static_cast<int (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::GetDerivType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetDerivMapType(int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetDerivMapType(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:92:16
+    t.method("GetDerivMapType", static_cast<int (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::GetDerivMapType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::HasFaceDofs(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::HasFaceDofs(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:95:8
+    t.method("HasFaceDofs", static_cast<int (mfem::FiniteElementCollection::*)(mfem::Geometry::Type, int)  const>(&mfem::FiniteElementCollection::HasFaceDofs));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementCollection::TraceFiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementCollection::TraceFiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:97:33
+    t.method("TraceFiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::FiniteElementCollection::*)(mfem::Geometry::Type)  const>(&mfem::FiniteElementCollection::TraceFiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::FiniteElementCollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::FiniteElementCollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:103:37
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::FiniteElementCollection::*)()  const>(&mfem::FiniteElementCollection::GetTraceCollection));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::FiniteElementCollection::New(const char *) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::FiniteElementCollection::New(const char *)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:175:36
+    t.method("mfem!FiniteElementCollection!New", static_cast<mfem::FiniteElementCollection * (*)(const char *) >(&mfem::FiniteElementCollection::New));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::FiniteElementCollection::GetFE(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::FiniteElementCollection::GetFE(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:191:25
+    t.method("GetFE", static_cast<const mfem::FiniteElement * (mfem::FiniteElementCollection::*)(mfem::Geometry::Type, int)  const>(&mfem::FiniteElementCollection::GetFE));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetNumDof(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetNumDof(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:203:8
+    t.method("GetNumDof", static_cast<int (mfem::FiniteElementCollection::*)(mfem::Geometry::Type, int)  const>(&mfem::FiniteElementCollection::GetNumDof));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::FiniteElementCollection::GetDofOrdering(mfem::Geometry::Type, int, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::FiniteElementCollection::GetDofOrdering(mfem::Geometry::Type, int, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:215:15
+    t.method("GetDofOrdering", static_cast<const int * (mfem::FiniteElementCollection::*)(mfem::Geometry::Type, int, int)  const>(&mfem::FiniteElementCollection::GetDofOrdering));
+
+    DEBUG_MSG("Adding wrapper for int mfem::FiniteElementCollection::GetOrder() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::FiniteElementCollection::GetOrder()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:225:8
+    t.method("GetOrder", static_cast<int (mfem::FiniteElementCollection::*)()  const>(&mfem::FiniteElementCollection::GetOrder));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::FiniteElementCollection::Clone(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::FiniteElementCollection::Clone(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:232:37
+    t.method("Clone", static_cast<mfem::FiniteElementCollection * (mfem::FiniteElementCollection::*)(int)  const>(&mfem::FiniteElementCollection::Clone));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::FiniteElementCollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_FiniteElementCollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_FiniteElementCollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::StatelessDofTransformation> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::StatelessDofTransformation> : std::false_type { };
+}
+
+struct Jlmfem_StatelessDofTransformation: public Wrapper {
+
+  Jlmfem_StatelessDofTransformation(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::StatelessDofTransformation (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/doftrans.hpp:68:7
+    jlcxx::TypeWrapper<mfem::StatelessDofTransformation>  t = jlModule.add_type<mfem::StatelessDofTransformation>("mfem!StatelessDofTransformation");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::StatelessDofTransformation>>(new jlcxx::TypeWrapper<mfem::StatelessDofTransformation>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::StatelessDofTransformation>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_StatelessDofTransformation(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_StatelessDofTransformation(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::H1_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::H1_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::H1_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_H1_FECollection: public Wrapper {
+
+  Jlmfem_H1_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::H1_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:259:7
+    jlcxx::TypeWrapper<mfem::H1_FECollection>  t = jlModule.add_type<mfem::H1_FECollection>("mfem!H1_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::H1_FECollection>>(new jlcxx::TypeWrapper<mfem::H1_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::H1_FECollection::H1_FECollection(const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:270:13
+    t.constructor<const int>(/*finalize=*/true);
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::H1_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::H1_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:273:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::H1_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::H1_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::H1_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::H1_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:275:16
+    t.method("DofForGeometry", static_cast<int (mfem::H1_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::H1_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::H1_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::H1_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:277:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::H1_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::H1_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::H1_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::H1_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:280:24
+    t.method("Name", static_cast<const char * (mfem::H1_FECollection::*)()  const>(&mfem::H1_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::H1_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::H1_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:281:16
+    t.method("GetContType", static_cast<int (mfem::H1_FECollection::*)()  const>(&mfem::H1_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::H1_FECollection::GetBasisType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::H1_FECollection::GetBasisType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:282:8
+    t.method("GetBasisType", static_cast<int (mfem::H1_FECollection::*)()  const>(&mfem::H1_FECollection::GetBasisType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::H1_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::H1_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:284:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::H1_FECollection::*)()  const>(&mfem::H1_FECollection::GetTraceCollection));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::H1_FECollection::GetDofMap(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::H1_FECollection::GetDofMap(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:287:15
+    t.method("GetDofMap", static_cast<const int * (mfem::H1_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::H1_FECollection::GetDofMap));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::H1_FECollection::GetDofMap(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::H1_FECollection::GetDofMap(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:289:15
+    t.method("GetDofMap", static_cast<const int * (mfem::H1_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::H1_FECollection::GetDofMap));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::H1_FECollection::Clone(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::H1_FECollection::Clone(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:291:29
+    t.method("Clone", static_cast<mfem::FiniteElementCollection * (mfem::H1_FECollection::*)(int)  const>(&mfem::H1_FECollection::Clone));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::H1_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_H1_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_H1_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::H1Pos_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::H1Pos_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::H1Pos_FECollection> { typedef mfem::H1_FECollection type; };
+}
+
+struct Jlmfem_H1Pos_FECollection: public Wrapper {
+
+  Jlmfem_H1Pos_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::H1Pos_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:299:7
+    jlcxx::TypeWrapper<mfem::H1Pos_FECollection>  t = jlModule.add_type<mfem::H1Pos_FECollection>("mfem!H1Pos_FECollection"    , jlcxx::julia_base_type<mfem::H1_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::H1Pos_FECollection>>(new jlcxx::TypeWrapper<mfem::H1Pos_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::H1Pos_FECollection::H1Pos_FECollection(const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:302:13
+    t.constructor<const int>(/*finalize=*/true);
+    t.constructor<const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::H1Pos_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_H1Pos_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_H1Pos_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::H1Ser_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::H1Ser_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::H1Ser_FECollection> { typedef mfem::H1_FECollection type; };
+}
+
+struct Jlmfem_H1Ser_FECollection: public Wrapper {
+
+  Jlmfem_H1Ser_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::H1Ser_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:309:7
+    jlcxx::TypeWrapper<mfem::H1Ser_FECollection>  t = jlModule.add_type<mfem::H1Ser_FECollection>("mfem!H1Ser_FECollection"    , jlcxx::julia_base_type<mfem::H1_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::H1Ser_FECollection>>(new jlcxx::TypeWrapper<mfem::H1Ser_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::H1Ser_FECollection::H1Ser_FECollection(const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:312:13
+    t.constructor<const int>(/*finalize=*/true);
+    t.constructor<const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::H1Ser_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_H1Ser_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_H1Ser_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::H1_Trace_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::H1_Trace_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::H1_Trace_FECollection> { typedef mfem::H1_FECollection type; };
+}
+
+struct Jlmfem_H1_Trace_FECollection: public Wrapper {
+
+  Jlmfem_H1_Trace_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::H1_Trace_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:319:7
+    jlcxx::TypeWrapper<mfem::H1_Trace_FECollection>  t = jlModule.add_type<mfem::H1_Trace_FECollection>("mfem!H1_Trace_FECollection"    , jlcxx::julia_base_type<mfem::H1_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::H1_Trace_FECollection>>(new jlcxx::TypeWrapper<mfem::H1_Trace_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::H1_Trace_FECollection::H1_Trace_FECollection(const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:322:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::H1_Trace_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_H1_Trace_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_H1_Trace_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::L2_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::L2_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::L2_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_L2_FECollection: public Wrapper {
+
+  Jlmfem_L2_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::L2_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:327:7
+    jlcxx::TypeWrapper<mfem::L2_FECollection>  t = jlModule.add_type<mfem::L2_FECollection>("mfem!L2_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::L2_FECollection>>(new jlcxx::TypeWrapper<mfem::L2_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::L2_FECollection::L2_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:342:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::L2_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::L2_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:346:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::L2_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::L2_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::L2_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::L2_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:348:16
+    t.method("DofForGeometry", static_cast<int (mfem::L2_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::L2_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::L2_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::L2_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:356:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::L2_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::L2_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::L2_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::L2_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:358:24
+    t.method("Name", static_cast<const char * (mfem::L2_FECollection::*)()  const>(&mfem::L2_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::L2_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::L2_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:360:16
+    t.method("GetContType", static_cast<int (mfem::L2_FECollection::*)()  const>(&mfem::L2_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::L2_FECollection::TraceFiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::L2_FECollection::TraceFiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:362:33
+    t.method("TraceFiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::L2_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::L2_FECollection::TraceFiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::L2_FECollection::GetBasisType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::L2_FECollection::GetBasisType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:368:8
+    t.method("GetBasisType", static_cast<int (mfem::L2_FECollection::*)()  const>(&mfem::L2_FECollection::GetBasisType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::L2_FECollection::Clone(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::L2_FECollection::Clone(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:370:29
+    t.method("Clone", static_cast<mfem::FiniteElementCollection * (mfem::L2_FECollection::*)(int)  const>(&mfem::L2_FECollection::Clone));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::L2_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_L2_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_L2_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT_FECollection: public Wrapper {
+
+  Jlmfem_RT_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:380:7
+    jlcxx::TypeWrapper<mfem::RT_FECollection>  t = jlModule.add_type<mfem::RT_FECollection>("mfem!RT_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_FECollection>>(new jlcxx::TypeWrapper<mfem::RT_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RT_FECollection::RT_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:408:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:412:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:414:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:416:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:418:24
+    t.method("Name", static_cast<const char * (mfem::RT_FECollection::*)()  const>(&mfem::RT_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:419:16
+    t.method("GetContType", static_cast<int (mfem::RT_FECollection::*)()  const>(&mfem::RT_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::RT_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::RT_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:420:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::RT_FECollection::*)()  const>(&mfem::RT_FECollection::GetTraceCollection));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_FECollection::GetClosedBasisType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_FECollection::GetClosedBasisType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:422:8
+    t.method("GetClosedBasisType", static_cast<int (mfem::RT_FECollection::*)()  const>(&mfem::RT_FECollection::GetClosedBasisType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_FECollection::GetOpenBasisType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_FECollection::GetOpenBasisType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:423:8
+    t.method("GetOpenBasisType", static_cast<int (mfem::RT_FECollection::*)()  const>(&mfem::RT_FECollection::GetOpenBasisType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::RT_FECollection::Clone(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::RT_FECollection::Clone(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:425:29
+    t.method("Clone", static_cast<mfem::FiniteElementCollection * (mfem::RT_FECollection::*)(int)  const>(&mfem::RT_FECollection::Clone));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT_Trace_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT_Trace_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT_Trace_FECollection> { typedef mfem::RT_FECollection type; };
+}
+
+struct Jlmfem_RT_Trace_FECollection: public Wrapper {
+
+  Jlmfem_RT_Trace_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT_Trace_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:434:7
+    jlcxx::TypeWrapper<mfem::RT_Trace_FECollection>  t = jlModule.add_type<mfem::RT_Trace_FECollection>("mfem!RT_Trace_FECollection"    , jlcxx::julia_base_type<mfem::RT_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_Trace_FECollection>>(new jlcxx::TypeWrapper<mfem::RT_Trace_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RT_Trace_FECollection::RT_Trace_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:437:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_Trace_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT_Trace_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT_Trace_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::DG_Interface_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::DG_Interface_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::DG_Interface_FECollection> { typedef mfem::RT_FECollection type; };
+}
+
+struct Jlmfem_DG_Interface_FECollection: public Wrapper {
+
+  Jlmfem_DG_Interface_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::DG_Interface_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:445:7
+    jlcxx::TypeWrapper<mfem::DG_Interface_FECollection>  t = jlModule.add_type<mfem::DG_Interface_FECollection>("mfem!DG_Interface_FECollection"    , jlcxx::julia_base_type<mfem::RT_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::DG_Interface_FECollection>>(new jlcxx::TypeWrapper<mfem::DG_Interface_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::DG_Interface_FECollection::DG_Interface_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:448:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::DG_Interface_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_DG_Interface_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_DG_Interface_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ND_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ND_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::ND_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_ND_FECollection: public Wrapper {
+
+  Jlmfem_ND_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ND_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:454:7
+    jlcxx::TypeWrapper<mfem::ND_FECollection>  t = jlModule.add_type<mfem::ND_FECollection>("mfem!ND_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_FECollection>>(new jlcxx::TypeWrapper<mfem::ND_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ND_FECollection::ND_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:466:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::ND_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::ND_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:471:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::ND_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:473:16
+    t.method("DofForGeometry", static_cast<int (mfem::ND_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for mfem::StatelessDofTransformation * mfem::ND_FECollection::DofTransformationForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::StatelessDofTransformation * mfem::ND_FECollection::DofTransformationForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:477:4
+    t.method("DofTransformationForGeometry", static_cast<mfem::StatelessDofTransformation * (mfem::ND_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_FECollection::DofTransformationForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::ND_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::ND_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:479:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::ND_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::ND_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::ND_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::ND_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:482:24
+    t.method("Name", static_cast<const char * (mfem::ND_FECollection::*)()  const>(&mfem::ND_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:483:16
+    t.method("GetContType", static_cast<int (mfem::ND_FECollection::*)()  const>(&mfem::ND_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::ND_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::ND_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:484:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::ND_FECollection::*)()  const>(&mfem::ND_FECollection::GetTraceCollection));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_FECollection::GetClosedBasisType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_FECollection::GetClosedBasisType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:486:8
+    t.method("GetClosedBasisType", static_cast<int (mfem::ND_FECollection::*)()  const>(&mfem::ND_FECollection::GetClosedBasisType));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_FECollection::GetOpenBasisType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_FECollection::GetOpenBasisType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:487:8
+    t.method("GetOpenBasisType", static_cast<int (mfem::ND_FECollection::*)()  const>(&mfem::ND_FECollection::GetOpenBasisType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::ND_FECollection::Clone(int) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::ND_FECollection::Clone(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:489:29
+    t.method("Clone", static_cast<mfem::FiniteElementCollection * (mfem::ND_FECollection::*)(int)  const>(&mfem::ND_FECollection::Clone));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ND_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ND_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ND_Trace_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ND_Trace_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::ND_Trace_FECollection> { typedef mfem::ND_FECollection type; };
+}
+
+struct Jlmfem_ND_Trace_FECollection: public Wrapper {
+
+  Jlmfem_ND_Trace_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ND_Trace_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:498:7
+    jlcxx::TypeWrapper<mfem::ND_Trace_FECollection>  t = jlModule.add_type<mfem::ND_Trace_FECollection>("mfem!ND_Trace_FECollection"    , jlcxx::julia_base_type<mfem::ND_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_Trace_FECollection>>(new jlcxx::TypeWrapper<mfem::ND_Trace_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ND_Trace_FECollection::ND_Trace_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:501:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_Trace_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ND_Trace_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ND_Trace_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ND_R1D_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ND_R1D_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::ND_R1D_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_ND_R1D_FECollection: public Wrapper {
+
+  Jlmfem_ND_R1D_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ND_R1D_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:507:7
+    jlcxx::TypeWrapper<mfem::ND_R1D_FECollection>  t = jlModule.add_type<mfem::ND_R1D_FECollection>("mfem!ND_R1D_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_R1D_FECollection>>(new jlcxx::TypeWrapper<mfem::ND_R1D_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ND_R1D_FECollection::ND_R1D_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:515:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::ND_R1D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::ND_R1D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:519:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::ND_R1D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_R1D_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_R1D_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_R1D_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:522:16
+    t.method("DofForGeometry", static_cast<int (mfem::ND_R1D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_R1D_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::ND_R1D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::ND_R1D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:524:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::ND_R1D_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::ND_R1D_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::ND_R1D_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::ND_R1D_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:526:24
+    t.method("Name", static_cast<const char * (mfem::ND_R1D_FECollection::*)()  const>(&mfem::ND_R1D_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_R1D_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_R1D_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:527:16
+    t.method("GetContType", static_cast<int (mfem::ND_R1D_FECollection::*)()  const>(&mfem::ND_R1D_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::ND_R1D_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::ND_R1D_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:528:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::ND_R1D_FECollection::*)()  const>(&mfem::ND_R1D_FECollection::GetTraceCollection));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_R1D_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ND_R1D_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ND_R1D_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT_R1D_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT_R1D_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT_R1D_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT_R1D_FECollection: public Wrapper {
+
+  Jlmfem_RT_R1D_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT_R1D_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:534:7
+    jlcxx::TypeWrapper<mfem::RT_R1D_FECollection>  t = jlModule.add_type<mfem::RT_R1D_FECollection>("mfem!RT_R1D_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_R1D_FECollection>>(new jlcxx::TypeWrapper<mfem::RT_R1D_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RT_R1D_FECollection::RT_R1D_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:542:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT_R1D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT_R1D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:546:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT_R1D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT_R1D_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_R1D_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_R1D_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:549:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT_R1D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT_R1D_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT_R1D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT_R1D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:551:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT_R1D_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT_R1D_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT_R1D_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT_R1D_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:553:24
+    t.method("Name", static_cast<const char * (mfem::RT_R1D_FECollection::*)()  const>(&mfem::RT_R1D_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_R1D_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_R1D_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:554:16
+    t.method("GetContType", static_cast<int (mfem::RT_R1D_FECollection::*)()  const>(&mfem::RT_R1D_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::RT_R1D_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::RT_R1D_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:555:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::RT_R1D_FECollection::*)()  const>(&mfem::RT_R1D_FECollection::GetTraceCollection));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_R1D_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT_R1D_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT_R1D_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ND_R2D_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ND_R2D_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::ND_R2D_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_ND_R2D_FECollection: public Wrapper {
+
+  Jlmfem_ND_R2D_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ND_R2D_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:561:7
+    jlcxx::TypeWrapper<mfem::ND_R2D_FECollection>  t = jlModule.add_type<mfem::ND_R2D_FECollection>("mfem!ND_R2D_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_R2D_FECollection>>(new jlcxx::TypeWrapper<mfem::ND_R2D_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ND_R2D_FECollection::ND_R2D_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:570:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::ND_R2D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::ND_R2D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:574:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::ND_R2D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_R2D_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_R2D_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_R2D_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:577:16
+    t.method("DofForGeometry", static_cast<int (mfem::ND_R2D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND_R2D_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::ND_R2D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::ND_R2D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:579:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::ND_R2D_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::ND_R2D_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::ND_R2D_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::ND_R2D_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:581:24
+    t.method("Name", static_cast<const char * (mfem::ND_R2D_FECollection::*)()  const>(&mfem::ND_R2D_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND_R2D_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND_R2D_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:582:16
+    t.method("GetContType", static_cast<int (mfem::ND_R2D_FECollection::*)()  const>(&mfem::ND_R2D_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::ND_R2D_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::ND_R2D_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:583:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::ND_R2D_FECollection::*)()  const>(&mfem::ND_R2D_FECollection::GetTraceCollection));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_R2D_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ND_R2D_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ND_R2D_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ND_R2D_Trace_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ND_R2D_Trace_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::ND_R2D_Trace_FECollection> { typedef mfem::ND_R2D_FECollection type; };
+}
+
+struct Jlmfem_ND_R2D_Trace_FECollection: public Wrapper {
+
+  Jlmfem_ND_R2D_Trace_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ND_R2D_Trace_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:591:7
+    jlcxx::TypeWrapper<mfem::ND_R2D_Trace_FECollection>  t = jlModule.add_type<mfem::ND_R2D_Trace_FECollection>("mfem!ND_R2D_Trace_FECollection"    , jlcxx::julia_base_type<mfem::ND_R2D_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_R2D_Trace_FECollection>>(new jlcxx::TypeWrapper<mfem::ND_R2D_Trace_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ND_R2D_Trace_FECollection::ND_R2D_Trace_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:594:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ND_R2D_Trace_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ND_R2D_Trace_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ND_R2D_Trace_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT_R2D_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT_R2D_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT_R2D_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT_R2D_FECollection: public Wrapper {
+
+  Jlmfem_RT_R2D_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT_R2D_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:600:7
+    jlcxx::TypeWrapper<mfem::RT_R2D_FECollection>  t = jlModule.add_type<mfem::RT_R2D_FECollection>("mfem!RT_R2D_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_R2D_FECollection>>(new jlcxx::TypeWrapper<mfem::RT_R2D_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RT_R2D_FECollection::RT_R2D_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:619:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT_R2D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT_R2D_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:623:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT_R2D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT_R2D_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_R2D_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_R2D_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:626:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT_R2D_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT_R2D_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT_R2D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT_R2D_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:628:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT_R2D_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT_R2D_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT_R2D_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT_R2D_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:630:24
+    t.method("Name", static_cast<const char * (mfem::RT_R2D_FECollection::*)()  const>(&mfem::RT_R2D_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT_R2D_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT_R2D_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:631:16
+    t.method("GetContType", static_cast<int (mfem::RT_R2D_FECollection::*)()  const>(&mfem::RT_R2D_FECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::RT_R2D_FECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::RT_R2D_FECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:632:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::RT_R2D_FECollection::*)()  const>(&mfem::RT_R2D_FECollection::GetTraceCollection));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_R2D_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT_R2D_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT_R2D_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT_R2D_Trace_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT_R2D_Trace_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT_R2D_Trace_FECollection> { typedef mfem::RT_R2D_FECollection type; };
+}
+
+struct Jlmfem_RT_R2D_Trace_FECollection: public Wrapper {
+
+  Jlmfem_RT_R2D_Trace_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT_R2D_Trace_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:640:7
+    jlcxx::TypeWrapper<mfem::RT_R2D_Trace_FECollection>  t = jlModule.add_type<mfem::RT_R2D_Trace_FECollection>("mfem!RT_R2D_Trace_FECollection"    , jlcxx::julia_base_type<mfem::RT_R2D_FECollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_R2D_Trace_FECollection>>(new jlcxx::TypeWrapper<mfem::RT_R2D_Trace_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RT_R2D_Trace_FECollection::RT_R2D_Trace_FECollection(const int, const int, const int, const int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:643:4
+    t.constructor<const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int>(/*finalize=*/true);
+    t.constructor<const int, const int, const int, const int>(/*finalize=*/true);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT_R2D_Trace_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT_R2D_Trace_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT_R2D_Trace_FECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::NURBSFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::NURBSFECollection> : std::false_type { };
+template<> struct SuperType<mfem::NURBSFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_NURBSFECollection: public Wrapper {
+
+  Jlmfem_NURBSFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::NURBSFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:649:7
+    jlcxx::TypeWrapper<mfem::NURBSFECollection>  t = jlModule.add_type<mfem::NURBSFECollection>("mfem!NURBSFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::NURBSFECollection>>(new jlcxx::TypeWrapper<mfem::NURBSFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::NURBSFECollection::NURBSFECollection(int) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:670:13
+    t.constructor<int>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for void mfem::NURBSFECollection::Reset() (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::NURBSFECollection::Reset()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:672:9
+    t.method("Reset", static_cast<void (mfem::NURBSFECollection::*)()  const>(&mfem::NURBSFECollection::Reset));
+
+    DEBUG_MSG("Adding wrapper for int mfem::NURBSFECollection::GetOrder() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::NURBSFECollection::GetOrder()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:682:8
+    t.method("GetOrder", static_cast<int (mfem::NURBSFECollection::*)()  const>(&mfem::NURBSFECollection::GetOrder));
+
+    DEBUG_MSG("Adding wrapper for void mfem::NURBSFECollection::SetOrder(int) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::NURBSFECollection::SetOrder(int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:686:9
+    t.method("SetOrder", static_cast<void (mfem::NURBSFECollection::*)(int)  const>(&mfem::NURBSFECollection::SetOrder));
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::NURBSFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::NURBSFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:689:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::NURBSFECollection::*)(mfem::Geometry::Type)  const>(&mfem::NURBSFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::NURBSFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::NURBSFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:691:16
+    t.method("DofForGeometry", static_cast<int (mfem::NURBSFECollection::*)(mfem::Geometry::Type)  const>(&mfem::NURBSFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::NURBSFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::NURBSFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:693:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::NURBSFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::NURBSFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::NURBSFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::NURBSFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:696:24
+    t.method("Name", static_cast<const char * (mfem::NURBSFECollection::*)()  const>(&mfem::NURBSFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::NURBSFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::NURBSFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:698:16
+    t.method("GetContType", static_cast<int (mfem::NURBSFECollection::*)()  const>(&mfem::NURBSFECollection::GetContType));
+
+    DEBUG_MSG("Adding wrapper for mfem::FiniteElementCollection * mfem::NURBSFECollection::GetTraceCollection() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::FiniteElementCollection * mfem::NURBSFECollection::GetTraceCollection()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:700:29
+    t.method("GetTraceCollection", static_cast<mfem::FiniteElementCollection * (mfem::NURBSFECollection::*)()  const>(&mfem::NURBSFECollection::GetTraceCollection));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::NURBSFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_NURBSFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_NURBSFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::LinearFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::LinearFECollection> : std::false_type { };
+template<> struct SuperType<mfem::LinearFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_LinearFECollection: public Wrapper {
+
+  Jlmfem_LinearFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::LinearFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:707:7
+    jlcxx::TypeWrapper<mfem::LinearFECollection>  t = jlModule.add_type<mfem::LinearFECollection>("mfem!LinearFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearFECollection>>(new jlcxx::TypeWrapper<mfem::LinearFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::LinearFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::LinearFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:722:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::LinearFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:724:16
+    t.method("DofForGeometry", static_cast<int (mfem::LinearFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::LinearFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::LinearFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:726:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::LinearFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::LinearFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::LinearFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::LinearFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:729:25
+    t.method("Name", static_cast<const char * (mfem::LinearFECollection::*)()  const>(&mfem::LinearFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:731:16
+    t.method("GetContType", static_cast<int (mfem::LinearFECollection::*)()  const>(&mfem::LinearFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_LinearFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_LinearFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::QuadraticFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::QuadraticFECollection> : std::false_type { };
+template<> struct SuperType<mfem::QuadraticFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_QuadraticFECollection: public Wrapper {
+
+  Jlmfem_QuadraticFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::QuadraticFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:735:7
+    jlcxx::TypeWrapper<mfem::QuadraticFECollection>  t = jlModule.add_type<mfem::QuadraticFECollection>("mfem!QuadraticFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticFECollection>>(new jlcxx::TypeWrapper<mfem::QuadraticFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::QuadraticFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::QuadraticFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:751:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::QuadraticFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:753:16
+    t.method("DofForGeometry", static_cast<int (mfem::QuadraticFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::QuadraticFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::QuadraticFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:755:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::QuadraticFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::QuadraticFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::QuadraticFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::QuadraticFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:758:25
+    t.method("Name", static_cast<const char * (mfem::QuadraticFECollection::*)()  const>(&mfem::QuadraticFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:760:16
+    t.method("GetContType", static_cast<int (mfem::QuadraticFECollection::*)()  const>(&mfem::QuadraticFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_QuadraticFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_QuadraticFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::QuadraticPosFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::QuadraticPosFECollection> : std::false_type { };
+template<> struct SuperType<mfem::QuadraticPosFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_QuadraticPosFECollection: public Wrapper {
+
+  Jlmfem_QuadraticPosFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::QuadraticPosFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:764:7
+    jlcxx::TypeWrapper<mfem::QuadraticPosFECollection>  t = jlModule.add_type<mfem::QuadraticPosFECollection>("mfem!QuadraticPosFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticPosFECollection>>(new jlcxx::TypeWrapper<mfem::QuadraticPosFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::QuadraticPosFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::QuadraticPosFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:774:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::QuadraticPosFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticPosFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticPosFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticPosFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:776:16
+    t.method("DofForGeometry", static_cast<int (mfem::QuadraticPosFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticPosFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::QuadraticPosFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::QuadraticPosFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:778:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::QuadraticPosFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::QuadraticPosFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::QuadraticPosFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::QuadraticPosFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:781:25
+    t.method("Name", static_cast<const char * (mfem::QuadraticPosFECollection::*)()  const>(&mfem::QuadraticPosFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticPosFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticPosFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:783:16
+    t.method("GetContType", static_cast<int (mfem::QuadraticPosFECollection::*)()  const>(&mfem::QuadraticPosFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticPosFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_QuadraticPosFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_QuadraticPosFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::CubicFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::CubicFECollection> : std::false_type { };
+template<> struct SuperType<mfem::CubicFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_CubicFECollection: public Wrapper {
+
+  Jlmfem_CubicFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::CubicFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:787:7
+    jlcxx::TypeWrapper<mfem::CubicFECollection>  t = jlModule.add_type<mfem::CubicFECollection>("mfem!CubicFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::CubicFECollection>>(new jlcxx::TypeWrapper<mfem::CubicFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::CubicFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::CubicFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:805:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::CubicFECollection::*)(mfem::Geometry::Type)  const>(&mfem::CubicFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::CubicFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::CubicFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:807:16
+    t.method("DofForGeometry", static_cast<int (mfem::CubicFECollection::*)(mfem::Geometry::Type)  const>(&mfem::CubicFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::CubicFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::CubicFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:809:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::CubicFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::CubicFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::CubicFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::CubicFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:812:25
+    t.method("Name", static_cast<const char * (mfem::CubicFECollection::*)()  const>(&mfem::CubicFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::CubicFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::CubicFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:814:16
+    t.method("GetContType", static_cast<int (mfem::CubicFECollection::*)()  const>(&mfem::CubicFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::CubicFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_CubicFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_CubicFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::CrouzeixRaviartFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::CrouzeixRaviartFECollection> : std::false_type { };
+template<> struct SuperType<mfem::CrouzeixRaviartFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_CrouzeixRaviartFECollection: public Wrapper {
+
+  Jlmfem_CrouzeixRaviartFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::CrouzeixRaviartFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:818:7
+    jlcxx::TypeWrapper<mfem::CrouzeixRaviartFECollection>  t = jlModule.add_type<mfem::CrouzeixRaviartFECollection>("mfem!CrouzeixRaviartFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::CrouzeixRaviartFECollection>>(new jlcxx::TypeWrapper<mfem::CrouzeixRaviartFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::CrouzeixRaviartFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::CrouzeixRaviartFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:828:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::CrouzeixRaviartFECollection::*)(mfem::Geometry::Type)  const>(&mfem::CrouzeixRaviartFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::CrouzeixRaviartFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::CrouzeixRaviartFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:830:16
+    t.method("DofForGeometry", static_cast<int (mfem::CrouzeixRaviartFECollection::*)(mfem::Geometry::Type)  const>(&mfem::CrouzeixRaviartFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::CrouzeixRaviartFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::CrouzeixRaviartFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:832:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::CrouzeixRaviartFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::CrouzeixRaviartFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::CrouzeixRaviartFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::CrouzeixRaviartFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:835:25
+    t.method("Name", static_cast<const char * (mfem::CrouzeixRaviartFECollection::*)()  const>(&mfem::CrouzeixRaviartFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::CrouzeixRaviartFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::CrouzeixRaviartFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:837:16
+    t.method("GetContType", static_cast<int (mfem::CrouzeixRaviartFECollection::*)()  const>(&mfem::CrouzeixRaviartFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::CrouzeixRaviartFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_CrouzeixRaviartFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_CrouzeixRaviartFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::LinearNonConf3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::LinearNonConf3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::LinearNonConf3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_LinearNonConf3DFECollection: public Wrapper {
+
+  Jlmfem_LinearNonConf3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::LinearNonConf3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:841:7
+    jlcxx::TypeWrapper<mfem::LinearNonConf3DFECollection>  t = jlModule.add_type<mfem::LinearNonConf3DFECollection>("mfem!LinearNonConf3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearNonConf3DFECollection>>(new jlcxx::TypeWrapper<mfem::LinearNonConf3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::LinearNonConf3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::LinearNonConf3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:853:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::LinearNonConf3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearNonConf3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearNonConf3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearNonConf3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:855:16
+    t.method("DofForGeometry", static_cast<int (mfem::LinearNonConf3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearNonConf3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::LinearNonConf3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::LinearNonConf3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:857:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::LinearNonConf3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::LinearNonConf3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::LinearNonConf3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::LinearNonConf3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:860:25
+    t.method("Name", static_cast<const char * (mfem::LinearNonConf3DFECollection::*)()  const>(&mfem::LinearNonConf3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearNonConf3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearNonConf3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:862:16
+    t.method("GetContType", static_cast<int (mfem::LinearNonConf3DFECollection::*)()  const>(&mfem::LinearNonConf3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearNonConf3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_LinearNonConf3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_LinearNonConf3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT0_2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT0_2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT0_2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT0_2DFECollection: public Wrapper {
+
+  Jlmfem_RT0_2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT0_2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:868:7
+    jlcxx::TypeWrapper<mfem::RT0_2DFECollection>  t = jlModule.add_type<mfem::RT0_2DFECollection>("mfem!RT0_2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT0_2DFECollection>>(new jlcxx::TypeWrapper<mfem::RT0_2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT0_2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT0_2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:878:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT0_2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT0_2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT0_2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT0_2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:880:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT0_2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT0_2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT0_2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT0_2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:882:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT0_2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT0_2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT0_2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT0_2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:885:25
+    t.method("Name", static_cast<const char * (mfem::RT0_2DFECollection::*)()  const>(&mfem::RT0_2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT0_2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT0_2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:887:16
+    t.method("GetContType", static_cast<int (mfem::RT0_2DFECollection::*)()  const>(&mfem::RT0_2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT0_2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT0_2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT0_2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT1_2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT1_2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT1_2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT1_2DFECollection: public Wrapper {
+
+  Jlmfem_RT1_2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT1_2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:892:7
+    jlcxx::TypeWrapper<mfem::RT1_2DFECollection>  t = jlModule.add_type<mfem::RT1_2DFECollection>("mfem!RT1_2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT1_2DFECollection>>(new jlcxx::TypeWrapper<mfem::RT1_2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT1_2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT1_2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:902:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT1_2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT1_2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT1_2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT1_2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:904:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT1_2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT1_2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT1_2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT1_2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:906:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT1_2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT1_2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT1_2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT1_2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:909:25
+    t.method("Name", static_cast<const char * (mfem::RT1_2DFECollection::*)()  const>(&mfem::RT1_2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT1_2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT1_2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:911:16
+    t.method("GetContType", static_cast<int (mfem::RT1_2DFECollection::*)()  const>(&mfem::RT1_2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT1_2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT1_2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT1_2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT2_2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT2_2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT2_2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT2_2DFECollection: public Wrapper {
+
+  Jlmfem_RT2_2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT2_2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:916:7
+    jlcxx::TypeWrapper<mfem::RT2_2DFECollection>  t = jlModule.add_type<mfem::RT2_2DFECollection>("mfem!RT2_2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT2_2DFECollection>>(new jlcxx::TypeWrapper<mfem::RT2_2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT2_2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT2_2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:926:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT2_2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT2_2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT2_2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT2_2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:928:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT2_2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT2_2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT2_2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT2_2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:930:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT2_2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT2_2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT2_2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT2_2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:933:25
+    t.method("Name", static_cast<const char * (mfem::RT2_2DFECollection::*)()  const>(&mfem::RT2_2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT2_2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT2_2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:935:16
+    t.method("GetContType", static_cast<int (mfem::RT2_2DFECollection::*)()  const>(&mfem::RT2_2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT2_2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT2_2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT2_2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Const2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Const2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::Const2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_Const2DFECollection: public Wrapper {
+
+  Jlmfem_Const2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Const2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:941:7
+    jlcxx::TypeWrapper<mfem::Const2DFECollection>  t = jlModule.add_type<mfem::Const2DFECollection>("mfem!Const2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Const2DFECollection>>(new jlcxx::TypeWrapper<mfem::Const2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::Const2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::Const2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:950:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::Const2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::Const2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Const2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Const2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:952:16
+    t.method("DofForGeometry", static_cast<int (mfem::Const2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::Const2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::Const2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::Const2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:954:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::Const2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::Const2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::Const2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::Const2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:957:25
+    t.method("Name", static_cast<const char * (mfem::Const2DFECollection::*)()  const>(&mfem::Const2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Const2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Const2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:959:16
+    t.method("GetContType", static_cast<int (mfem::Const2DFECollection::*)()  const>(&mfem::Const2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Const2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Const2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Const2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::LinearDiscont2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::LinearDiscont2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::LinearDiscont2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_LinearDiscont2DFECollection: public Wrapper {
+
+  Jlmfem_LinearDiscont2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::LinearDiscont2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:965:7
+    jlcxx::TypeWrapper<mfem::LinearDiscont2DFECollection>  t = jlModule.add_type<mfem::LinearDiscont2DFECollection>("mfem!LinearDiscont2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearDiscont2DFECollection>>(new jlcxx::TypeWrapper<mfem::LinearDiscont2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::LinearDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::LinearDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:975:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::LinearDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearDiscont2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:977:16
+    t.method("DofForGeometry", static_cast<int (mfem::LinearDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearDiscont2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::LinearDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::LinearDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:979:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::LinearDiscont2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::LinearDiscont2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::LinearDiscont2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::LinearDiscont2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:982:25
+    t.method("Name", static_cast<const char * (mfem::LinearDiscont2DFECollection::*)()  const>(&mfem::LinearDiscont2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearDiscont2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearDiscont2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:984:16
+    t.method("GetContType", static_cast<int (mfem::LinearDiscont2DFECollection::*)()  const>(&mfem::LinearDiscont2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearDiscont2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_LinearDiscont2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_LinearDiscont2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::GaussLinearDiscont2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::GaussLinearDiscont2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::GaussLinearDiscont2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_GaussLinearDiscont2DFECollection: public Wrapper {
+
+  Jlmfem_GaussLinearDiscont2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::GaussLinearDiscont2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:988:7
+    jlcxx::TypeWrapper<mfem::GaussLinearDiscont2DFECollection>  t = jlModule.add_type<mfem::GaussLinearDiscont2DFECollection>("mfem!GaussLinearDiscont2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::GaussLinearDiscont2DFECollection>>(new jlcxx::TypeWrapper<mfem::GaussLinearDiscont2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::GaussLinearDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::GaussLinearDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:999:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::GaussLinearDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::GaussLinearDiscont2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::GaussLinearDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::GaussLinearDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1001:16
+    t.method("DofForGeometry", static_cast<int (mfem::GaussLinearDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::GaussLinearDiscont2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::GaussLinearDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::GaussLinearDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1003:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::GaussLinearDiscont2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::GaussLinearDiscont2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::GaussLinearDiscont2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::GaussLinearDiscont2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1006:25
+    t.method("Name", static_cast<const char * (mfem::GaussLinearDiscont2DFECollection::*)()  const>(&mfem::GaussLinearDiscont2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::GaussLinearDiscont2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::GaussLinearDiscont2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1008:16
+    t.method("GetContType", static_cast<int (mfem::GaussLinearDiscont2DFECollection::*)()  const>(&mfem::GaussLinearDiscont2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::GaussLinearDiscont2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_GaussLinearDiscont2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_GaussLinearDiscont2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::P1OnQuadFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::P1OnQuadFECollection> : std::false_type { };
+template<> struct SuperType<mfem::P1OnQuadFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_P1OnQuadFECollection: public Wrapper {
+
+  Jlmfem_P1OnQuadFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::P1OnQuadFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1012:7
+    jlcxx::TypeWrapper<mfem::P1OnQuadFECollection>  t = jlModule.add_type<mfem::P1OnQuadFECollection>("mfem!P1OnQuadFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::P1OnQuadFECollection>>(new jlcxx::TypeWrapper<mfem::P1OnQuadFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::P1OnQuadFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::P1OnQuadFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1019:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::P1OnQuadFECollection::*)(mfem::Geometry::Type)  const>(&mfem::P1OnQuadFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::P1OnQuadFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::P1OnQuadFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1020:16
+    t.method("DofForGeometry", static_cast<int (mfem::P1OnQuadFECollection::*)(mfem::Geometry::Type)  const>(&mfem::P1OnQuadFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::P1OnQuadFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::P1OnQuadFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1021:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::P1OnQuadFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::P1OnQuadFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::P1OnQuadFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::P1OnQuadFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1023:25
+    t.method("Name", static_cast<const char * (mfem::P1OnQuadFECollection::*)()  const>(&mfem::P1OnQuadFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::P1OnQuadFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::P1OnQuadFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1024:16
+    t.method("GetContType", static_cast<int (mfem::P1OnQuadFECollection::*)()  const>(&mfem::P1OnQuadFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::P1OnQuadFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_P1OnQuadFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_P1OnQuadFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::QuadraticDiscont2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::QuadraticDiscont2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::QuadraticDiscont2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_QuadraticDiscont2DFECollection: public Wrapper {
+
+  Jlmfem_QuadraticDiscont2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::QuadraticDiscont2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1030:7
+    jlcxx::TypeWrapper<mfem::QuadraticDiscont2DFECollection>  t = jlModule.add_type<mfem::QuadraticDiscont2DFECollection>("mfem!QuadraticDiscont2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticDiscont2DFECollection>>(new jlcxx::TypeWrapper<mfem::QuadraticDiscont2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::QuadraticDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::QuadraticDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1040:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::QuadraticDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticDiscont2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1042:16
+    t.method("DofForGeometry", static_cast<int (mfem::QuadraticDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticDiscont2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::QuadraticDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::QuadraticDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1044:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::QuadraticDiscont2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::QuadraticDiscont2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::QuadraticDiscont2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::QuadraticDiscont2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1047:25
+    t.method("Name", static_cast<const char * (mfem::QuadraticDiscont2DFECollection::*)()  const>(&mfem::QuadraticDiscont2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticDiscont2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticDiscont2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1048:16
+    t.method("GetContType", static_cast<int (mfem::QuadraticDiscont2DFECollection::*)()  const>(&mfem::QuadraticDiscont2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticDiscont2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_QuadraticDiscont2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_QuadraticDiscont2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::QuadraticPosDiscont2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::QuadraticPosDiscont2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::QuadraticPosDiscont2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_QuadraticPosDiscont2DFECollection: public Wrapper {
+
+  Jlmfem_QuadraticPosDiscont2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::QuadraticPosDiscont2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1052:7
+    jlcxx::TypeWrapper<mfem::QuadraticPosDiscont2DFECollection>  t = jlModule.add_type<mfem::QuadraticPosDiscont2DFECollection>("mfem!QuadraticPosDiscont2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticPosDiscont2DFECollection>>(new jlcxx::TypeWrapper<mfem::QuadraticPosDiscont2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::QuadraticPosDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::QuadraticPosDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1060:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::QuadraticPosDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticPosDiscont2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticPosDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticPosDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1061:16
+    t.method("DofForGeometry", static_cast<int (mfem::QuadraticPosDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticPosDiscont2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::QuadraticPosDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::QuadraticPosDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1062:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::QuadraticPosDiscont2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::QuadraticPosDiscont2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::QuadraticPosDiscont2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::QuadraticPosDiscont2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1065:25
+    t.method("Name", static_cast<const char * (mfem::QuadraticPosDiscont2DFECollection::*)()  const>(&mfem::QuadraticPosDiscont2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticPosDiscont2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticPosDiscont2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1066:16
+    t.method("GetContType", static_cast<int (mfem::QuadraticPosDiscont2DFECollection::*)()  const>(&mfem::QuadraticPosDiscont2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticPosDiscont2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_QuadraticPosDiscont2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_QuadraticPosDiscont2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::GaussQuadraticDiscont2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::GaussQuadraticDiscont2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::GaussQuadraticDiscont2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_GaussQuadraticDiscont2DFECollection: public Wrapper {
+
+  Jlmfem_GaussQuadraticDiscont2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::GaussQuadraticDiscont2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1070:7
+    jlcxx::TypeWrapper<mfem::GaussQuadraticDiscont2DFECollection>  t = jlModule.add_type<mfem::GaussQuadraticDiscont2DFECollection>("mfem!GaussQuadraticDiscont2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::GaussQuadraticDiscont2DFECollection>>(new jlcxx::TypeWrapper<mfem::GaussQuadraticDiscont2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::GaussQuadraticDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::GaussQuadraticDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1081:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::GaussQuadraticDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::GaussQuadraticDiscont2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::GaussQuadraticDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::GaussQuadraticDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1083:16
+    t.method("DofForGeometry", static_cast<int (mfem::GaussQuadraticDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::GaussQuadraticDiscont2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::GaussQuadraticDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::GaussQuadraticDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1085:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::GaussQuadraticDiscont2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::GaussQuadraticDiscont2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::GaussQuadraticDiscont2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::GaussQuadraticDiscont2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1088:25
+    t.method("Name", static_cast<const char * (mfem::GaussQuadraticDiscont2DFECollection::*)()  const>(&mfem::GaussQuadraticDiscont2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::GaussQuadraticDiscont2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::GaussQuadraticDiscont2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1089:16
+    t.method("GetContType", static_cast<int (mfem::GaussQuadraticDiscont2DFECollection::*)()  const>(&mfem::GaussQuadraticDiscont2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::GaussQuadraticDiscont2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_GaussQuadraticDiscont2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_GaussQuadraticDiscont2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::CubicDiscont2DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::CubicDiscont2DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::CubicDiscont2DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_CubicDiscont2DFECollection: public Wrapper {
+
+  Jlmfem_CubicDiscont2DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::CubicDiscont2DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1095:7
+    jlcxx::TypeWrapper<mfem::CubicDiscont2DFECollection>  t = jlModule.add_type<mfem::CubicDiscont2DFECollection>("mfem!CubicDiscont2DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::CubicDiscont2DFECollection>>(new jlcxx::TypeWrapper<mfem::CubicDiscont2DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::CubicDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::CubicDiscont2DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1105:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::CubicDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::CubicDiscont2DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::CubicDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::CubicDiscont2DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1107:16
+    t.method("DofForGeometry", static_cast<int (mfem::CubicDiscont2DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::CubicDiscont2DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::CubicDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::CubicDiscont2DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1109:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::CubicDiscont2DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::CubicDiscont2DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::CubicDiscont2DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::CubicDiscont2DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1112:25
+    t.method("Name", static_cast<const char * (mfem::CubicDiscont2DFECollection::*)()  const>(&mfem::CubicDiscont2DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::CubicDiscont2DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::CubicDiscont2DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1113:16
+    t.method("GetContType", static_cast<int (mfem::CubicDiscont2DFECollection::*)()  const>(&mfem::CubicDiscont2DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::CubicDiscont2DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_CubicDiscont2DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_CubicDiscont2DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Const3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Const3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::Const3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_Const3DFECollection: public Wrapper {
+
+  Jlmfem_Const3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Const3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1119:7
+    jlcxx::TypeWrapper<mfem::Const3DFECollection>  t = jlModule.add_type<mfem::Const3DFECollection>("mfem!Const3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Const3DFECollection>>(new jlcxx::TypeWrapper<mfem::Const3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::Const3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::Const3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1131:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::Const3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::Const3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Const3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Const3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1133:16
+    t.method("DofForGeometry", static_cast<int (mfem::Const3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::Const3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::Const3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::Const3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1135:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::Const3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::Const3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::Const3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::Const3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1138:25
+    t.method("Name", static_cast<const char * (mfem::Const3DFECollection::*)()  const>(&mfem::Const3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Const3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Const3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1139:16
+    t.method("GetContType", static_cast<int (mfem::Const3DFECollection::*)()  const>(&mfem::Const3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Const3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Const3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Const3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::LinearDiscont3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::LinearDiscont3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::LinearDiscont3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_LinearDiscont3DFECollection: public Wrapper {
+
+  Jlmfem_LinearDiscont3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::LinearDiscont3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1145:7
+    jlcxx::TypeWrapper<mfem::LinearDiscont3DFECollection>  t = jlModule.add_type<mfem::LinearDiscont3DFECollection>("mfem!LinearDiscont3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearDiscont3DFECollection>>(new jlcxx::TypeWrapper<mfem::LinearDiscont3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::LinearDiscont3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::LinearDiscont3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1157:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::LinearDiscont3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearDiscont3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearDiscont3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearDiscont3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1159:16
+    t.method("DofForGeometry", static_cast<int (mfem::LinearDiscont3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::LinearDiscont3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::LinearDiscont3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::LinearDiscont3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1161:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::LinearDiscont3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::LinearDiscont3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::LinearDiscont3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::LinearDiscont3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1164:25
+    t.method("Name", static_cast<const char * (mfem::LinearDiscont3DFECollection::*)()  const>(&mfem::LinearDiscont3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::LinearDiscont3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::LinearDiscont3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1165:16
+    t.method("GetContType", static_cast<int (mfem::LinearDiscont3DFECollection::*)()  const>(&mfem::LinearDiscont3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::LinearDiscont3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_LinearDiscont3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_LinearDiscont3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::QuadraticDiscont3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::QuadraticDiscont3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::QuadraticDiscont3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_QuadraticDiscont3DFECollection: public Wrapper {
+
+  Jlmfem_QuadraticDiscont3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::QuadraticDiscont3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1171:7
+    jlcxx::TypeWrapper<mfem::QuadraticDiscont3DFECollection>  t = jlModule.add_type<mfem::QuadraticDiscont3DFECollection>("mfem!QuadraticDiscont3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticDiscont3DFECollection>>(new jlcxx::TypeWrapper<mfem::QuadraticDiscont3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::QuadraticDiscont3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::QuadraticDiscont3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1182:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::QuadraticDiscont3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticDiscont3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticDiscont3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticDiscont3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1184:16
+    t.method("DofForGeometry", static_cast<int (mfem::QuadraticDiscont3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::QuadraticDiscont3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::QuadraticDiscont3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::QuadraticDiscont3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1186:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::QuadraticDiscont3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::QuadraticDiscont3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::QuadraticDiscont3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::QuadraticDiscont3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1189:25
+    t.method("Name", static_cast<const char * (mfem::QuadraticDiscont3DFECollection::*)()  const>(&mfem::QuadraticDiscont3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::QuadraticDiscont3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::QuadraticDiscont3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1190:16
+    t.method("GetContType", static_cast<int (mfem::QuadraticDiscont3DFECollection::*)()  const>(&mfem::QuadraticDiscont3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::QuadraticDiscont3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_QuadraticDiscont3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_QuadraticDiscont3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RefinedLinearFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RefinedLinearFECollection> : std::false_type { };
+template<> struct SuperType<mfem::RefinedLinearFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RefinedLinearFECollection: public Wrapper {
+
+  Jlmfem_RefinedLinearFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RefinedLinearFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1194:7
+    jlcxx::TypeWrapper<mfem::RefinedLinearFECollection>  t = jlModule.add_type<mfem::RefinedLinearFECollection>("mfem!RefinedLinearFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RefinedLinearFECollection>>(new jlcxx::TypeWrapper<mfem::RefinedLinearFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RefinedLinearFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RefinedLinearFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1208:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RefinedLinearFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RefinedLinearFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RefinedLinearFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RefinedLinearFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1210:16
+    t.method("DofForGeometry", static_cast<int (mfem::RefinedLinearFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RefinedLinearFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RefinedLinearFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RefinedLinearFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1212:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RefinedLinearFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RefinedLinearFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RefinedLinearFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RefinedLinearFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1215:25
+    t.method("Name", static_cast<const char * (mfem::RefinedLinearFECollection::*)()  const>(&mfem::RefinedLinearFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RefinedLinearFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RefinedLinearFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1216:16
+    t.method("GetContType", static_cast<int (mfem::RefinedLinearFECollection::*)()  const>(&mfem::RefinedLinearFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RefinedLinearFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RefinedLinearFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RefinedLinearFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ND1_3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ND1_3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::ND1_3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_ND1_3DFECollection: public Wrapper {
+
+  Jlmfem_ND1_3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ND1_3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1222:7
+    jlcxx::TypeWrapper<mfem::ND1_3DFECollection>  t = jlModule.add_type<mfem::ND1_3DFECollection>("mfem!ND1_3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ND1_3DFECollection>>(new jlcxx::TypeWrapper<mfem::ND1_3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::ND1_3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::ND1_3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1234:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::ND1_3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND1_3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND1_3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND1_3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1236:16
+    t.method("DofForGeometry", static_cast<int (mfem::ND1_3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::ND1_3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::ND1_3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::ND1_3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1238:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::ND1_3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::ND1_3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::ND1_3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::ND1_3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1241:25
+    t.method("Name", static_cast<const char * (mfem::ND1_3DFECollection::*)()  const>(&mfem::ND1_3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::ND1_3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::ND1_3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1242:16
+    t.method("GetContType", static_cast<int (mfem::ND1_3DFECollection::*)()  const>(&mfem::ND1_3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ND1_3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ND1_3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ND1_3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT0_3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT0_3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT0_3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT0_3DFECollection: public Wrapper {
+
+  Jlmfem_RT0_3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT0_3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1247:7
+    jlcxx::TypeWrapper<mfem::RT0_3DFECollection>  t = jlModule.add_type<mfem::RT0_3DFECollection>("mfem!RT0_3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT0_3DFECollection>>(new jlcxx::TypeWrapper<mfem::RT0_3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT0_3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT0_3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1260:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT0_3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT0_3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT0_3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT0_3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1262:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT0_3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT0_3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT0_3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT0_3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1264:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT0_3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT0_3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT0_3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT0_3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1267:25
+    t.method("Name", static_cast<const char * (mfem::RT0_3DFECollection::*)()  const>(&mfem::RT0_3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT0_3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT0_3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1268:16
+    t.method("GetContType", static_cast<int (mfem::RT0_3DFECollection::*)()  const>(&mfem::RT0_3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT0_3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT0_3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT0_3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RT1_3DFECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RT1_3DFECollection> : std::false_type { };
+template<> struct SuperType<mfem::RT1_3DFECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_RT1_3DFECollection: public Wrapper {
+
+  Jlmfem_RT1_3DFECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RT1_3DFECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1273:7
+    jlcxx::TypeWrapper<mfem::RT1_3DFECollection>  t = jlModule.add_type<mfem::RT1_3DFECollection>("mfem!RT1_3DFECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RT1_3DFECollection>>(new jlcxx::TypeWrapper<mfem::RT1_3DFECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::RT1_3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::RT1_3DFECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1283:4
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::RT1_3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT1_3DFECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT1_3DFECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT1_3DFECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1285:16
+    t.method("DofForGeometry", static_cast<int (mfem::RT1_3DFECollection::*)(mfem::Geometry::Type)  const>(&mfem::RT1_3DFECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::RT1_3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::RT1_3DFECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1287:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::RT1_3DFECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::RT1_3DFECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::RT1_3DFECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::RT1_3DFECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1290:25
+    t.method("Name", static_cast<const char * (mfem::RT1_3DFECollection::*)()  const>(&mfem::RT1_3DFECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::RT1_3DFECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::RT1_3DFECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1291:16
+    t.method("GetContType", static_cast<int (mfem::RT1_3DFECollection::*)()  const>(&mfem::RT1_3DFECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RT1_3DFECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RT1_3DFECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RT1_3DFECollection(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Local_FECollection> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Local_FECollection> : std::false_type { };
+template<> struct SuperType<mfem::Local_FECollection> { typedef mfem::FiniteElementCollection type; };
+}
+
+struct Jlmfem_Local_FECollection: public Wrapper {
+
+  Jlmfem_Local_FECollection(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Local_FECollection (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1295:7
+    jlcxx::TypeWrapper<mfem::Local_FECollection>  t = jlModule.add_type<mfem::Local_FECollection>("mfem!Local_FECollection"    , jlcxx::julia_base_type<mfem::FiniteElementCollection>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Local_FECollection>>(new jlcxx::TypeWrapper<mfem::Local_FECollection>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::Local_FECollection::Local_FECollection(const char *) (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1303:4
+    t.constructor<const char *>(/*finalize=*/true);
+
+    DEBUG_MSG("Adding wrapper for const mfem::FiniteElement * mfem::Local_FECollection::FiniteElementForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::FiniteElement * mfem::Local_FECollection::FiniteElementForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1305:33
+    t.method("FiniteElementForGeometry", static_cast<const mfem::FiniteElement * (mfem::Local_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::Local_FECollection::FiniteElementForGeometry));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Local_FECollection::DofForGeometry(mfem::Geometry::Type) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Local_FECollection::DofForGeometry(mfem::Geometry::Type)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1308:16
+    t.method("DofForGeometry", static_cast<int (mfem::Local_FECollection::*)(mfem::Geometry::Type)  const>(&mfem::Local_FECollection::DofForGeometry));
+
+    DEBUG_MSG("Adding wrapper for const int * mfem::Local_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int) (" __HERE__ ")");
+    // signature to use in the veto list: const int * mfem::Local_FECollection::DofOrderForOrientation(mfem::Geometry::Type, int)
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1310:23
+    t.method("DofOrderForOrientation", static_cast<const int * (mfem::Local_FECollection::*)(mfem::Geometry::Type, int)  const>(&mfem::Local_FECollection::DofOrderForOrientation));
+
+    DEBUG_MSG("Adding wrapper for const char * mfem::Local_FECollection::Name() (" __HERE__ ")");
+    // signature to use in the veto list: const char * mfem::Local_FECollection::Name()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1313:24
+    t.method("Name", static_cast<const char * (mfem::Local_FECollection::*)()  const>(&mfem::Local_FECollection::Name));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Local_FECollection::GetContType() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Local_FECollection::GetContType()
+    // defined in mfem/mesh/../fem/fe_coll.hpp:1316:16
+    t.method("GetContType", static_cast<int (mfem::Local_FECollection::*)()  const>(&mfem::Local_FECollection::GetContType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Local_FECollection>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Local_FECollection(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Local_FECollection(module));
+}
+
+namespace jlcxx {
   template<> struct IsMirroredType<mfem::LinearForm> : std::false_type { };
   template<> struct DefaultConstructible<mfem::LinearForm> : std::false_type { };
 template<> struct SuperType<mfem::LinearForm> { typedef mfem::Vector type; };
@@ -10339,8 +12705,8 @@ class Jlmfem_QuadratureFunction;
 class Jlmfem_ConstantCoefficient;
 class Jlmfem_PWConstCoefficient;
 class Jlmfem_PWCoefficient;
-// class Jlmfem_FunctionCoefficient;
-// class Jlstd_function;
+class Jlmfem_FunctionCoefficient;
+class Jlstd_function;
 class Jlmfem_CartesianCoefficient;
 class Jlmfem_CartesianXCoefficient;
 class Jlmfem_CartesianYCoefficient;
@@ -10417,6 +12783,50 @@ class Jlmfem_Vertex;
 class Jlmfem_CoarseFineTransformations;
 class Jlmfem_InverseElementTransformation;
 class Jlmfem_NodeExtrudeCoefficient;
+class Jlmfem_FiniteElementCollection;
+class Jlmfem_StatelessDofTransformation;
+class Jlmfem_H1_FECollection;
+class Jlmfem_H1Pos_FECollection;
+class Jlmfem_H1Ser_FECollection;
+class Jlmfem_H1_Trace_FECollection;
+class Jlmfem_L2_FECollection;
+class Jlmfem_RT_FECollection;
+class Jlmfem_RT_Trace_FECollection;
+class Jlmfem_DG_Interface_FECollection;
+class Jlmfem_ND_FECollection;
+class Jlmfem_ND_Trace_FECollection;
+class Jlmfem_ND_R1D_FECollection;
+class Jlmfem_RT_R1D_FECollection;
+class Jlmfem_ND_R2D_FECollection;
+class Jlmfem_ND_R2D_Trace_FECollection;
+class Jlmfem_RT_R2D_FECollection;
+class Jlmfem_RT_R2D_Trace_FECollection;
+class Jlmfem_NURBSFECollection;
+class Jlmfem_LinearFECollection;
+class Jlmfem_QuadraticFECollection;
+class Jlmfem_QuadraticPosFECollection;
+class Jlmfem_CubicFECollection;
+class Jlmfem_CrouzeixRaviartFECollection;
+class Jlmfem_LinearNonConf3DFECollection;
+class Jlmfem_RT0_2DFECollection;
+class Jlmfem_RT1_2DFECollection;
+class Jlmfem_RT2_2DFECollection;
+class Jlmfem_Const2DFECollection;
+class Jlmfem_LinearDiscont2DFECollection;
+class Jlmfem_GaussLinearDiscont2DFECollection;
+class Jlmfem_P1OnQuadFECollection;
+class Jlmfem_QuadraticDiscont2DFECollection;
+class Jlmfem_QuadraticPosDiscont2DFECollection;
+class Jlmfem_GaussQuadraticDiscont2DFECollection;
+class Jlmfem_CubicDiscont2DFECollection;
+class Jlmfem_Const3DFECollection;
+class Jlmfem_LinearDiscont3DFECollection;
+class Jlmfem_QuadraticDiscont3DFECollection;
+class Jlmfem_RefinedLinearFECollection;
+class Jlmfem_ND1_3DFECollection;
+class Jlmfem_RT0_3DFECollection;
+class Jlmfem_RT1_3DFECollection;
+class Jlmfem_Local_FECollection;
 class Jlmfem_LinearForm;
 class Jlmfem_LinearFormIntegrator;
 class Jlmfem_Hybridization;
@@ -10552,6 +12962,50 @@ std::shared_ptr<Wrapper> newJlmfem_Vertex(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_CoarseFineTransformations(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_InverseElementTransformation(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_NodeExtrudeCoefficient(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_FiniteElementCollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_StatelessDofTransformation(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_H1_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_H1Pos_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_H1Ser_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_H1_Trace_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_L2_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT_Trace_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_DG_Interface_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ND_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ND_Trace_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ND_R1D_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT_R1D_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ND_R2D_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ND_R2D_Trace_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT_R2D_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT_R2D_Trace_FECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_NURBSFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_LinearFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_QuadraticFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_QuadraticPosFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_CubicFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_CrouzeixRaviartFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_LinearNonConf3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT0_2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT1_2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT2_2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Const2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_LinearDiscont2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_GaussLinearDiscont2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_P1OnQuadFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_QuadraticDiscont2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_QuadraticPosDiscont2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_GaussQuadraticDiscont2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_CubicDiscont2DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Const3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_LinearDiscont3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_QuadraticDiscont3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RefinedLinearFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ND1_3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT0_3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RT1_3DFECollection(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Local_FECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_LinearForm(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_LinearFormIntegrator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Hybridization(jlcxx::Module&);
@@ -10690,6 +13144,50 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_CoarseFineTransformations(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_InverseElementTransformation(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_NodeExtrudeCoefficient(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_FiniteElementCollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_StatelessDofTransformation(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_H1_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_H1Pos_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_H1Ser_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_H1_Trace_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_L2_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT_Trace_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_DG_Interface_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ND_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ND_Trace_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ND_R1D_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT_R1D_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ND_R2D_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ND_R2D_Trace_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT_R2D_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT_R2D_Trace_FECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_NURBSFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_LinearFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_QuadraticFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_QuadraticPosFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_CubicFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_CrouzeixRaviartFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_LinearNonConf3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT0_2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT1_2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT2_2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Const2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_LinearDiscont2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_GaussLinearDiscont2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_P1OnQuadFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_QuadraticDiscont2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_QuadraticPosDiscont2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_GaussQuadraticDiscont2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_CubicDiscont2DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Const3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_LinearDiscont3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_QuadraticDiscont3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RefinedLinearFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ND1_3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT0_3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RT1_3DFECollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Local_FECollection(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_LinearForm(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_LinearFormIntegrator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Hybridization(jlModule)),
@@ -10878,6 +13376,17 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   jlModule.set_const("mfem!FaceGeometricFactors!JACOBIANS", mfem::FaceGeometricFactors::JACOBIANS);
   jlModule.set_const("mfem!FaceGeometricFactors!DETERMINANTS", mfem::FaceGeometricFactors::DETERMINANTS);
   jlModule.set_const("mfem!FaceGeometricFactors!NORMALS", mfem::FaceGeometricFactors::NORMALS);
+
+  DEBUG_MSG("Adding anonymous enum defined in mfem/mesh/../fem/fe_coll.hpp:45:4 (" __HERE__ ")");
+  // defined in mfem/mesh/../fem/fe_coll.hpp:45:4
+  jlModule.set_const("mfem!FiniteElementCollection!CONTINUOUS", static_cast<int>(mfem::FiniteElementCollection::CONTINUOUS));
+  jlModule.set_const("mfem!FiniteElementCollection!TANGENTIAL", static_cast<int>(mfem::FiniteElementCollection::TANGENTIAL));
+  jlModule.set_const("mfem!FiniteElementCollection!NORMAL", static_cast<int>(mfem::FiniteElementCollection::NORMAL));
+  jlModule.set_const("mfem!FiniteElementCollection!DISCONTINUOUS", static_cast<int>(mfem::FiniteElementCollection::DISCONTINUOUS));
+
+  DEBUG_MSG("Adding anonymous enum defined in mfem/mesh/../fem/fe_coll.hpp:666:4 (" __HERE__ ")");
+  // defined in mfem/mesh/../fem/fe_coll.hpp:666:4
+  jlModule.set_const("mfem!NURBSFECollection!VariableOrder", static_cast<int>(mfem::NURBSFECollection::VariableOrder));
 
   DEBUG_MSG("Adding wrapper for enum mfem::AssemblyLevel (" __HERE__ ")");
   // defined in mfem/fem/bilinearform.hpp:31:12
