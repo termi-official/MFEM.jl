@@ -10,5 +10,5 @@ fec = MFEM.mfem!H1_FECollection(order, Dimension(mesh))
 fespace = MFEM.mfem!FiniteElementSpace(CxxPtr(mesh), CxxPtr(fec))
 println("Number of unknowns: $(GetTrueVSize(fespace))")
 
-# boundary_dofs = nothing # TODO wrap Array<int>
-# GetBoundaryTrueDofs(fespace, boundary_dofs);
+boundary_dofs = MFEM.mfem!Array{Int32}(0)
+GetBoundaryTrueDofs(fespace, boundary_dofs); # TODO this is not wrapped for some reason.

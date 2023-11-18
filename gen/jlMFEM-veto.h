@@ -22,15 +22,15 @@ mfem::Mesh::NURBSext
 mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage)
 int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage)
 
-// Temporary veto to expose the bugs
-mfem::Array<int>
-mfem::Mesh::geom_factors
-mfem::Mesh::face_geom_factors
-mfem::Mesh::attributes
-mfem::Mesh::bdr_attributes
-
 // Potential bugs
 // Not sure what happened here. Codegen looks faulty
 int mfem::Ordering::Map(int, int, int, int)
 // mfem!IntRules! -> Don't know how to veto. The setter should not be generated because the copy ctor for the type is deleted.
 // wrapper for void mfem::Mesh::Mesh(int, int, int, int, int) -> Not even sure what fails here. Maybe a conflict with the string ctor, which is modeled as "int"?
+mfem::GeometricFactors
+mfem::Mesh::geom_factors
+const mfem::GeometricFactors * mfem::Mesh::GetGeometricFactors(const mfem::IntegrationRule &, const int, mfem::MemoryType)
+void mfem::Mesh::DeleteGeometricFactors()
+mfem::FaceGeometricFactors
+mfem::Mesh::face_geom_factors
+const mfem::FaceGeometricFactors * mfem::Mesh::GetFaceGeometricFactors(const mfem::IntegrationRule &, const int, mfem::FaceType, mfem::MemoryType)

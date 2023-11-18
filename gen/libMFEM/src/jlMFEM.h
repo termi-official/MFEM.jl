@@ -1,3 +1,4 @@
+#include "templates.h"
 #include "mfem/general/array.hpp"
 #include "mfem/mesh/mesh.hpp"
 #include "mfem/fem/fe_coll.hpp"

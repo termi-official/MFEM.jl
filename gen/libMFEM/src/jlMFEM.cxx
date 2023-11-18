@@ -8,6 +8,138 @@
 #include "Wrapper.h"
 
 namespace jlcxx {
+
+  template<typename T>
+  struct BuildParameterList<mfem::Array<T>>
+  {
+    typedef ParameterList<T> type;
+  };
+
+  template<typename T> struct IsMirroredType<mfem::Array<T>> : std::false_type { };
+  template<typename T> struct DefaultConstructible<mfem::Array<T>> : std::false_type { };
+}
+
+struct Jlmfem_Array: public Wrapper {
+
+  Jlmfem_Array(jlcxx::Module& jlModule): Wrapper(jlModule){
+  // defined in mfem/mesh/../general/array.hpp:45:7
+    jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>  t =  jlModule.add_type<jlcxx::Parametric<jlcxx::TypeVar<1>>>("mfem!Array");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>>(new jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.constructor<>(/*finalize=*/true);
+    auto t1_decl_methods = []<typename T> (jlcxx::TypeWrapper<mfem::Array<T>> wrapped){
+      typedef mfem::Array<T> WrappedType;
+      wrapped.template constructor<>(/*finalize=*/true);
+
+
+      // DEBUG_MSG("Adding wrapper for void WrappedType::Array<T>(mfem::MemoryType) (" __HERE__ ")");
+      // // defined in mfem/mesh/../general/array.hpp:67:11
+      // wrapped.template constructor<mfem::MemoryType>(/*finalize=*/true);
+
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::Array<T>(int) (" __HERE__ ")");
+      // defined in mfem/mesh/../general/array.hpp:70:20
+      wrapped.template constructor<int>(/*finalize=*/true);
+
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::Array<T>(int, mfem::MemoryType) (" __HERE__ ")");
+      // defined in mfem/mesh/../general/array.hpp:74:11
+      wrapped.template constructor<int, mfem::MemoryType>(/*finalize=*/true);
+
+      DEBUG_MSG("Adding wrapper for bool WrappedType::UseDevice() (" __HERE__ ")");
+      // signature to use in the veto list: bool WrappedType::UseDevice()
+      // defined in mfem/mesh/../general/array.hpp:126:9
+      wrapped.method("UseDevice", static_cast<bool (WrappedType::*)()  const>(&WrappedType::UseDevice));
+
+      DEBUG_MSG("Adding wrapper for bool WrappedType::OwnsData() (" __HERE__ ")");
+      // signature to use in the veto list: bool WrappedType::OwnsData()
+      // defined in mfem/mesh/../general/array.hpp:129:16
+      wrapped.method("OwnsData", static_cast<bool (WrappedType::*)()  const>(&WrappedType::OwnsData));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::LoseData() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::LoseData()
+      // defined in mfem/mesh/../general/array.hpp:135:16
+      wrapped.method("LoseData", static_cast<void (WrappedType::*)() >(&WrappedType::LoseData));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::MakeDataOwner() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::MakeDataOwner()
+      // defined in mfem/mesh/../general/array.hpp:138:9
+      wrapped.method("MakeDataOwner", static_cast<void (WrappedType::*)()  const>(&WrappedType::MakeDataOwner));
+
+      DEBUG_MSG("Adding wrapper for int WrappedType::Size() (" __HERE__ ")");
+      // signature to use in the veto list: int WrappedType::Size()
+      // defined in mfem/mesh/../general/array.hpp:141:15
+      wrapped.method("Size", static_cast<int (WrappedType::*)()  const>(&WrappedType::Size));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::SetSize(int) (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::SetSize(int)
+      // defined in mfem/mesh/../general/array.hpp:144:16
+      wrapped.method("SetSize", static_cast<void (WrappedType::*)(int) >(&WrappedType::SetSize));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::SetSize(int, mfem::MemoryType) (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::SetSize(int, mfem::MemoryType)
+      // defined in mfem/mesh/../general/array.hpp:152:16
+      wrapped.method("SetSize", static_cast<void (WrappedType::*)(int, mfem::MemoryType) >(&WrappedType::SetSize));
+
+      DEBUG_MSG("Adding wrapper for int WrappedType::Capacity() (" __HERE__ ")");
+      // signature to use in the veto list: int WrappedType::Capacity()
+      // defined in mfem/mesh/../general/array.hpp:156:15
+      wrapped.method("Capacity", static_cast<int (WrappedType::*)()  const>(&WrappedType::Capacity));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::Reserve(int) (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::Reserve(int)
+      // defined in mfem/mesh/../general/array.hpp:159:16
+      wrapped.method("Reserve", static_cast<void (WrappedType::*)(int) >(&WrappedType::Reserve));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::DeleteLast() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::DeleteLast()
+      // defined in mfem/mesh/../general/array.hpp:196:16
+      wrapped.method("DeleteLast", static_cast<void (WrappedType::*)() >(&WrappedType::DeleteLast));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::DeleteAll() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::DeleteAll()
+      // defined in mfem/mesh/../general/array.hpp:202:16
+      wrapped.method("DeleteAll", static_cast<void (WrappedType::*)() >(&WrappedType::DeleteAll));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::Sort() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::Sort()
+      // defined in mfem/mesh/../general/array.hpp:251:9
+      wrapped.method("Sort", static_cast<void (WrappedType::*)() >(&WrappedType::Sort));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::Unique() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::Unique()
+      // defined in mfem/mesh/../general/array.hpp:259:9
+      wrapped.method("Unique", static_cast<void (WrappedType::*)() >(&WrappedType::Unique));
+
+      DEBUG_MSG("Adding wrapper for int WrappedType::IsSorted() (" __HERE__ ")");
+      // signature to use in the veto list: int WrappedType::IsSorted()
+      // defined in mfem/mesh/../general/array.hpp:266:8
+      wrapped.method("IsSorted", static_cast<int (WrappedType::*)() >(&WrappedType::IsSorted));
+
+      DEBUG_MSG("Adding wrapper for void WrappedType::PartialSum() (" __HERE__ ")");
+      // signature to use in the veto list: void WrappedType::PartialSum()
+      // defined in mfem/mesh/../general/array.hpp:269:9
+      wrapped.method("PartialSum", static_cast<void (WrappedType::*)() >(&WrappedType::PartialSum));
+
+      DEBUG_MSG("Adding wrapper for std::size_t WrappedType::MemoryUsage() (" __HERE__ ")");
+      // signature to use in the veto list: std::size_t WrappedType::MemoryUsage()
+      // defined in mfem/mesh/../general/array.hpp:304:16
+      wrapped.method("MemoryUsage", static_cast<std::size_t (WrappedType::*)()  const>(&WrappedType::MemoryUsage));
+    };
+    t.apply<mfem::Array<int>>(t1_decl_methods);
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Array(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Array(module));
+}
+
+namespace jlcxx {
   template<> struct IsMirroredType<mfem::Vector> : std::false_type { };
   template<> struct DefaultConstructible<mfem::Vector> : std::false_type { };
 }
@@ -4041,25 +4173,6 @@ struct Jlmfem_Mesh: public Wrapper {
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1525:32
     t.method("GetBdrFaceTransformations", static_cast<mfem::FaceElementTransformations * (mfem::Mesh::*)(int) >(&mfem::Mesh::GetBdrFaceTransformations));
 
-    DEBUG_MSG("Adding wrapper for const mfem::GeometricFactors * mfem::Mesh::GetGeometricFactors(const mfem::IntegrationRule &, const int, mfem::MemoryType) (" __HERE__ ")");
-    // signature to use in the veto list: const mfem::GeometricFactors * mfem::Mesh::GetGeometricFactors(const mfem::IntegrationRule &, const int, mfem::MemoryType)
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1554:28
-    t.method("GetGeometricFactors", static_cast<const mfem::GeometricFactors * (mfem::Mesh::*)(const mfem::IntegrationRule &, const int, mfem::MemoryType) >(&mfem::Mesh::GetGeometricFactors));
-    t.method("GetGeometricFactors", [](mfem::Mesh& a, const mfem::IntegrationRule & arg0, const int arg1)->const mfem::GeometricFactors *{ return a.GetGeometricFactors(arg0, arg1); });
-    t.method("GetGeometricFactors", [](mfem::Mesh* a, const mfem::IntegrationRule & arg0, const int arg1)->const mfem::GeometricFactors *{ return a->GetGeometricFactors(arg0, arg1); });
-
-    DEBUG_MSG("Adding wrapper for const mfem::FaceGeometricFactors * mfem::Mesh::GetFaceGeometricFactors(const mfem::IntegrationRule &, const int, mfem::FaceType, mfem::MemoryType) (" __HERE__ ")");
-    // signature to use in the veto list: const mfem::FaceGeometricFactors * mfem::Mesh::GetFaceGeometricFactors(const mfem::IntegrationRule &, const int, mfem::FaceType, mfem::MemoryType)
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1577:32
-    t.method("GetFaceGeometricFactors", static_cast<const mfem::FaceGeometricFactors * (mfem::Mesh::*)(const mfem::IntegrationRule &, const int, mfem::FaceType, mfem::MemoryType) >(&mfem::Mesh::GetFaceGeometricFactors));
-    t.method("GetFaceGeometricFactors", [](mfem::Mesh& a, const mfem::IntegrationRule & arg0, const int arg1, mfem::FaceType arg2)->const mfem::FaceGeometricFactors *{ return a.GetFaceGeometricFactors(arg0, arg1, arg2); });
-    t.method("GetFaceGeometricFactors", [](mfem::Mesh* a, const mfem::IntegrationRule & arg0, const int arg1, mfem::FaceType arg2)->const mfem::FaceGeometricFactors *{ return a->GetFaceGeometricFactors(arg0, arg1, arg2); });
-
-    DEBUG_MSG("Adding wrapper for void mfem::Mesh::DeleteGeometricFactors() (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::Mesh::DeleteGeometricFactors()
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1589:9
-    t.method("DeleteGeometricFactors", static_cast<void (mfem::Mesh::*)() >(&mfem::Mesh::DeleteGeometricFactors));
-
     DEBUG_MSG("Adding wrapper for void mfem::Mesh::GetPointMatrix(int, mfem::DenseMatrix &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::Mesh::GetPointMatrix(int, mfem::DenseMatrix &)
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:1758:9
@@ -4383,6 +4496,40 @@ struct Jlmfem_Mesh: public Wrapper {
     // signature to use in the veto list: void mfem::Mesh::CheckDisplacements(const mfem::Vector &, double &)
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2169:9
     t.method("CheckDisplacements", static_cast<void (mfem::Mesh::*)(const mfem::Vector &, double &) >(&mfem::Mesh::CheckDisplacements));
+
+    DEBUG_MSG("Adding attributes methods  to provide read access to the field attributes (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:273:15
+    // signature to use in the veto list: mfem::Mesh::attributes
+    t.method("attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.attributes; });
+    t.method("attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.attributes; });
+    t.method("attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->attributes; });
+    t.method("attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->attributes; });
+    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:273:15
+    // signature to use in the veto list: mfem::Mesh::attributes
+    // with ! suffix to veto the setter only
+
+    DEBUG_MSG("Adding attributes! methods to provide write access to the field attributes (" __HERE__ ")");
+    t.method("attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.attributes = val; });
+
+    DEBUG_MSG("Adding attributes! methods to provide write access to the field attributes (" __HERE__ ")");
+    t.method("attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->attributes = val; });
+
+    DEBUG_MSG("Adding bdr_attributes methods  to provide read access to the field bdr_attributes (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:275:15
+    // signature to use in the veto list: mfem::Mesh::bdr_attributes
+    t.method("bdr_attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.bdr_attributes; });
+    t.method("bdr_attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.bdr_attributes; });
+    t.method("bdr_attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->bdr_attributes; });
+    t.method("bdr_attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->bdr_attributes; });
+    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:275:15
+    // signature to use in the veto list: mfem::Mesh::bdr_attributes
+    // with ! suffix to veto the setter only
+
+    DEBUG_MSG("Adding bdr_attributes! methods to provide write access to the field bdr_attributes (" __HERE__ ")");
+    t.method("bdr_attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.bdr_attributes = val; });
+
+    DEBUG_MSG("Adding bdr_attributes! methods to provide write access to the field bdr_attributes (" __HERE__ ")");
+    t.method("bdr_attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->bdr_attributes = val; });
   }
 
 private:
@@ -8129,268 +8276,6 @@ private:
 };
 std::shared_ptr<Wrapper> newJlmfem_FaceElementTransformations(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new Jlmfem_FaceElementTransformations(module));
-}
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::GeometricFactors> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::GeometricFactors> : std::false_type { };
-}
-
-struct Jlmfem_GeometricFactors: public Wrapper {
-
-  Jlmfem_GeometricFactors(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::GeometricFactors (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2183:7
-    jlcxx::TypeWrapper<mfem::GeometricFactors>  t = jlModule.add_type<mfem::GeometricFactors>("mfem!GeometricFactors");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::GeometricFactors>>(new jlcxx::TypeWrapper<mfem::GeometricFactors>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-
-
-    DEBUG_MSG("Adding wrapper for void mfem::GeometricFactors::GeometricFactors(const mfem::Mesh *, const mfem::IntegrationRule &, int, mfem::MemoryType) (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2202:4
-    t.constructor<const mfem::Mesh *, const mfem::IntegrationRule &, int>(/*finalize=*/true);
-    t.constructor<const mfem::Mesh *, const mfem::IntegrationRule &, int, mfem::MemoryType>(/*finalize=*/true);
-
-
-    DEBUG_MSG("Adding wrapper for void mfem::GeometricFactors::GeometricFactors(const mfem::GridFunction &, const mfem::IntegrationRule &, int, mfem::MemoryType) (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2205:4
-    t.constructor<const mfem::GridFunction &, const mfem::IntegrationRule &, int>(/*finalize=*/true);
-    t.constructor<const mfem::GridFunction &, const mfem::IntegrationRule &, int, mfem::MemoryType>(/*finalize=*/true);
-
-    DEBUG_MSG("Adding mesh methods  to provide read access to the field mesh (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2191:16
-    // signature to use in the veto list: mfem::GeometricFactors::mesh
-    t.method("mesh", [](const mfem::GeometricFactors& a) -> const mfem::Mesh * { return a.mesh; });
-    t.method("mesh", [](const mfem::GeometricFactors* a) -> const mfem::Mesh * { return a->mesh; });
-
-    DEBUG_MSG("Adding IntRule methods  to provide read access to the field IntRule (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2192:27
-    // signature to use in the veto list: mfem::GeometricFactors::IntRule
-    t.method("IntRule", [](const mfem::GeometricFactors& a) -> const mfem::IntegrationRule * { return a.IntRule; });
-    t.method("IntRule", [](const mfem::GeometricFactors* a) -> const mfem::IntegrationRule * { return a->IntRule; });
-
-    DEBUG_MSG("Adding computed_factors methods  to provide read access to the field computed_factors (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2193:8
-    // signature to use in the veto list: mfem::GeometricFactors::computed_factors
-    t.method("computed_factors", [](const mfem::GeometricFactors& a) -> int { return a.computed_factors; });
-    t.method("computed_factors", [](mfem::GeometricFactors& a) -> int { return a.computed_factors; });
-    t.method("computed_factors", [](const mfem::GeometricFactors* a) -> int { return a->computed_factors; });
-    t.method("computed_factors", [](mfem::GeometricFactors* a) -> int { return a->computed_factors; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2193:8
-    // signature to use in the veto list: mfem::GeometricFactors::computed_factors
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding computed_factors! methods to provide write access to the field computed_factors (" __HERE__ ")");
-    t.method("computed_factors!", [](mfem::GeometricFactors& a, int val) -> int { return a.computed_factors = val; });
-
-    DEBUG_MSG("Adding computed_factors! methods to provide write access to the field computed_factors (" __HERE__ ")");
-    t.method("computed_factors!", [](mfem::GeometricFactors* a, int val) -> int { return a->computed_factors = val; });
-
-    DEBUG_MSG("Adding X methods  to provide read access to the field X (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2215:11
-    // signature to use in the veto list: mfem::GeometricFactors::X
-    t.method("X", [](const mfem::GeometricFactors& a) -> const mfem::Vector& { return a.X; });
-    t.method("X", [](mfem::GeometricFactors& a) -> mfem::Vector& { return a.X; });
-    t.method("X", [](const mfem::GeometricFactors* a) -> const mfem::Vector& { return a->X; });
-    t.method("X", [](mfem::GeometricFactors* a) -> mfem::Vector& { return a->X; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2215:11
-    // signature to use in the veto list: mfem::GeometricFactors::X
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding X! methods to provide write access to the field X (" __HERE__ ")");
-    t.method("X!", [](mfem::GeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.X = val; });
-
-    DEBUG_MSG("Adding X! methods to provide write access to the field X (" __HERE__ ")");
-    t.method("X!", [](mfem::GeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->X = val; });
-
-    DEBUG_MSG("Adding J methods  to provide read access to the field J (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2224:11
-    // signature to use in the veto list: mfem::GeometricFactors::J
-    t.method("J", [](const mfem::GeometricFactors& a) -> const mfem::Vector& { return a.J; });
-    t.method("J", [](mfem::GeometricFactors& a) -> mfem::Vector& { return a.J; });
-    t.method("J", [](const mfem::GeometricFactors* a) -> const mfem::Vector& { return a->J; });
-    t.method("J", [](mfem::GeometricFactors* a) -> mfem::Vector& { return a->J; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2224:11
-    // signature to use in the veto list: mfem::GeometricFactors::J
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding J! methods to provide write access to the field J (" __HERE__ ")");
-    t.method("J!", [](mfem::GeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.J = val; });
-
-    DEBUG_MSG("Adding J! methods to provide write access to the field J (" __HERE__ ")");
-    t.method("J!", [](mfem::GeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->J = val; });
-
-    DEBUG_MSG("Adding detJ methods  to provide read access to the field detJ (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2230:11
-    // signature to use in the veto list: mfem::GeometricFactors::detJ
-    t.method("detJ", [](const mfem::GeometricFactors& a) -> const mfem::Vector& { return a.detJ; });
-    t.method("detJ", [](mfem::GeometricFactors& a) -> mfem::Vector& { return a.detJ; });
-    t.method("detJ", [](const mfem::GeometricFactors* a) -> const mfem::Vector& { return a->detJ; });
-    t.method("detJ", [](mfem::GeometricFactors* a) -> mfem::Vector& { return a->detJ; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2230:11
-    // signature to use in the veto list: mfem::GeometricFactors::detJ
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding detJ! methods to provide write access to the field detJ (" __HERE__ ")");
-    t.method("detJ!", [](mfem::GeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.detJ = val; });
-
-    DEBUG_MSG("Adding detJ! methods to provide write access to the field detJ (" __HERE__ ")");
-    t.method("detJ!", [](mfem::GeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->detJ = val; });
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::GeometricFactors>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_GeometricFactors(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_GeometricFactors(module));
-}
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::FaceGeometricFactors> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::FaceGeometricFactors> : std::false_type { };
-}
-
-struct Jlmfem_FaceGeometricFactors: public Wrapper {
-
-  Jlmfem_FaceGeometricFactors(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::FaceGeometricFactors (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2237:7
-    jlcxx::TypeWrapper<mfem::FaceGeometricFactors>  t = jlModule.add_type<mfem::FaceGeometricFactors>("mfem!FaceGeometricFactors");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::FaceGeometricFactors>>(new jlcxx::TypeWrapper<mfem::FaceGeometricFactors>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-
-
-    DEBUG_MSG("Adding wrapper for void mfem::FaceGeometricFactors::FaceGeometricFactors(const mfem::Mesh *, const mfem::IntegrationRule &, int, mfem::FaceType, mfem::MemoryType) (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2253:4
-    t.constructor<const mfem::Mesh *, const mfem::IntegrationRule &, int, mfem::FaceType>(/*finalize=*/true);
-    t.constructor<const mfem::Mesh *, const mfem::IntegrationRule &, int, mfem::FaceType, mfem::MemoryType>(/*finalize=*/true);
-
-    DEBUG_MSG("Adding mesh methods  to provide read access to the field mesh (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2240:16
-    // signature to use in the veto list: mfem::FaceGeometricFactors::mesh
-    t.method("mesh", [](const mfem::FaceGeometricFactors& a) -> const mfem::Mesh * { return a.mesh; });
-    t.method("mesh", [](const mfem::FaceGeometricFactors* a) -> const mfem::Mesh * { return a->mesh; });
-
-    DEBUG_MSG("Adding IntRule methods  to provide read access to the field IntRule (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2241:27
-    // signature to use in the veto list: mfem::FaceGeometricFactors::IntRule
-    t.method("IntRule", [](const mfem::FaceGeometricFactors& a) -> const mfem::IntegrationRule * { return a.IntRule; });
-    t.method("IntRule", [](const mfem::FaceGeometricFactors* a) -> const mfem::IntegrationRule * { return a->IntRule; });
-
-    DEBUG_MSG("Adding computed_factors methods  to provide read access to the field computed_factors (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2242:8
-    // signature to use in the veto list: mfem::FaceGeometricFactors::computed_factors
-    t.method("computed_factors", [](const mfem::FaceGeometricFactors& a) -> int { return a.computed_factors; });
-    t.method("computed_factors", [](mfem::FaceGeometricFactors& a) -> int { return a.computed_factors; });
-    t.method("computed_factors", [](const mfem::FaceGeometricFactors* a) -> int { return a->computed_factors; });
-    t.method("computed_factors", [](mfem::FaceGeometricFactors* a) -> int { return a->computed_factors; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2242:8
-    // signature to use in the veto list: mfem::FaceGeometricFactors::computed_factors
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding computed_factors! methods to provide write access to the field computed_factors (" __HERE__ ")");
-    t.method("computed_factors!", [](mfem::FaceGeometricFactors& a, int val) -> int { return a.computed_factors = val; });
-
-    DEBUG_MSG("Adding computed_factors! methods to provide write access to the field computed_factors (" __HERE__ ")");
-    t.method("computed_factors!", [](mfem::FaceGeometricFactors* a, int val) -> int { return a->computed_factors = val; });
-
-    DEBUG_MSG("Adding type methods  to provide read access to the field type (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2243:13
-    // signature to use in the veto list: mfem::FaceGeometricFactors::type
-    t.method("type", [](const mfem::FaceGeometricFactors& a) -> mfem::FaceType { return a.type; });
-    t.method("type", [](mfem::FaceGeometricFactors& a) -> mfem::FaceType { return a.type; });
-    t.method("type", [](const mfem::FaceGeometricFactors* a) -> mfem::FaceType { return a->type; });
-    t.method("type", [](mfem::FaceGeometricFactors* a) -> mfem::FaceType { return a->type; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2243:13
-    // signature to use in the veto list: mfem::FaceGeometricFactors::type
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding type! methods to provide write access to the field type (" __HERE__ ")");
-    t.method("type!", [](mfem::FaceGeometricFactors& a, mfem::FaceType val) -> mfem::FaceType { return a.type = val; });
-
-    DEBUG_MSG("Adding type! methods to provide write access to the field type (" __HERE__ ")");
-    t.method("type!", [](mfem::FaceGeometricFactors* a, mfem::FaceType val) -> mfem::FaceType { return a->type = val; });
-
-    DEBUG_MSG("Adding X methods  to provide read access to the field X (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2262:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::X
-    t.method("X", [](const mfem::FaceGeometricFactors& a) -> const mfem::Vector& { return a.X; });
-    t.method("X", [](mfem::FaceGeometricFactors& a) -> mfem::Vector& { return a.X; });
-    t.method("X", [](const mfem::FaceGeometricFactors* a) -> const mfem::Vector& { return a->X; });
-    t.method("X", [](mfem::FaceGeometricFactors* a) -> mfem::Vector& { return a->X; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2262:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::X
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding X! methods to provide write access to the field X (" __HERE__ ")");
-    t.method("X!", [](mfem::FaceGeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.X = val; });
-
-    DEBUG_MSG("Adding X! methods to provide write access to the field X (" __HERE__ ")");
-    t.method("X!", [](mfem::FaceGeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->X = val; });
-
-    DEBUG_MSG("Adding J methods  to provide read access to the field J (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2271:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::J
-    t.method("J", [](const mfem::FaceGeometricFactors& a) -> const mfem::Vector& { return a.J; });
-    t.method("J", [](mfem::FaceGeometricFactors& a) -> mfem::Vector& { return a.J; });
-    t.method("J", [](const mfem::FaceGeometricFactors* a) -> const mfem::Vector& { return a->J; });
-    t.method("J", [](mfem::FaceGeometricFactors* a) -> mfem::Vector& { return a->J; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2271:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::J
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding J! methods to provide write access to the field J (" __HERE__ ")");
-    t.method("J!", [](mfem::FaceGeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.J = val; });
-
-    DEBUG_MSG("Adding J! methods to provide write access to the field J (" __HERE__ ")");
-    t.method("J!", [](mfem::FaceGeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->J = val; });
-
-    DEBUG_MSG("Adding detJ methods  to provide read access to the field detJ (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2277:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::detJ
-    t.method("detJ", [](const mfem::FaceGeometricFactors& a) -> const mfem::Vector& { return a.detJ; });
-    t.method("detJ", [](mfem::FaceGeometricFactors& a) -> mfem::Vector& { return a.detJ; });
-    t.method("detJ", [](const mfem::FaceGeometricFactors* a) -> const mfem::Vector& { return a->detJ; });
-    t.method("detJ", [](mfem::FaceGeometricFactors* a) -> mfem::Vector& { return a->detJ; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2277:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::detJ
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding detJ! methods to provide write access to the field detJ (" __HERE__ ")");
-    t.method("detJ!", [](mfem::FaceGeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.detJ = val; });
-
-    DEBUG_MSG("Adding detJ! methods to provide write access to the field detJ (" __HERE__ ")");
-    t.method("detJ!", [](mfem::FaceGeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->detJ = val; });
-
-    DEBUG_MSG("Adding normal methods  to provide read access to the field normal (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2284:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::normal
-    t.method("normal", [](const mfem::FaceGeometricFactors& a) -> const mfem::Vector& { return a.normal; });
-    t.method("normal", [](mfem::FaceGeometricFactors& a) -> mfem::Vector& { return a.normal; });
-    t.method("normal", [](const mfem::FaceGeometricFactors* a) -> const mfem::Vector& { return a->normal; });
-    t.method("normal", [](mfem::FaceGeometricFactors* a) -> mfem::Vector& { return a->normal; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2284:11
-    // signature to use in the veto list: mfem::FaceGeometricFactors::normal
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding normal! methods to provide write access to the field normal (" __HERE__ ")");
-    t.method("normal!", [](mfem::FaceGeometricFactors& a, const mfem::Vector& val) -> mfem::Vector& { return a.normal = val; });
-
-    DEBUG_MSG("Adding normal! methods to provide write access to the field normal (" __HERE__ ")");
-    t.method("normal!", [](mfem::FaceGeometricFactors* a, const mfem::Vector& val) -> mfem::Vector& { return a->normal = val; });
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::FaceGeometricFactors>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_FaceGeometricFactors(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_FaceGeometricFactors(module));
 }
 
 namespace jlcxx {
@@ -12835,6 +12720,7 @@ std::shared_ptr<Wrapper> newJlGlobal(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new JlGlobal(module));
 }
 
+class Jlmfem_Array;
 class Jlmfem_Vector;
 class Jlmfem_RowNode;
 class Jlmfem_AbstractSparseMatrix;
@@ -12943,8 +12829,6 @@ class Jlmfem_DSTable;
 class Jlmfem_FiniteElement;
 class Jlmfem_IsoparametricTransformation;
 class Jlmfem_FaceElementTransformations;
-class Jlmfem_GeometricFactors;
-class Jlmfem_FaceGeometricFactors;
 class Jlmfem_Mesh_FaceInformation;
 class Jlmfem_FiniteElementSpace;
 class Jlmfem_Vertex;
@@ -13014,6 +12898,7 @@ class Jlmfem_VisItDataCollection;
 class Jlmfem_ParaViewDataCollection;
 class JlGlobal;
 
+std::shared_ptr<Wrapper> newJlmfem_Array(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Vector(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RowNode(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_AbstractSparseMatrix(jlcxx::Module&);
@@ -13122,8 +13007,6 @@ std::shared_ptr<Wrapper> newJlmfem_DSTable(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_FiniteElement(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_IsoparametricTransformation(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_FaceElementTransformations(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_GeometricFactors(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_FaceGeometricFactors(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Mesh_FaceInformation(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_FiniteElementSpace(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Vertex(jlcxx::Module&);
@@ -13196,6 +13079,7 @@ std::shared_ptr<Wrapper> newJlGlobal(jlcxx::Module&);
 
 JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   std::vector<std::shared_ptr<Wrapper>> wrappers = {
+    std::shared_ptr<Wrapper>(newJlmfem_Array(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Vector(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_RowNode(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_AbstractSparseMatrix(jlModule)),
@@ -13304,8 +13188,6 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_FiniteElement(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_IsoparametricTransformation(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_FaceElementTransformations(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_GeometricFactors(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_FaceGeometricFactors(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Mesh_FaceInformation(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_FiniteElementSpace(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Vertex(jlModule)),
@@ -13531,24 +13413,9 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   DEBUG_MSG("Adding wrapper for enum mfem::VTKFormat (" __HERE__ ")");
   // defined in mfem/mesh/vtk.hpp:98:12
   jlModule.add_bits<mfem::VTKFormat>("mfem!VTKFormat", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!ASCII", mfem::VTKFormat::ASCII);
-  jlModule.set_const("mfem!BINARY", mfem::VTKFormat::BINARY);
-  jlModule.set_const("mfem!BINARY32", mfem::VTKFormat::BINARY32);
-
-  DEBUG_MSG("Adding wrapper for enum mfem::GeometricFactors::FactorFlags (" __HERE__ ")");
-  // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2195:9
-  jlModule.add_bits<mfem::GeometricFactors::FactorFlags>("mfem!GeometricFactors!FactorFlags", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!GeometricFactors!COORDINATES", mfem::GeometricFactors::COORDINATES);
-  jlModule.set_const("mfem!GeometricFactors!JACOBIANS", mfem::GeometricFactors::JACOBIANS);
-  jlModule.set_const("mfem!GeometricFactors!DETERMINANTS", mfem::GeometricFactors::DETERMINANTS);
-
-  DEBUG_MSG("Adding wrapper for enum mfem::FaceGeometricFactors::FactorFlags (" __HERE__ ")");
-  // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2245:9
-  jlModule.add_bits<mfem::FaceGeometricFactors::FactorFlags>("mfem!FaceGeometricFactors!FactorFlags", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!FaceGeometricFactors!COORDINATES", mfem::FaceGeometricFactors::COORDINATES);
-  jlModule.set_const("mfem!FaceGeometricFactors!JACOBIANS", mfem::FaceGeometricFactors::JACOBIANS);
-  jlModule.set_const("mfem!FaceGeometricFactors!DETERMINANTS", mfem::FaceGeometricFactors::DETERMINANTS);
-  jlModule.set_const("mfem!FaceGeometricFactors!NORMALS", mfem::FaceGeometricFactors::NORMALS);
+  jlModule.set_const("mfem!VTKFormat!ASCII", mfem::VTKFormat::ASCII);
+  jlModule.set_const("mfem!VTKFormat!BINARY", mfem::VTKFormat::BINARY);
+  jlModule.set_const("mfem!VTKFormat!BINARY32", mfem::VTKFormat::BINARY32);
 
   DEBUG_MSG("Adding anonymous enum defined in mfem/mesh/../fem/fe_coll.hpp:45:4 (" __HERE__ ")");
   // defined in mfem/mesh/../fem/fe_coll.hpp:45:4

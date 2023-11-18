@@ -6,7 +6,7 @@ CXXFLAGS += -O0 -g     #To compile with debugger infomation
 LDFLAGS  += $(shell $(JL_SHARE)/julia-config.jl --ldflags)
 LDLIBS   += $(shell $(JL_SHARE)/julia-config.jl --ldlibs)
 
-CXXWRAP_CPPFLAGS=-I $(shell julia -e 'using CxxWrap; print(CxxWrap.prefix_path() * "/include")') -std=c++17
+CXXWRAP_CPPFLAGS=-I $(shell julia -e 'using CxxWrap; print(CxxWrap.prefix_path() * "/include")') -I $(shell pwd) -std=c++17
 
 
 CPPFLAGS += -MMD -I $(MFEM_INC_DIR)
