@@ -8,5 +8,9 @@ clang_opts          = ["-resource-dir", "/home/dogiermann/Repos/spack/opt/spack/
 
 cxx-std             = "c++11"
 
+veto_list           = "jlMFEM-veto.h"
+
+export_blacklist    = [ "begin", "end"]
+
 # all generated code in a single file:
 n_classes_per_file = 0

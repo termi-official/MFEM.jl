@@ -7,56 +7,6 @@
 #include "dbg_msg.h"
 #include "Wrapper.h"
 
-// namespace jlcxx {
-//   template<> struct IsMirroredType<mfem::BlockArray::iterator> : std::false_type { };
-//   template<> struct DefaultConstructible<mfem::BlockArray::iterator> : std::false_type { };
-// }
-
-// struct Jlmfem_BlockArray_iterator: public Wrapper {
-
-//   Jlmfem_BlockArray_iterator(jlcxx::Module& jlModule): Wrapper(jlModule){
-//     DEBUG_MSG("Adding wrapper for type mfem::BlockArray::iterator (" __HERE__ ")");
-//     // defined in mfem/mesh/../general/array.hpp:570:10
-//     jlcxx::TypeWrapper<mfem::BlockArray::iterator>  t = jlModule.add_type<mfem::BlockArray::iterator>("mfem!BlockArray!iterator");
-//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::iterator>>(new jlcxx::TypeWrapper<mfem::BlockArray::iterator>(jlModule, t));
-//   }
-
-//   void add_methods() const{
-//     auto& t = *type_;
-//   }
-
-// private:
-//   std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::iterator>> type_;
-// };
-// std::shared_ptr<Wrapper> newJlmfem_BlockArray_iterator(jlcxx::Module& module){
-//   return std::shared_ptr<Wrapper>(new Jlmfem_BlockArray_iterator(module));
-// }
-
-// namespace jlcxx {
-//   template<> struct IsMirroredType<mfem::BlockArray::const_iterator> : std::false_type { };
-//   template<> struct DefaultConstructible<mfem::BlockArray::const_iterator> : std::false_type { };
-// }
-
-// struct Jlmfem_BlockArray_const_iterator: public Wrapper {
-
-//   Jlmfem_BlockArray_const_iterator(jlcxx::Module& jlModule): Wrapper(jlModule){
-//     DEBUG_MSG("Adding wrapper for type mfem::BlockArray::const_iterator (" __HERE__ ")");
-//     // defined in mfem/mesh/../general/array.hpp:587:10
-//     jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>  t = jlModule.add_type<mfem::BlockArray::const_iterator>("mfem!BlockArray!const_iterator");
-//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>>(new jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>(jlModule, t));
-//   }
-
-//   void add_methods() const{
-//     auto& t = *type_;
-//   }
-
-// private:
-//   std::unique_ptr<jlcxx::TypeWrapper<mfem::BlockArray::const_iterator>> type_;
-// };
-// std::shared_ptr<Wrapper> newJlmfem_BlockArray_const_iterator(jlcxx::Module& module){
-//   return std::shared_ptr<Wrapper>(new Jlmfem_BlockArray_const_iterator(module));
-// }
-
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::Vector> : std::false_type { };
   template<> struct DefaultConstructible<mfem::Vector> : std::false_type { };
@@ -4429,119 +4379,10 @@ struct Jlmfem_Mesh: public Wrapper {
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2160:22
     t.method("ReduceInt", static_cast<long long (mfem::Mesh::*)(int)  const>(&mfem::Mesh::ReduceInt));
 
-    // DEBUG_MSG("Adding wrapper for void mfem::Mesh::MesquiteSmooth(const int) (" __HERE__ ")");
-    // // signature to use in the veto list: void mfem::Mesh::MesquiteSmooth(const int)
-    // // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2166:9
-    // t.method("MesquiteSmooth", static_cast<void (mfem::Mesh::*)(const int) >(&mfem::Mesh::MesquiteSmooth));
-    // t.method("MesquiteSmooth", [](mfem::Mesh& a)->void{ a.MesquiteSmooth(); });
-    // t.method("MesquiteSmooth", [](mfem::Mesh* a)->void{ a->MesquiteSmooth(); });
-
     DEBUG_MSG("Adding wrapper for void mfem::Mesh::CheckDisplacements(const mfem::Vector &, double &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::Mesh::CheckDisplacements(const mfem::Vector &, double &)
     // defined in mfem/mesh/../fem/../mesh/mesh.hpp:2169:9
     t.method("CheckDisplacements", static_cast<void (mfem::Mesh::*)(const mfem::Vector &, double &) >(&mfem::Mesh::CheckDisplacements));
-
-    DEBUG_MSG("Adding attributes methods  to provide read access to the field attributes (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:273:15
-    // signature to use in the veto list: mfem::Mesh::attributes
-    // t.method("attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.attributes; });
-    // t.method("attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.attributes; });
-    // t.method("attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->attributes; });
-    // t.method("attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->attributes; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:273:15
-    // signature to use in the veto list: mfem::Mesh::attributes
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding attributes! methods to provide write access to the field attributes (" __HERE__ ")");
-    // t.method("attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.attributes = val; });
-
-    DEBUG_MSG("Adding attributes! methods to provide write access to the field attributes (" __HERE__ ")");
-    // t.method("attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->attributes = val; });
-
-    DEBUG_MSG("Adding bdr_attributes methods  to provide read access to the field bdr_attributes (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:275:15
-    // signature to use in the veto list: mfem::Mesh::bdr_attributes
-    // t.method("bdr_attributes", [](const mfem::Mesh& a) -> const mfem::Array<int>& { return a.bdr_attributes; });
-    // t.method("bdr_attributes", [](mfem::Mesh& a) -> mfem::Array<int>& { return a.bdr_attributes; });
-    // t.method("bdr_attributes", [](const mfem::Mesh* a) -> const mfem::Array<int>& { return a->bdr_attributes; });
-    // t.method("bdr_attributes", [](mfem::Mesh* a) -> mfem::Array<int>& { return a->bdr_attributes; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:275:15
-    // signature to use in the veto list: mfem::Mesh::bdr_attributes
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding bdr_attributes! methods to provide write access to the field bdr_attributes (" __HERE__ ")");
-    // t.method("bdr_attributes!", [](mfem::Mesh& a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a.bdr_attributes = val; });
-
-    DEBUG_MSG("Adding bdr_attributes! methods to provide write access to the field bdr_attributes (" __HERE__ ")");
-    // t.method("bdr_attributes!", [](mfem::Mesh* a, const mfem::Array<int>& val) -> mfem::Array<int>& { return a->bdr_attributes = val; });
-
-    // DEBUG_MSG("Adding NURBSext methods  to provide read access to the field NURBSext (" __HERE__ ")");
-    // // defined in mfem/mesh/../fem/../mesh/mesh.hpp:277:20
-    // // signature to use in the veto list: mfem::Mesh::NURBSext
-    // t.method("NURBSext", [](const mfem::Mesh& a) -> mfem::NURBSExtension * { return a.NURBSext; });
-    // t.method("NURBSext", [](mfem::Mesh& a) -> mfem::NURBSExtension * { return a.NURBSext; });
-    // t.method("NURBSext", [](const mfem::Mesh* a) -> mfem::NURBSExtension * { return a->NURBSext; });
-    // t.method("NURBSext", [](mfem::Mesh* a) -> mfem::NURBSExtension * { return a->NURBSext; });
-    // // defined in mfem/mesh/../fem/../mesh/mesh.hpp:277:20
-    // // signature to use in the veto list: mfem::Mesh::NURBSext
-    // // with ! suffix to veto the setter only
-
-    // DEBUG_MSG("Adding NURBSext! methods to provide write access to the field NURBSext (" __HERE__ ")");
-    // t.method("NURBSext!", [](mfem::Mesh& a, mfem::NURBSExtension * val) -> mfem::NURBSExtension * { return a.NURBSext = val; });
-
-    // DEBUG_MSG("Adding NURBSext! methods to provide write access to the field NURBSext (" __HERE__ ")");
-    // t.method("NURBSext!", [](mfem::Mesh* a, mfem::NURBSExtension * val) -> mfem::NURBSExtension * { return a->NURBSext = val; });
-
-    DEBUG_MSG("Adding ncmesh methods  to provide read access to the field ncmesh (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:278:12
-    // signature to use in the veto list: mfem::Mesh::ncmesh
-    t.method("ncmesh", [](const mfem::Mesh& a) -> mfem::NCMesh * { return a.ncmesh; });
-    t.method("ncmesh", [](mfem::Mesh& a) -> mfem::NCMesh * { return a.ncmesh; });
-    t.method("ncmesh", [](const mfem::Mesh* a) -> mfem::NCMesh * { return a->ncmesh; });
-    t.method("ncmesh", [](mfem::Mesh* a) -> mfem::NCMesh * { return a->ncmesh; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:278:12
-    // signature to use in the veto list: mfem::Mesh::ncmesh
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding ncmesh! methods to provide write access to the field ncmesh (" __HERE__ ")");
-    t.method("ncmesh!", [](mfem::Mesh& a, mfem::NCMesh * val) -> mfem::NCMesh * { return a.ncmesh = val; });
-
-    DEBUG_MSG("Adding ncmesh! methods to provide write access to the field ncmesh (" __HERE__ ")");
-    t.method("ncmesh!", [](mfem::Mesh* a, mfem::NCMesh * val) -> mfem::NCMesh * { return a->ncmesh = val; });
-
-    DEBUG_MSG("Adding geom_factors methods  to provide read access to the field geom_factors (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:279:29
-    // signature to use in the veto list: mfem::Mesh::geom_factors
-    // t.method("geom_factors", [](const mfem::Mesh& a) -> const mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors; });
-    // t.method("geom_factors", [](mfem::Mesh& a) -> mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors; });
-    // t.method("geom_factors", [](const mfem::Mesh* a) -> const mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors; });
-    // t.method("geom_factors", [](mfem::Mesh* a) -> mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:279:29
-    // signature to use in the veto list: mfem::Mesh::geom_factors
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding geom_factors! methods to provide write access to the field geom_factors (" __HERE__ ")");
-    // t.method("geom_factors!", [](mfem::Mesh& a, const mfem::Array<mfem::GeometricFactors *>& val) -> mfem::Array<mfem::GeometricFactors *>& { return a.geom_factors = val; });
-
-    DEBUG_MSG("Adding geom_factors! methods to provide write access to the field geom_factors (" __HERE__ ")");
-    // t.method("geom_factors!", [](mfem::Mesh* a, const mfem::Array<mfem::GeometricFactors *>& val) -> mfem::Array<mfem::GeometricFactors *>& { return a->geom_factors = val; });
-
-    DEBUG_MSG("Adding face_geom_factors methods  to provide read access to the field face_geom_factors (" __HERE__ ")");
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:280:33
-    // signature to use in the veto list: mfem::Mesh::face_geom_factors
-    // t.method("face_geom_factors", [](const mfem::Mesh& a) -> const mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors; });
-    // t.method("face_geom_factors", [](mfem::Mesh& a) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors; });
-    // t.method("face_geom_factors", [](const mfem::Mesh* a) -> const mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors; });
-    // t.method("face_geom_factors", [](mfem::Mesh* a) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors; });
-    // defined in mfem/mesh/../fem/../mesh/mesh.hpp:280:33
-    // signature to use in the veto list: mfem::Mesh::face_geom_factors
-    // with ! suffix to veto the setter only
-
-    DEBUG_MSG("Adding face_geom_factors! methods to provide write access to the field face_geom_factors (" __HERE__ ")");
-    // t.method("face_geom_factors!", [](mfem::Mesh& a, const mfem::Array<mfem::FaceGeometricFactors *>& val) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a.face_geom_factors = val; });
-
-    DEBUG_MSG("Adding face_geom_factors! methods to provide write access to the field face_geom_factors (" __HERE__ ")");
-    // t.method("face_geom_factors!", [](mfem::Mesh* a, const mfem::Array<mfem::FaceGeometricFactors *>& val) -> mfem::Array<mfem::FaceGeometricFactors *>& { return a->face_geom_factors = val; });
   }
 
 private:
@@ -4964,89 +4805,6 @@ private:
 std::shared_ptr<Wrapper> newJlmfem_PWCoefficient(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new Jlmfem_PWCoefficient(module));
 }
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::FunctionCoefficient> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::FunctionCoefficient> : std::false_type { };
-template<> struct SuperType<mfem::FunctionCoefficient> { typedef mfem::Coefficient type; };
-}
-
-// struct Jlmfem_FunctionCoefficient: public Wrapper {
-
-//   Jlmfem_FunctionCoefficient(jlcxx::Module& jlModule): Wrapper(jlModule){
-//     DEBUG_MSG("Adding wrapper for type mfem::FunctionCoefficient (" __HERE__ ")");
-//     // defined in mfem/fem/coefficient.hpp:219:7
-//     jlcxx::TypeWrapper<mfem::FunctionCoefficient>  t = jlModule.add_type<mfem::FunctionCoefficient>("mfem!FunctionCoefficient"    , jlcxx::julia_base_type<mfem::Coefficient>());
-//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::FunctionCoefficient>>(new jlcxx::TypeWrapper<mfem::FunctionCoefficient>(jlModule, t));
-//   }
-
-//   void add_methods() const{
-//     auto& t = *type_;
-
-
-//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(std::function<double (const mfem::Vector &)>) (" __HERE__ ")");
-//     // defined in mfem/fem/coefficient.hpp:228:4
-//     t.constructor<std::function<double (const mfem::Vector &)>>(/*finalize=*/true);
-
-
-//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(std::function<double (const mfem::Vector &, double)>) (" __HERE__ ")");
-//     // defined in mfem/fem/coefficient.hpp:234:4
-//     t.constructor<std::function<double (const mfem::Vector &, double)>>(/*finalize=*/true);
-
-
-//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(double (*)(mfem::Vector &)) (" __HERE__ ")");
-//     // defined in mfem/fem/coefficient.hpp:241:20
-//     t.constructor<double (*)(mfem::Vector &)>(/*finalize=*/true);
-
-
-//     DEBUG_MSG("Adding wrapper for void mfem::FunctionCoefficient::FunctionCoefficient(double (*)(mfem::Vector &, double)) (" __HERE__ ")");
-//     // defined in mfem/fem/coefficient.hpp:250:20
-//     t.constructor<double (*)(mfem::Vector &, double)>(/*finalize=*/true);
-
-//     DEBUG_MSG("Adding wrapper for double mfem::FunctionCoefficient::Eval(mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
-//     // signature to use in the veto list: double mfem::FunctionCoefficient::Eval(mfem::ElementTransformation &, const mfem::IntegrationPoint &)
-//     // defined in mfem/fem/coefficient.hpp:257:19
-//     t.method("Eval", static_cast<double (mfem::FunctionCoefficient::*)(mfem::ElementTransformation &, const mfem::IntegrationPoint &) >(&mfem::FunctionCoefficient::Eval));
-//   }
-
-// private:
-//   std::unique_ptr<jlcxx::TypeWrapper<mfem::FunctionCoefficient>> type_;
-// };
-// std::shared_ptr<Wrapper> newJlmfem_FunctionCoefficient(jlcxx::Module& module){
-//   return std::shared_ptr<Wrapper>(new Jlmfem_FunctionCoefficient(module));
-// }
-
-// namespace jlcxx {
-
-//   template<>
-//   struct BuildParameterList<std::function<>>
-//   {
-//     typedef ParameterList<> type;
-//   };
-
-//   template<> struct IsMirroredType<std::function<>> : std::false_type { };
-//   template<> struct DefaultConstructible<std::function<>> : std::false_type { };
-// }
-
-// struct Jlstd_function: public Wrapper {
-
-//   Jlstd_function(jlcxx::Module& jlModule): Wrapper(jlModule){
-//   // defined in /usr/lib64/gcc/x86_64-pc-linux-gnu/13.2.1/../../../../include/c++/13.2.1/bits/std_function.h:334:11
-//     jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>  t =  jlModule.add_type<jlcxx::Parametric<jlcxx::TypeVar<1>>>("std!function");
-//     type_ = std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>>(new jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>(jlModule, t));
-//   }
-
-//   void add_methods() const{
-//     auto& t = *type_;
-//     t.template constructor<>(/*finalize=*/true);
-//   }
-
-// private:
-//   std::unique_ptr<jlcxx::TypeWrapper<jlcxx::Parametric<jlcxx::TypeVar<1>>>> type_;
-// };
-// std::shared_ptr<Wrapper> newJlstd_function(jlcxx::Module& module){
-//   return std::shared_ptr<Wrapper>(new Jlstd_function(module));
-// }
 
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::CartesianCoefficient> : std::false_type { };
@@ -5774,49 +5532,6 @@ std::shared_ptr<Wrapper> newJlmfem_PositionVectorCoefficient(jlcxx::Module& modu
 }
 
 namespace jlcxx {
-  template<> struct IsMirroredType<mfem::VectorFunctionCoefficient> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::VectorFunctionCoefficient> : std::false_type { };
-template<> struct SuperType<mfem::VectorFunctionCoefficient> { typedef mfem::VectorCoefficient type; };
-}
-
-struct Jlmfem_VectorFunctionCoefficient: public Wrapper {
-
-  Jlmfem_VectorFunctionCoefficient(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::VectorFunctionCoefficient (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:738:7
-    jlcxx::TypeWrapper<mfem::VectorFunctionCoefficient>  t = jlModule.add_type<mfem::VectorFunctionCoefficient>("mfem!VectorFunctionCoefficient"    , jlcxx::julia_base_type<mfem::VectorCoefficient>());
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::VectorFunctionCoefficient>>(new jlcxx::TypeWrapper<mfem::VectorFunctionCoefficient>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::VectorFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:750:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::VectorFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:760:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-    DEBUG_MSG("Adding wrapper for void mfem::VectorFunctionCoefficient::Eval(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::VectorFunctionCoefficient::Eval(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &)
-    // defined in mfem/fem/coefficient.hpp:768:17
-    t.method("Eval", static_cast<void (mfem::VectorFunctionCoefficient::*)(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) >(&mfem::VectorFunctionCoefficient::Eval));
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::VectorFunctionCoefficient>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_VectorFunctionCoefficient(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_VectorFunctionCoefficient(module));
-}
-
-namespace jlcxx {
   template<> struct IsMirroredType<mfem::VectorArrayCoefficient> : std::false_type { };
   template<> struct DefaultConstructible<mfem::VectorArrayCoefficient> : std::false_type { };
 template<> struct SuperType<mfem::VectorArrayCoefficient> { typedef mfem::VectorCoefficient type; };
@@ -6390,70 +6105,6 @@ std::shared_ptr<Wrapper> newJlmfem_PWMatrixCoefficient(jlcxx::Module& module){
 }
 
 namespace jlcxx {
-  template<> struct IsMirroredType<mfem::MatrixFunctionCoefficient> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::MatrixFunctionCoefficient> : std::false_type { };
-template<> struct SuperType<mfem::MatrixFunctionCoefficient> { typedef mfem::MatrixCoefficient type; };
-}
-
-struct Jlmfem_MatrixFunctionCoefficient: public Wrapper {
-
-  Jlmfem_MatrixFunctionCoefficient(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::MatrixFunctionCoefficient (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1232:7
-    jlcxx::TypeWrapper<mfem::MatrixFunctionCoefficient>  t = jlModule.add_type<mfem::MatrixFunctionCoefficient>("mfem!MatrixFunctionCoefficient"    , jlcxx::julia_base_type<mfem::MatrixCoefficient>());
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::MatrixFunctionCoefficient>>(new jlcxx::TypeWrapper<mfem::MatrixFunctionCoefficient>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:1247:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(const mfem::DenseMatrix &, mfem::Coefficient &) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1256:4
-    t.constructor<const mfem::DenseMatrix &, mfem::Coefficient &>(/*finalize=*/true);
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:1266:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::Vector &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::MatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:1276:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::SetTime(double) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::MatrixFunctionCoefficient::SetTime(double)
-    // defined in mfem/fem/coefficient.hpp:1283:9
-    t.method("SetTime", static_cast<void (mfem::MatrixFunctionCoefficient::*)(double) >(&mfem::MatrixFunctionCoefficient::SetTime));
-
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::Eval(mfem::DenseMatrix &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::MatrixFunctionCoefficient::Eval(mfem::DenseMatrix &, mfem::ElementTransformation &, const mfem::IntegrationPoint &)
-    // defined in mfem/fem/coefficient.hpp:1286:17
-    t.method("Eval", static_cast<void (mfem::MatrixFunctionCoefficient::*)(mfem::DenseMatrix &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) >(&mfem::MatrixFunctionCoefficient::Eval));
-
-    DEBUG_MSG("Adding wrapper for void mfem::MatrixFunctionCoefficient::EvalSymmetric(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::MatrixFunctionCoefficient::EvalSymmetric(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &)
-    // defined in mfem/fem/coefficient.hpp:1291:17
-    t.method("EvalSymmetric", static_cast<void (mfem::MatrixFunctionCoefficient::*)(mfem::Vector &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) >(&mfem::MatrixFunctionCoefficient::EvalSymmetric));
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::MatrixFunctionCoefficient>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_MatrixFunctionCoefficient(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_MatrixFunctionCoefficient(module));
-}
-
-namespace jlcxx {
   template<> struct IsMirroredType<mfem::MatrixArrayCoefficient> : std::false_type { };
   template<> struct DefaultConstructible<mfem::MatrixArrayCoefficient> : std::false_type { };
 template<> struct SuperType<mfem::MatrixArrayCoefficient> { typedef mfem::MatrixCoefficient type; };
@@ -6759,59 +6410,6 @@ private:
 };
 std::shared_ptr<Wrapper> newJlmfem_SymmetricMatrixConstantCoefficient(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new Jlmfem_SymmetricMatrixConstantCoefficient(module));
-}
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::SymmetricMatrixFunctionCoefficient> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::SymmetricMatrixFunctionCoefficient> : std::false_type { };
-template<> struct SuperType<mfem::SymmetricMatrixFunctionCoefficient> { typedef mfem::SymmetricMatrixCoefficient type; };
-}
-
-struct Jlmfem_SymmetricMatrixFunctionCoefficient: public Wrapper {
-
-  Jlmfem_SymmetricMatrixFunctionCoefficient(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::SymmetricMatrixFunctionCoefficient (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1494:7
-    jlcxx::TypeWrapper<mfem::SymmetricMatrixFunctionCoefficient>  t = jlModule.add_type<mfem::SymmetricMatrixFunctionCoefficient>("mfem!SymmetricMatrixFunctionCoefficient"    , jlcxx::julia_base_type<mfem::SymmetricMatrixCoefficient>());
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::SymmetricMatrixFunctionCoefficient>>(new jlcxx::TypeWrapper<mfem::SymmetricMatrixFunctionCoefficient>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:1508:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-
-    DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(const mfem::DenseSymmetricMatrix &, mfem::Coefficient &) (" __HERE__ ")");
-    // defined in mfem/fem/coefficient.hpp:1517:4
-    t.constructor<const mfem::DenseSymmetricMatrix &, mfem::Coefficient &>(/*finalize=*/true);
-
-
-    // DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SymmetricMatrixFunctionCoefficient(int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *) (" __HERE__ ")");
-    // // defined in mfem/fem/coefficient.hpp:1526:4
-    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>>(/*finalize=*/true);
-    // t.constructor<int, std::function<void (const mfem::Vector &, double, mfem::DenseSymmetricMatrix &)>, mfem::Coefficient *>(/*finalize=*/true);
-
-    DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::SetTime(double) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::SymmetricMatrixFunctionCoefficient::SetTime(double)
-    // defined in mfem/fem/coefficient.hpp:1533:9
-    t.method("SetTime", static_cast<void (mfem::SymmetricMatrixFunctionCoefficient::*)(double) >(&mfem::SymmetricMatrixFunctionCoefficient::SetTime));
-
-    DEBUG_MSG("Adding wrapper for void mfem::SymmetricMatrixFunctionCoefficient::Eval(mfem::DenseSymmetricMatrix &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::SymmetricMatrixFunctionCoefficient::Eval(mfem::DenseSymmetricMatrix &, mfem::ElementTransformation &, const mfem::IntegrationPoint &)
-    // defined in mfem/fem/coefficient.hpp:1537:17
-    t.method("Eval", static_cast<void (mfem::SymmetricMatrixFunctionCoefficient::*)(mfem::DenseSymmetricMatrix &, mfem::ElementTransformation &, const mfem::IntegrationPoint &) >(&mfem::SymmetricMatrixFunctionCoefficient::Eval));
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::SymmetricMatrixFunctionCoefficient>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_SymmetricMatrixFunctionCoefficient(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_SymmetricMatrixFunctionCoefficient(module));
 }
 
 namespace jlcxx {
@@ -11847,36 +11445,26 @@ namespace jlcxx {
   template<> struct DefaultConstructible<mfem::Ordering> : std::false_type { };
 }
 
-// struct Jlmfem_Ordering: public Wrapper {
+struct Jlmfem_Ordering: public Wrapper {
 
-//   Jlmfem_Ordering(jlcxx::Module& jlModule): Wrapper(jlModule){
-//     DEBUG_MSG("Adding wrapper for type mfem::Ordering (" __HERE__ ")");
-//     // defined in mfem/mesh/../fem/fespace.hpp:29:7
-//     jlcxx::TypeWrapper<mfem::Ordering>  t = jlModule.add_type<mfem::Ordering>("mfem!Ordering");
-//     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Ordering>>(new jlcxx::TypeWrapper<mfem::Ordering>(jlModule, t));
-//   }
+  Jlmfem_Ordering(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Ordering (" __HERE__ ")");
+    // defined in mfem/mesh/../fem/fespace.hpp:29:7
+    jlcxx::TypeWrapper<mfem::Ordering>  t = jlModule.add_type<mfem::Ordering>("mfem!Ordering");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Ordering>>(new jlcxx::TypeWrapper<mfem::Ordering>(jlModule, t));
+  }
 
-//   void add_methods() const{
-//     auto& t = *type_;
-//     t.template constructor<>(/*finalize=*/true);
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/true);
+  }
 
-//     DEBUG_MSG("Adding wrapper for int mfem::Ordering::Map(int, int, int, int) (" __HERE__ ")");
-//     // signature to use in the veto list: int mfem::Ordering::Map(int, int, int, int)
-//     // defined in mfem/mesh/../fem/fespace.hpp:59:11
-//     t.method("Map", static_cast<int (mfem::Ordering::*)(int, int, int, int) >(&mfem::Ordering::Map));
-
-//     DEBUG_MSG("Adding wrapper for int mfem::Ordering::Map(int, int, int, int) (" __HERE__ ")");
-//     // signature to use in the veto list: int mfem::Ordering::Map(int, int, int, int)
-//     // defined in mfem/mesh/../fem/fespace.hpp:66:11
-//     t.method("Map", static_cast<int (mfem::Ordering::*)(int, int, int, int) >(&mfem::Ordering::Map));
-//   }
-
-// private:
-//   std::unique_ptr<jlcxx::TypeWrapper<mfem::Ordering>> type_;
-// };
-// std::shared_ptr<Wrapper> newJlmfem_Ordering(jlcxx::Module& module){
-//   return std::shared_ptr<Wrapper>(new Jlmfem_Ordering(module));
-// }
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Ordering>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Ordering(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Ordering(module));
+}
 
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::ElementRestrictionOperator> : std::false_type { };
@@ -12970,11 +12558,6 @@ struct JlGlobal: public Wrapper {
   void add_methods() const{
     auto& t = module_;
 
-    // DEBUG_MSG("Adding wrapper for int mfem::CheckFinite(const double *, const int) (" __HERE__ ")");
-    // // signature to use in the veto list: int mfem::CheckFinite(const double *, const int)
-    // // defined in mfem/linalg/vector.hpp:40:12
-    // t.method("mfem!CheckFinite", static_cast<int (*)(const double *, const int) >(&mfem::CheckFinite));
-
     DEBUG_MSG("Adding wrapper for double mfem::infinity() (" __HERE__ ")");
     // signature to use in the veto list: double mfem::infinity()
     // defined in mfem/linalg/vector.hpp:44:15
@@ -12984,11 +12567,6 @@ struct JlGlobal: public Wrapper {
     // signature to use in the veto list: bool mfem::IsFinite(const double &)
     // defined in mfem/linalg/vector.hpp:486:13
     t.method("mfem!IsFinite", static_cast<bool (*)(const double &) >(&mfem::IsFinite));
-
-    DEBUG_MSG("Adding wrapper for int mfem::CheckFinite(const double *, const int) (" __HERE__ ")");
-    // signature to use in the veto list: int mfem::CheckFinite(const double *, const int)
-    // defined in mfem/linalg/vector.hpp:497:12
-    t.method("mfem!CheckFinite", static_cast<int (*)(const double *, const int) >(&mfem::CheckFinite));
 
     DEBUG_MSG("Adding wrapper for void mfem::Swap(mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::Swap(mfem::Vector &, mfem::Vector &)
@@ -13205,19 +12783,6 @@ struct JlGlobal: public Wrapper {
     // signature to use in the veto list: int mfem::aGMRES(const mfem::Operator &, mfem::Vector &, const mfem::Vector &, const mfem::Operator &, int &, int, int, int, double, double &, double &, int)
     // defined in mfem/linalg/solvers.hpp:791:5
     t.method("mfem!aGMRES", static_cast<int (*)(const mfem::Operator &, mfem::Vector &, const mfem::Vector &, const mfem::Operator &, int &, int, int, int, double, double &, double &, int) >(&mfem::aGMRES));
-  module_.set_override_module(jl_base_module);
-
-    // DEBUG_MSG("Adding wrapper for mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage) (" __HERE__ ")");
-    // // signature to use in the veto list: mfem::CoefficientStorage mfem::operator|(mfem::CoefficientStorage, mfem::CoefficientStorage)
-    // // defined in mfem/fem/coefficient.hpp:2296:27
-    // t.method("|", static_cast<mfem::CoefficientStorage (*)(mfem::CoefficientStorage, mfem::CoefficientStorage) >(&mfem::operator|));
-
-    // DEBUG_MSG("Adding wrapper for int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage) (" __HERE__ ")");
-    // // signature to use in the veto list: int mfem::operator&(mfem::CoefficientStorage, mfem::CoefficientStorage)
-    // // defined in mfem/fem/coefficient.hpp:2301:12
-    // t.method("&", static_cast<int (*)(mfem::CoefficientStorage, mfem::CoefficientStorage) >(&mfem::operator&));
-
-  module_.unset_override_module();
 
     DEBUG_MSG("Adding wrapper for double mfem::ComputeLpNorm(double, mfem::Coefficient &, mfem::Mesh &, const mfem::IntegrationRule *[]) (" __HERE__ ")");
     // signature to use in the veto list: double mfem::ComputeLpNorm(double, mfem::Coefficient &, mfem::Mesh &, const mfem::IntegrationRule *[])
@@ -13270,8 +12835,6 @@ std::shared_ptr<Wrapper> newJlGlobal(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new JlGlobal(module));
 }
 
-// class Jlmfem_BlockArray_iterator;
-// class Jlmfem_BlockArray_const_iterator;
 class Jlmfem_Vector;
 class Jlmfem_RowNode;
 class Jlmfem_AbstractSparseMatrix;
@@ -13315,8 +12878,6 @@ class Jlmfem_QuadratureFunction;
 class Jlmfem_ConstantCoefficient;
 class Jlmfem_PWConstCoefficient;
 class Jlmfem_PWCoefficient;
-class Jlmfem_FunctionCoefficient;
-class Jlstd_function;
 class Jlmfem_CartesianCoefficient;
 class Jlmfem_CartesianXCoefficient;
 class Jlmfem_CartesianYCoefficient;
@@ -13335,7 +12896,6 @@ class Jlmfem_VectorCoefficient;
 class Jlmfem_VectorConstantCoefficient;
 class Jlmfem_PWVectorCoefficient;
 class Jlmfem_PositionVectorCoefficient;
-class Jlmfem_VectorFunctionCoefficient;
 class Jlmfem_VectorArrayCoefficient;
 class Jlmfem_VectorGridFunctionCoefficient;
 class Jlmfem_GradientGridFunctionCoefficient;
@@ -13346,14 +12906,12 @@ class Jlmfem_VectorRestrictedCoefficient;
 class Jlmfem_MatrixCoefficient;
 class Jlmfem_MatrixConstantCoefficient;
 class Jlmfem_PWMatrixCoefficient;
-class Jlmfem_MatrixFunctionCoefficient;
 class Jlmfem_MatrixArrayCoefficient;
 class Jlmfem_MatrixRestrictedCoefficient;
 class Jlmfem_SumCoefficient;
 class Jlmfem_SymmetricMatrixCoefficient;
 class Jlmfem_DenseSymmetricMatrix;
 class Jlmfem_SymmetricMatrixConstantCoefficient;
-class Jlmfem_SymmetricMatrixFunctionCoefficient;
 class Jlmfem_ProductCoefficient;
 class Jlmfem_RatioCoefficient;
 class Jlmfem_PowerCoefficient;
@@ -13437,7 +12995,7 @@ class Jlmfem_ND1_3DFECollection;
 class Jlmfem_RT0_3DFECollection;
 class Jlmfem_RT1_3DFECollection;
 class Jlmfem_Local_FECollection;
-// class Jlmfem_Ordering;
+class Jlmfem_Ordering;
 class Jlmfem_ElementRestrictionOperator;
 class Jlmfem_FaceRestriction;
 class Jlmfem_QuadratureSpace;
@@ -13456,8 +13014,6 @@ class Jlmfem_VisItDataCollection;
 class Jlmfem_ParaViewDataCollection;
 class JlGlobal;
 
-// std::shared_ptr<Wrapper> newJlmfem_BlockArray_iterator(jlcxx::Module&);
-// std::shared_ptr<Wrapper> newJlmfem_BlockArray_const_iterator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Vector(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RowNode(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_AbstractSparseMatrix(jlcxx::Module&);
@@ -13501,8 +13057,6 @@ std::shared_ptr<Wrapper> newJlmfem_QuadratureFunction(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_ConstantCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_PWConstCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_PWCoefficient(jlcxx::Module&);
-// std::shared_ptr<Wrapper> newJlmfem_FunctionCoefficient(jlcxx::Module&);
-// std::shared_ptr<Wrapper> newJlstd_function(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_CartesianCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_CartesianXCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_CartesianYCoefficient(jlcxx::Module&);
@@ -13521,7 +13075,6 @@ std::shared_ptr<Wrapper> newJlmfem_VectorCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_VectorConstantCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_PWVectorCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_PositionVectorCoefficient(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_VectorFunctionCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_VectorArrayCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_VectorGridFunctionCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_GradientGridFunctionCoefficient(jlcxx::Module&);
@@ -13532,14 +13085,12 @@ std::shared_ptr<Wrapper> newJlmfem_VectorRestrictedCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_MatrixCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_MatrixConstantCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_PWMatrixCoefficient(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_MatrixFunctionCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_MatrixArrayCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_MatrixRestrictedCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_SumCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_SymmetricMatrixCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_DenseSymmetricMatrix(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_SymmetricMatrixConstantCoefficient(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_SymmetricMatrixFunctionCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_ProductCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RatioCoefficient(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_PowerCoefficient(jlcxx::Module&);
@@ -13623,7 +13174,7 @@ std::shared_ptr<Wrapper> newJlmfem_ND1_3DFECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RT0_3DFECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_RT1_3DFECollection(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Local_FECollection(jlcxx::Module&);
-// std::shared_ptr<Wrapper> newJlmfem_Ordering(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Ordering(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_ElementRestrictionOperator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_FaceRestriction(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_QuadratureSpace(jlcxx::Module&);
@@ -13645,8 +13196,6 @@ std::shared_ptr<Wrapper> newJlGlobal(jlcxx::Module&);
 
 JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
   std::vector<std::shared_ptr<Wrapper>> wrappers = {
-    // std::shared_ptr<Wrapper>(newJlmfem_BlockArray_iterator(jlModule)),
-    // std::shared_ptr<Wrapper>(newJlmfem_BlockArray_const_iterator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Vector(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_RowNode(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_AbstractSparseMatrix(jlModule)),
@@ -13690,8 +13239,6 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_ConstantCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWConstCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWCoefficient(jlModule)),
-    // std::shared_ptr<Wrapper>(newJlmfem_FunctionCoefficient(jlModule)),
-    // std::shared_ptr<Wrapper>(newJlstd_function(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianXCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_CartesianYCoefficient(jlModule)),
@@ -13710,7 +13257,6 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_VectorConstantCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWVectorCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PositionVectorCoefficient(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_VectorFunctionCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_VectorArrayCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_VectorGridFunctionCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_GradientGridFunctionCoefficient(jlModule)),
@@ -13721,14 +13267,12 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_MatrixCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_MatrixConstantCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWMatrixCoefficient(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_MatrixFunctionCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_MatrixArrayCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_MatrixRestrictedCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_SumCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_SymmetricMatrixCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_DenseSymmetricMatrix(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_SymmetricMatrixConstantCoefficient(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_SymmetricMatrixFunctionCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_ProductCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_RatioCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PowerCoefficient(jlModule)),
@@ -13812,7 +13356,7 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_RT0_3DFECollection(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_RT1_3DFECollection(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Local_FECollection(jlModule)),
-    // std::shared_ptr<Wrapper>(newJlmfem_Ordering(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Ordering(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_ElementRestrictionOperator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_FaceRestriction(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_QuadratureSpace(jlModule)),
