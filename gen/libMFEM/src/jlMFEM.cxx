@@ -1227,6 +1227,1058 @@ std::shared_ptr<Wrapper> newJlmfem_Memory(jlcxx::Module& module){
 }
 
 namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Operator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Operator> : std::false_type { };
+}
+
+// Class generating the wrapper for type mfem::Operator
+// signature to use in the veto file: mfem::Operator
+struct Jlmfem_Operator: public Wrapper {
+
+  Jlmfem_Operator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Operator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:24:7
+    jlcxx::TypeWrapper<mfem::Operator>  t = jlModule.add_type<mfem::Operator>("mfem!Operator");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Operator>>(new jlcxx::TypeWrapper<mfem::Operator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::InitTVectors(const mfem::Operator *, const mfem::Operator *, const mfem::Operator *, mfem::Vector &, mfem::Vector &, mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::InitTVectors(const mfem::Operator *, const mfem::Operator *, const mfem::Operator *, mfem::Vector &, mfem::Vector &, mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:55:9
+    t.method("InitTVectors", static_cast<void (mfem::Operator::*)(const mfem::Operator *, const mfem::Operator *, const mfem::Operator *, mfem::Vector &, mfem::Vector &, mfem::Vector &, mfem::Vector &)  const>(&mfem::Operator::InitTVectors));
+
+
+
+    DEBUG_MSG("Adding wrapper for int mfem::Operator::Height() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Operator::Height()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:66:15
+    t.method("Height", static_cast<int (mfem::Operator::*)()  const>(&mfem::Operator::Height));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Operator::NumRows() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Operator::NumRows()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:69:15
+    t.method("NumRows", static_cast<int (mfem::Operator::*)()  const>(&mfem::Operator::NumRows));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Operator::Width() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Operator::Width()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:72:15
+    t.method("Width", static_cast<int (mfem::Operator::*)()  const>(&mfem::Operator::Width));
+
+    DEBUG_MSG("Adding wrapper for int mfem::Operator::NumCols() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::Operator::NumCols()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:75:15
+    t.method("NumCols", static_cast<int (mfem::Operator::*)()  const>(&mfem::Operator::NumCols));
+
+    DEBUG_MSG("Adding wrapper for mfem::MemoryClass mfem::Operator::GetMemoryClass() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::MemoryClass mfem::Operator::GetMemoryClass()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:86:24
+    t.method("GetMemoryClass", static_cast<mfem::MemoryClass (mfem::Operator::*)()  const>(&mfem::Operator::GetMemoryClass));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:89:17
+    t.method("Mult", static_cast<void (mfem::Operator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::Operator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:93:17
+    t.method("MultTranspose", static_cast<void (mfem::Operator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::Operator::MultTranspose));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::AddMult(const mfem::Vector &, mfem::Vector &, const double) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::AddMult(const mfem::Vector &, mfem::Vector &, const double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:97:17
+    t.method("AddMult", static_cast<void (mfem::Operator::*)(const mfem::Vector &, mfem::Vector &, const double)  const>(&mfem::Operator::AddMult));
+    t.method("AddMult", [](mfem::Operator const& a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a.AddMult(arg0, arg1); });
+    t.method("AddMult", [](mfem::Operator const* a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a->AddMult(arg0, arg1); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::AddMultTranspose(const mfem::Vector &, mfem::Vector &, const double) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::AddMultTranspose(const mfem::Vector &, mfem::Vector &, const double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:100:17
+    t.method("AddMultTranspose", static_cast<void (mfem::Operator::*)(const mfem::Vector &, mfem::Vector &, const double)  const>(&mfem::Operator::AddMultTranspose));
+    t.method("AddMultTranspose", [](mfem::Operator const& a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a.AddMultTranspose(arg0, arg1); });
+    t.method("AddMultTranspose", [](mfem::Operator const* a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a->AddMultTranspose(arg0, arg1); });
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator & mfem::Operator::GetGradient(const mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator & mfem::Operator::GetGradient(const mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:122:22
+    t.method("GetGradient", static_cast<mfem::Operator & (mfem::Operator::*)(const mfem::Vector &)  const>(&mfem::Operator::GetGradient));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::AssembleDiagonal(mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::AssembleDiagonal(mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:131:17
+    t.method("AssembleDiagonal", static_cast<void (mfem::Operator::*)(mfem::Vector &)  const>(&mfem::Operator::AssembleDiagonal));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::Operator::GetProlongation() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::Operator::GetProlongation()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:139:28
+    t.method("GetProlongation", static_cast<const mfem::Operator * (mfem::Operator::*)()  const>(&mfem::Operator::GetProlongation));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::Operator::GetRestriction() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::Operator::GetRestriction()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:143:28
+    t.method("GetRestriction", static_cast<const mfem::Operator * (mfem::Operator::*)()  const>(&mfem::Operator::GetRestriction));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::Operator::GetOutputProlongation() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::Operator::GetOutputProlongation()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:147:28
+    t.method("GetOutputProlongation", static_cast<const mfem::Operator * (mfem::Operator::*)()  const>(&mfem::Operator::GetOutputProlongation));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::Operator::GetOutputRestrictionTranspose() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::Operator::GetOutputRestrictionTranspose()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:156:28
+    t.method("GetOutputRestrictionTranspose", static_cast<const mfem::Operator * (mfem::Operator::*)()  const>(&mfem::Operator::GetOutputRestrictionTranspose));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator * mfem::Operator::GetOutputRestriction() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator * mfem::Operator::GetOutputRestriction()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:160:28
+    t.method("GetOutputRestriction", static_cast<const mfem::Operator * (mfem::Operator::*)()  const>(&mfem::Operator::GetOutputRestriction));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::FormLinearSystem(const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::Operator *&, mfem::Vector &, mfem::Vector &, int) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::FormLinearSystem(const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::Operator *&, mfem::Vector &, mfem::Vector &, int)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:195:9
+    t.method("FormLinearSystem", static_cast<void (mfem::Operator::*)(const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::Operator *&, mfem::Vector &, mfem::Vector &, int) >(&mfem::Operator::FormLinearSystem));
+    t.method("FormLinearSystem", [](mfem::Operator& a, const mfem::Array<int> & arg0, mfem::Vector & arg1, mfem::Vector & arg2, mfem::Operator *& arg3, mfem::Vector & arg4, mfem::Vector & arg5)->void { a.FormLinearSystem(arg0, arg1, arg2, arg3, arg4, arg5); });
+    t.method("FormLinearSystem", [](mfem::Operator* a, const mfem::Array<int> & arg0, mfem::Vector & arg1, mfem::Vector & arg2, mfem::Operator *& arg3, mfem::Vector & arg4, mfem::Vector & arg5)->void { a->FormLinearSystem(arg0, arg1, arg2, arg3, arg4, arg5); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::FormRectangularLinearSystem(const mfem::Array<int> &, const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::Operator *&, mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::FormRectangularLinearSystem(const mfem::Array<int> &, const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::Operator *&, mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:226:9
+    t.method("FormRectangularLinearSystem", static_cast<void (mfem::Operator::*)(const mfem::Array<int> &, const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::Operator *&, mfem::Vector &, mfem::Vector &) >(&mfem::Operator::FormRectangularLinearSystem));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::RecoverFEMSolution(const mfem::Vector &, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::RecoverFEMSolution(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:240:17
+    t.method("RecoverFEMSolution", static_cast<void (mfem::Operator::*)(const mfem::Vector &, const mfem::Vector &, mfem::Vector &) >(&mfem::Operator::RecoverFEMSolution));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::FormSystemOperator(const mfem::Array<int> &, mfem::Operator *&) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::FormSystemOperator(const mfem::Array<int> &, mfem::Operator *&)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:247:9
+    t.method("FormSystemOperator", static_cast<void (mfem::Operator::*)(const mfem::Array<int> &, mfem::Operator *&) >(&mfem::Operator::FormSystemOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::FormRectangularSystemOperator(const mfem::Array<int> &, const mfem::Array<int> &, mfem::Operator *&) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::FormRectangularSystemOperator(const mfem::Array<int> &, const mfem::Array<int> &, mfem::Operator *&)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:255:9
+    t.method("FormRectangularSystemOperator", static_cast<void (mfem::Operator::*)(const mfem::Array<int> &, const mfem::Array<int> &, mfem::Operator *&) >(&mfem::Operator::FormRectangularSystemOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Operator::FormDiscreteOperator(mfem::Operator *&) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Operator::FormDiscreteOperator(mfem::Operator *&)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:270:9
+    t.method("FormDiscreteOperator", static_cast<void (mfem::Operator::*)(mfem::Operator *&) >(&mfem::Operator::FormDiscreteOperator));
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator::Type mfem::Operator::GetType() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator::Type mfem::Operator::GetType()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:307:9
+    t.method("GetType", static_cast<mfem::Operator::Type (mfem::Operator::*)()  const>(&mfem::Operator::GetType));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Operator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Operator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Operator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::TimeDependentOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::TimeDependentOperator> : std::false_type { };
+template<> struct SuperType<mfem::TimeDependentOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::TimeDependentOperator
+// signature to use in the veto file: mfem::TimeDependentOperator
+struct Jlmfem_TimeDependentOperator: public Wrapper {
+
+  Jlmfem_TimeDependentOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::TimeDependentOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:316:7
+    jlcxx::TypeWrapper<mfem::TimeDependentOperator>  t = jlModule.add_type<mfem::TimeDependentOperator>("mfem!TimeDependentOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::TimeDependentOperator>>(new jlcxx::TypeWrapper<mfem::TimeDependentOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::TimeDependentOperator(int, double, mfem::TimeDependentOperator::Type) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:347:13
+    t.constructor<int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, double, mfem::TimeDependentOperator::Type>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::TimeDependentOperator(int, int, double, mfem::TimeDependentOperator::Type) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:353:4
+    t.constructor<int, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, int, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, int, double, mfem::TimeDependentOperator::Type>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for double mfem::TimeDependentOperator::GetTime() (" __HERE__ ")");
+    // signature to use in the veto list: double mfem::TimeDependentOperator::GetTime()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:357:19
+    t.method("GetTime", static_cast<double (mfem::TimeDependentOperator::*)()  const>(&mfem::TimeDependentOperator::GetTime));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::SetTime(const double) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentOperator::SetTime(const double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:360:17
+    t.method("SetTime", static_cast<void (mfem::TimeDependentOperator::*)(const double) >(&mfem::TimeDependentOperator::SetTime));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::TimeDependentOperator::isExplicit() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::TimeDependentOperator::isExplicit()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:363:9
+    t.method("isExplicit", static_cast<bool (mfem::TimeDependentOperator::*)()  const>(&mfem::TimeDependentOperator::isExplicit));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::TimeDependentOperator::isImplicit() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::TimeDependentOperator::isImplicit()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:365:9
+    t.method("isImplicit", static_cast<bool (mfem::TimeDependentOperator::*)()  const>(&mfem::TimeDependentOperator::isImplicit));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::TimeDependentOperator::isHomogeneous() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::TimeDependentOperator::isHomogeneous()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:367:9
+    t.method("isHomogeneous", static_cast<bool (mfem::TimeDependentOperator::*)()  const>(&mfem::TimeDependentOperator::isHomogeneous));
+
+    DEBUG_MSG("Adding wrapper for mfem::TimeDependentOperator::EvalMode mfem::TimeDependentOperator::GetEvalMode() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::TimeDependentOperator::EvalMode mfem::TimeDependentOperator::GetEvalMode()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:370:13
+    t.method("GetEvalMode", static_cast<mfem::TimeDependentOperator::EvalMode (mfem::TimeDependentOperator::*)()  const>(&mfem::TimeDependentOperator::GetEvalMode));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::SetEvalMode(const mfem::TimeDependentOperator::EvalMode) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentOperator::SetEvalMode(const mfem::TimeDependentOperator::EvalMode)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:383:17
+    t.method("SetEvalMode", static_cast<void (mfem::TimeDependentOperator::*)(const mfem::TimeDependentOperator::EvalMode) >(&mfem::TimeDependentOperator::SetEvalMode));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::ExplicitMult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentOperator::ExplicitMult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:391:17
+    t.method("ExplicitMult", static_cast<void (mfem::TimeDependentOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TimeDependentOperator::ExplicitMult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::ImplicitMult(const mfem::Vector &, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentOperator::ImplicitMult(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:398:17
+    t.method("ImplicitMult", static_cast<void (mfem::TimeDependentOperator::*)(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)  const>(&mfem::TimeDependentOperator::ImplicitMult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:403:17
+    t.method("Mult", static_cast<void (mfem::TimeDependentOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TimeDependentOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentOperator::ImplicitSolve(const double, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentOperator::ImplicitSolve(const double, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:421:17
+    t.method("ImplicitSolve", static_cast<void (mfem::TimeDependentOperator::*)(const double, const mfem::Vector &, mfem::Vector &) >(&mfem::TimeDependentOperator::ImplicitSolve));
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator & mfem::TimeDependentOperator::GetImplicitGradient(const mfem::Vector &, const mfem::Vector &, double) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator & mfem::TimeDependentOperator::GetImplicitGradient(const mfem::Vector &, const mfem::Vector &, double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:428:22
+    t.method("GetImplicitGradient", static_cast<mfem::Operator & (mfem::TimeDependentOperator::*)(const mfem::Vector &, const mfem::Vector &, double)  const>(&mfem::TimeDependentOperator::GetImplicitGradient));
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator & mfem::TimeDependentOperator::GetExplicitGradient(const mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator & mfem::TimeDependentOperator::GetExplicitGradient(const mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:436:22
+    t.method("GetExplicitGradient", static_cast<mfem::Operator & (mfem::TimeDependentOperator::*)(const mfem::Vector &)  const>(&mfem::TimeDependentOperator::GetExplicitGradient));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentOperator::SUNImplicitSetup(const mfem::Vector &, const mfem::Vector &, int, int *, double) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentOperator::SUNImplicitSetup(const mfem::Vector &, const mfem::Vector &, int, int *, double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:451:16
+    t.method("SUNImplicitSetup", static_cast<int (mfem::TimeDependentOperator::*)(const mfem::Vector &, const mfem::Vector &, int, int *, double) >(&mfem::TimeDependentOperator::SUNImplicitSetup));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentOperator::SUNImplicitSolve(const mfem::Vector &, mfem::Vector &, double) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentOperator::SUNImplicitSolve(const mfem::Vector &, mfem::Vector &, double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:465:16
+    t.method("SUNImplicitSolve", static_cast<int (mfem::TimeDependentOperator::*)(const mfem::Vector &, mfem::Vector &, double) >(&mfem::TimeDependentOperator::SUNImplicitSolve));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentOperator::SUNMassSetup() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentOperator::SUNMassSetup()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:473:16
+    t.method("SUNMassSetup", static_cast<int (mfem::TimeDependentOperator::*)() >(&mfem::TimeDependentOperator::SUNMassSetup));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentOperator::SUNMassSolve(const mfem::Vector &, mfem::Vector &, double) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentOperator::SUNMassSolve(const mfem::Vector &, mfem::Vector &, double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:486:16
+    t.method("SUNMassSolve", static_cast<int (mfem::TimeDependentOperator::*)(const mfem::Vector &, mfem::Vector &, double) >(&mfem::TimeDependentOperator::SUNMassSolve));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentOperator::SUNMassMult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentOperator::SUNMassMult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:497:16
+    t.method("SUNMassMult", static_cast<int (mfem::TimeDependentOperator::*)(const mfem::Vector &, mfem::Vector &) >(&mfem::TimeDependentOperator::SUNMassMult));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::TimeDependentOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_TimeDependentOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_TimeDependentOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::TimeDependentAdjointOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::TimeDependentAdjointOperator> : std::false_type { };
+template<> struct SuperType<mfem::TimeDependentAdjointOperator> { typedef mfem::TimeDependentOperator type; };
+}
+
+// Class generating the wrapper for type mfem::TimeDependentAdjointOperator
+// signature to use in the veto file: mfem::TimeDependentAdjointOperator
+struct Jlmfem_TimeDependentAdjointOperator: public Wrapper {
+
+  Jlmfem_TimeDependentAdjointOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::TimeDependentAdjointOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:505:7
+    jlcxx::TypeWrapper<mfem::TimeDependentAdjointOperator>  t = jlModule.add_type<mfem::TimeDependentAdjointOperator>("mfem!TimeDependentAdjointOperator",
+      jlcxx::julia_base_type<mfem::TimeDependentOperator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::TimeDependentAdjointOperator>>(new jlcxx::TypeWrapper<mfem::TimeDependentAdjointOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentAdjointOperator::QuadratureIntegration(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentAdjointOperator::QuadratureIntegration(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:553:17
+    t.method("QuadratureIntegration", static_cast<void (mfem::TimeDependentAdjointOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TimeDependentAdjointOperator::QuadratureIntegration));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentAdjointOperator::AdjointRateMult(const mfem::Vector &, mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentAdjointOperator::AdjointRateMult(const mfem::Vector &, mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:562:17
+    t.method("AdjointRateMult", static_cast<void (mfem::TimeDependentAdjointOperator::*)(const mfem::Vector &, mfem::Vector &, mfem::Vector &)  const>(&mfem::TimeDependentAdjointOperator::AdjointRateMult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TimeDependentAdjointOperator::QuadratureSensitivityMult(const mfem::Vector &, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TimeDependentAdjointOperator::QuadratureSensitivityMult(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:574:17
+    t.method("QuadratureSensitivityMult", static_cast<void (mfem::TimeDependentAdjointOperator::*)(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)  const>(&mfem::TimeDependentAdjointOperator::QuadratureSensitivityMult));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentAdjointOperator::SUNImplicitSetupB(const double, const mfem::Vector &, const mfem::Vector &, const mfem::Vector &, int, int *, double) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentAdjointOperator::SUNImplicitSetupB(const double, const mfem::Vector &, const mfem::Vector &, const mfem::Vector &, int, int *, double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:593:16
+    t.method("SUNImplicitSetupB", static_cast<int (mfem::TimeDependentAdjointOperator::*)(const double, const mfem::Vector &, const mfem::Vector &, const mfem::Vector &, int, int *, double) >(&mfem::TimeDependentAdjointOperator::SUNImplicitSetupB));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentAdjointOperator::SUNImplicitSolveB(mfem::Vector &, const mfem::Vector &, double) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentAdjointOperator::SUNImplicitSolveB(mfem::Vector &, const mfem::Vector &, double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:613:16
+    t.method("SUNImplicitSolveB", static_cast<int (mfem::TimeDependentAdjointOperator::*)(mfem::Vector &, const mfem::Vector &, double) >(&mfem::TimeDependentAdjointOperator::SUNImplicitSolveB));
+
+    DEBUG_MSG("Adding wrapper for int mfem::TimeDependentAdjointOperator::GetAdjointHeight() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::TimeDependentAdjointOperator::GetAdjointHeight()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:621:8
+    t.method("GetAdjointHeight", static_cast<int (mfem::TimeDependentAdjointOperator::*)() >(&mfem::TimeDependentAdjointOperator::GetAdjointHeight));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::TimeDependentAdjointOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_TimeDependentAdjointOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_TimeDependentAdjointOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::SecondOrderTimeDependentOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::SecondOrderTimeDependentOperator> : std::false_type { };
+template<> struct SuperType<mfem::SecondOrderTimeDependentOperator> { typedef mfem::TimeDependentOperator type; };
+}
+
+// Class generating the wrapper for type mfem::SecondOrderTimeDependentOperator
+// signature to use in the veto file: mfem::SecondOrderTimeDependentOperator
+struct Jlmfem_SecondOrderTimeDependentOperator: public Wrapper {
+
+  Jlmfem_SecondOrderTimeDependentOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::SecondOrderTimeDependentOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:634:7
+    jlcxx::TypeWrapper<mfem::SecondOrderTimeDependentOperator>  t = jlModule.add_type<mfem::SecondOrderTimeDependentOperator>("mfem!SecondOrderTimeDependentOperator",
+      jlcxx::julia_base_type<mfem::TimeDependentOperator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::SecondOrderTimeDependentOperator>>(new jlcxx::TypeWrapper<mfem::SecondOrderTimeDependentOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::SecondOrderTimeDependentOperator::SecondOrderTimeDependentOperator(int, double, mfem::TimeDependentOperator::Type) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:639:13
+    t.constructor<int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, double, mfem::TimeDependentOperator::Type>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::SecondOrderTimeDependentOperator::SecondOrderTimeDependentOperator(int, int, double, mfem::TimeDependentOperator::Type) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:645:4
+    t.constructor<int, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, int, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, int, double, mfem::TimeDependentOperator::Type>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::SecondOrderTimeDependentOperator::Mult(const mfem::Vector &, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::SecondOrderTimeDependentOperator::Mult(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:654:17
+    t.method("Mult", static_cast<void (mfem::SecondOrderTimeDependentOperator::*)(const mfem::Vector &, const mfem::Vector &, mfem::Vector &)  const>(&mfem::SecondOrderTimeDependentOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::SecondOrderTimeDependentOperator::ImplicitSolve(const double, const double, const mfem::Vector &, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::SecondOrderTimeDependentOperator::ImplicitSolve(const double, const double, const mfem::Vector &, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:673:17
+    t.method("ImplicitSolve", static_cast<void (mfem::SecondOrderTimeDependentOperator::*)(const double, const double, const mfem::Vector &, const mfem::Vector &, mfem::Vector &) >(&mfem::SecondOrderTimeDependentOperator::ImplicitSolve));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::SecondOrderTimeDependentOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_SecondOrderTimeDependentOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_SecondOrderTimeDependentOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Solver> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Solver> : std::false_type { };
+template<> struct SuperType<mfem::Solver> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::Solver
+// signature to use in the veto file: mfem::Solver
+struct Jlmfem_Solver: public Wrapper {
+
+  Jlmfem_Solver(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Solver (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:682:7
+    jlcxx::TypeWrapper<mfem::Solver>  t = jlModule.add_type<mfem::Solver>("mfem!Solver",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Solver>>(new jlcxx::TypeWrapper<mfem::Solver>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::Solver::SetOperator(const mfem::Operator &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Solver::SetOperator(const mfem::Operator &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:700:17
+    t.method("SetOperator", static_cast<void (mfem::Solver::*)(const mfem::Operator &) >(&mfem::Solver::SetOperator));
+
+    DEBUG_MSG("Adding iterative_mode methods  to provide read access to the field iterative_mode (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:686:9
+    // signature to use in the veto list: mfem::Solver::iterative_mode
+    t.method("iterative_mode", [](const mfem::Solver& a) -> bool { return a.iterative_mode; });
+    t.method("iterative_mode", [](mfem::Solver& a) -> bool { return a.iterative_mode; });
+    t.method("iterative_mode", [](const mfem::Solver* a) -> bool { return a->iterative_mode; });
+    t.method("iterative_mode", [](mfem::Solver* a) -> bool { return a->iterative_mode; });
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:686:9
+    // signature to use in the veto list: mfem::Solver::iterative_mode
+    // with ! suffix to veto the setter only.
+    DEBUG_MSG("Adding iterative_mode! methods to provide write access to the field iterative_mode (" __HERE__ ")");
+    t.method("iterative_mode!", [](mfem::Solver& a, bool val) -> bool { return a.iterative_mode = val; });
+
+    DEBUG_MSG("Adding iterative_mode! methods to provide write access to the field iterative_mode (" __HERE__ ")");
+    t.method("iterative_mode!", [](mfem::Solver* a, bool val) -> bool { return a->iterative_mode = val; });
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Solver>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Solver(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Solver(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::IdentityOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::IdentityOperator> : std::false_type { };
+template<> struct SuperType<mfem::IdentityOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::IdentityOperator
+// signature to use in the veto file: mfem::IdentityOperator
+struct Jlmfem_IdentityOperator: public Wrapper {
+
+  Jlmfem_IdentityOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::IdentityOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:705:7
+    jlcxx::TypeWrapper<mfem::IdentityOperator>  t = jlModule.add_type<mfem::IdentityOperator>("mfem!IdentityOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::IdentityOperator>>(new jlcxx::TypeWrapper<mfem::IdentityOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::IdentityOperator::IdentityOperator(int) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:709:13
+    t.constructor<int>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::IdentityOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::IdentityOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:712:17
+    t.method("Mult", static_cast<void (mfem::IdentityOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::IdentityOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::IdentityOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::IdentityOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:715:17
+    t.method("MultTranspose", static_cast<void (mfem::IdentityOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::IdentityOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::IdentityOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_IdentityOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_IdentityOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ScaledOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ScaledOperator> : std::false_type { };
+template<> struct SuperType<mfem::ScaledOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::ScaledOperator
+// signature to use in the veto file: mfem::ScaledOperator
+struct Jlmfem_ScaledOperator: public Wrapper {
+
+  Jlmfem_ScaledOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ScaledOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:726:7
+    jlcxx::TypeWrapper<mfem::ScaledOperator>  t = jlModule.add_type<mfem::ScaledOperator>("mfem!ScaledOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ScaledOperator>>(new jlcxx::TypeWrapper<mfem::ScaledOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ScaledOperator::ScaledOperator(const mfem::Operator *, double) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:734:13
+    t.constructor<const mfem::Operator *, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::ScaledOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ScaledOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:738:17
+    t.method("Mult", static_cast<void (mfem::ScaledOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::ScaledOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::ScaledOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ScaledOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:742:17
+    t.method("MultTranspose", static_cast<void (mfem::ScaledOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::ScaledOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ScaledOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ScaledOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ScaledOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::TransposeOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::TransposeOperator> : std::false_type { };
+template<> struct SuperType<mfem::TransposeOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::TransposeOperator
+// signature to use in the veto file: mfem::TransposeOperator
+struct Jlmfem_TransposeOperator: public Wrapper {
+
+  Jlmfem_TransposeOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::TransposeOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:749:7
+    jlcxx::TypeWrapper<mfem::TransposeOperator>  t = jlModule.add_type<mfem::TransposeOperator>("mfem!TransposeOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::TransposeOperator>>(new jlcxx::TypeWrapper<mfem::TransposeOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::TransposeOperator::TransposeOperator(const mfem::Operator *) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:756:4
+    t.constructor<const mfem::Operator *>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::TransposeOperator::TransposeOperator(const mfem::Operator &) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:760:4
+    t.constructor<const mfem::Operator &>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::TransposeOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TransposeOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:764:17
+    t.method("Mult", static_cast<void (mfem::TransposeOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TransposeOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TransposeOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TransposeOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:768:17
+    t.method("MultTranspose", static_cast<void (mfem::TransposeOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TransposeOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::TransposeOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_TransposeOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_TransposeOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ProductOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ProductOperator> : std::false_type { };
+template<> struct SuperType<mfem::ProductOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::ProductOperator
+// signature to use in the veto file: mfem::ProductOperator
+struct Jlmfem_ProductOperator: public Wrapper {
+
+  Jlmfem_ProductOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ProductOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:774:7
+    jlcxx::TypeWrapper<mfem::ProductOperator>  t = jlModule.add_type<mfem::ProductOperator>("mfem!ProductOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ProductOperator>>(new jlcxx::TypeWrapper<mfem::ProductOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ProductOperator::ProductOperator(const mfem::Operator *, const mfem::Operator *, bool, bool) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:781:4
+    t.constructor<const mfem::Operator *, const mfem::Operator *, bool, bool>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::ProductOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ProductOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:783:17
+    t.method("Mult", static_cast<void (mfem::ProductOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::ProductOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::ProductOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ProductOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:786:17
+    t.method("MultTranspose", static_cast<void (mfem::ProductOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::ProductOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ProductOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ProductOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ProductOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RAPOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RAPOperator> : std::false_type { };
+template<> struct SuperType<mfem::RAPOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::RAPOperator
+// signature to use in the veto file: mfem::RAPOperator
+struct Jlmfem_RAPOperator: public Wrapper {
+
+  Jlmfem_RAPOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RAPOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:794:7
+    jlcxx::TypeWrapper<mfem::RAPOperator>  t = jlModule.add_type<mfem::RAPOperator>("mfem!RAPOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RAPOperator>>(new jlcxx::TypeWrapper<mfem::RAPOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RAPOperator::RAPOperator(const mfem::Operator &, const mfem::Operator &, const mfem::Operator &) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:806:4
+    t.constructor<const mfem::Operator &, const mfem::Operator &, const mfem::Operator &>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for mfem::MemoryClass mfem::RAPOperator::GetMemoryClass() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::MemoryClass mfem::RAPOperator::GetMemoryClass()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:808:24
+    t.method("GetMemoryClass", static_cast<mfem::MemoryClass (mfem::RAPOperator::*)()  const>(&mfem::RAPOperator::GetMemoryClass));
+
+    DEBUG_MSG("Adding wrapper for void mfem::RAPOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::RAPOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:811:17
+    t.method("Mult", static_cast<void (mfem::RAPOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::RAPOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::RAPOperator::AssembleDiagonal(mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::RAPOperator::AssembleDiagonal(mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:821:17
+    t.method("AssembleDiagonal", static_cast<void (mfem::RAPOperator::*)(mfem::Vector &)  const>(&mfem::RAPOperator::AssembleDiagonal));
+
+    DEBUG_MSG("Adding wrapper for void mfem::RAPOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::RAPOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:832:17
+    t.method("MultTranspose", static_cast<void (mfem::RAPOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::RAPOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RAPOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RAPOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RAPOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::TripleProductOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::TripleProductOperator> : std::false_type { };
+template<> struct SuperType<mfem::TripleProductOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::TripleProductOperator
+// signature to use in the veto file: mfem::TripleProductOperator
+struct Jlmfem_TripleProductOperator: public Wrapper {
+
+  Jlmfem_TripleProductOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::TripleProductOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:838:7
+    jlcxx::TypeWrapper<mfem::TripleProductOperator>  t = jlModule.add_type<mfem::TripleProductOperator>("mfem!TripleProductOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::TripleProductOperator>>(new jlcxx::TypeWrapper<mfem::TripleProductOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::TripleProductOperator::TripleProductOperator(const mfem::Operator *, const mfem::Operator *, const mfem::Operator *, bool, bool, bool) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:848:4
+    t.constructor<const mfem::Operator *, const mfem::Operator *, const mfem::Operator *, bool, bool, bool>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for mfem::MemoryClass mfem::TripleProductOperator::GetMemoryClass() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::MemoryClass mfem::TripleProductOperator::GetMemoryClass()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:851:24
+    t.method("GetMemoryClass", static_cast<mfem::MemoryClass (mfem::TripleProductOperator::*)()  const>(&mfem::TripleProductOperator::GetMemoryClass));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TripleProductOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TripleProductOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:853:17
+    t.method("Mult", static_cast<void (mfem::TripleProductOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TripleProductOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::TripleProductOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::TripleProductOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:856:17
+    t.method("MultTranspose", static_cast<void (mfem::TripleProductOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::TripleProductOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::TripleProductOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_TripleProductOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_TripleProductOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::ConstrainedOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::ConstrainedOperator> : std::false_type { };
+template<> struct SuperType<mfem::ConstrainedOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::ConstrainedOperator
+// signature to use in the veto file: mfem::ConstrainedOperator
+struct Jlmfem_ConstrainedOperator: public Wrapper {
+
+  Jlmfem_ConstrainedOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::ConstrainedOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:872:7
+    jlcxx::TypeWrapper<mfem::ConstrainedOperator>  t = jlModule.add_type<mfem::ConstrainedOperator>("mfem!ConstrainedOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::ConstrainedOperator>>(new jlcxx::TypeWrapper<mfem::ConstrainedOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::ConstrainedOperator::ConstrainedOperator(mfem::Operator *, const mfem::Array<int> &, bool, mfem::Operator::DiagonalPolicy) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:891:4
+    t.constructor<mfem::Operator *, const mfem::Array<int> &>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<mfem::Operator *, const mfem::Array<int> &, bool>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<mfem::Operator *, const mfem::Array<int> &, bool, mfem::Operator::DiagonalPolicy>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for mfem::MemoryClass mfem::ConstrainedOperator::GetMemoryClass() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::MemoryClass mfem::ConstrainedOperator::GetMemoryClass()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:895:24
+    t.method("GetMemoryClass", static_cast<mfem::MemoryClass (mfem::ConstrainedOperator::*)()  const>(&mfem::ConstrainedOperator::GetMemoryClass));
+
+    DEBUG_MSG("Adding wrapper for void mfem::ConstrainedOperator::SetDiagonalPolicy(const mfem::Operator::DiagonalPolicy) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ConstrainedOperator::SetDiagonalPolicy(const mfem::Operator::DiagonalPolicy)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:898:9
+    t.method("SetDiagonalPolicy", static_cast<void (mfem::ConstrainedOperator::*)(const mfem::Operator::DiagonalPolicy) >(&mfem::ConstrainedOperator::SetDiagonalPolicy));
+
+    DEBUG_MSG("Adding wrapper for void mfem::ConstrainedOperator::AssembleDiagonal(mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ConstrainedOperator::AssembleDiagonal(mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:902:17
+    t.method("AssembleDiagonal", static_cast<void (mfem::ConstrainedOperator::*)(mfem::Vector &)  const>(&mfem::ConstrainedOperator::AssembleDiagonal));
+
+    DEBUG_MSG("Adding wrapper for void mfem::ConstrainedOperator::EliminateRHS(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ConstrainedOperator::EliminateRHS(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:915:9
+    t.method("EliminateRHS", static_cast<void (mfem::ConstrainedOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::ConstrainedOperator::EliminateRHS));
+
+    DEBUG_MSG("Adding wrapper for void mfem::ConstrainedOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::ConstrainedOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:925:17
+    t.method("Mult", static_cast<void (mfem::ConstrainedOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::ConstrainedOperator::Mult));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::ConstrainedOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_ConstrainedOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_ConstrainedOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::RectangularConstrainedOperator> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::RectangularConstrainedOperator> : std::false_type { };
+template<> struct SuperType<mfem::RectangularConstrainedOperator> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::RectangularConstrainedOperator
+// signature to use in the veto file: mfem::RectangularConstrainedOperator
+struct Jlmfem_RectangularConstrainedOperator: public Wrapper {
+
+  Jlmfem_RectangularConstrainedOperator(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::RectangularConstrainedOperator (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:938:7
+    jlcxx::TypeWrapper<mfem::RectangularConstrainedOperator>  t = jlModule.add_type<mfem::RectangularConstrainedOperator>("mfem!RectangularConstrainedOperator",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::RectangularConstrainedOperator>>(new jlcxx::TypeWrapper<mfem::RectangularConstrainedOperator>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::RectangularConstrainedOperator::RectangularConstrainedOperator(mfem::Operator *, const mfem::Array<int> &, const mfem::Array<int> &, bool) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:955:4
+    t.constructor<mfem::Operator *, const mfem::Array<int> &, const mfem::Array<int> &>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<mfem::Operator *, const mfem::Array<int> &, const mfem::Array<int> &, bool>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for mfem::MemoryClass mfem::RectangularConstrainedOperator::GetMemoryClass() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::MemoryClass mfem::RectangularConstrainedOperator::GetMemoryClass()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:958:24
+    t.method("GetMemoryClass", static_cast<mfem::MemoryClass (mfem::RectangularConstrainedOperator::*)()  const>(&mfem::RectangularConstrainedOperator::GetMemoryClass));
+
+    DEBUG_MSG("Adding wrapper for void mfem::RectangularConstrainedOperator::EliminateRHS(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::RectangularConstrainedOperator::EliminateRHS(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:969:9
+    t.method("EliminateRHS", static_cast<void (mfem::RectangularConstrainedOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::RectangularConstrainedOperator::EliminateRHS));
+
+    DEBUG_MSG("Adding wrapper for void mfem::RectangularConstrainedOperator::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::RectangularConstrainedOperator::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:979:17
+    t.method("Mult", static_cast<void (mfem::RectangularConstrainedOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::RectangularConstrainedOperator::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::RectangularConstrainedOperator::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::RectangularConstrainedOperator::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:980:17
+    t.method("MultTranspose", static_cast<void (mfem::RectangularConstrainedOperator::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::RectangularConstrainedOperator::MultTranspose));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::RectangularConstrainedOperator>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_RectangularConstrainedOperator(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_RectangularConstrainedOperator(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::PowerMethod> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::PowerMethod> : std::false_type { };
+}
+
+// Class generating the wrapper for type mfem::PowerMethod
+// signature to use in the veto file: mfem::PowerMethod
+struct Jlmfem_PowerMethod: public Wrapper {
+
+  Jlmfem_PowerMethod(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::PowerMethod (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:986:7
+    jlcxx::TypeWrapper<mfem::PowerMethod>  t = jlModule.add_type<mfem::PowerMethod>("mfem!PowerMethod");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::PowerMethod>>(new jlcxx::TypeWrapper<mfem::PowerMethod>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for double mfem::PowerMethod::EstimateLargestEigenvalue(mfem::Operator &, mfem::Vector &, int, double, int) (" __HERE__ ")");
+    // signature to use in the veto list: double mfem::PowerMethod::EstimateLargestEigenvalue(mfem::Operator &, mfem::Vector &, int, double, int)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:1012:11
+    t.method("EstimateLargestEigenvalue", static_cast<double (mfem::PowerMethod::*)(mfem::Operator &, mfem::Vector &, int, double, int) >(&mfem::PowerMethod::EstimateLargestEigenvalue));
+    t.method("EstimateLargestEigenvalue", [](mfem::PowerMethod& a, mfem::Operator & arg0, mfem::Vector & arg1)->double { return a.EstimateLargestEigenvalue(arg0, arg1); });
+    t.method("EstimateLargestEigenvalue", [](mfem::PowerMethod& a, mfem::Operator & arg0, mfem::Vector & arg1, int arg2)->double { return a.EstimateLargestEigenvalue(arg0, arg1, arg2); });
+    t.method("EstimateLargestEigenvalue", [](mfem::PowerMethod& a, mfem::Operator & arg0, mfem::Vector & arg1, int arg2, double arg3)->double { return a.EstimateLargestEigenvalue(arg0, arg1, arg2, arg3); });
+    t.method("EstimateLargestEigenvalue", [](mfem::PowerMethod* a, mfem::Operator & arg0, mfem::Vector & arg1)->double { return a->EstimateLargestEigenvalue(arg0, arg1); });
+    t.method("EstimateLargestEigenvalue", [](mfem::PowerMethod* a, mfem::Operator & arg0, mfem::Vector & arg1, int arg2)->double { return a->EstimateLargestEigenvalue(arg0, arg1, arg2); });
+    t.method("EstimateLargestEigenvalue", [](mfem::PowerMethod* a, mfem::Operator & arg0, mfem::Vector & arg1, int arg2, double arg3)->double { return a->EstimateLargestEigenvalue(arg0, arg1, arg2, arg3); });
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::PowerMethod>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_PowerMethod(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_PowerMethod(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::Matrix> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::Matrix> : std::false_type { };
+template<> struct SuperType<mfem::Matrix> { typedef mfem::Operator type; };
+}
+
+// Class generating the wrapper for type mfem::Matrix
+// signature to use in the veto file: mfem::Matrix
+struct Jlmfem_Matrix: public Wrapper {
+
+  Jlmfem_Matrix(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::Matrix (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:27:7
+    jlcxx::TypeWrapper<mfem::Matrix>  t = jlModule.add_type<mfem::Matrix>("mfem!Matrix",
+      jlcxx::julia_base_type<mfem::Operator>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Matrix>>(new jlcxx::TypeWrapper<mfem::Matrix>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+
+    DEBUG_MSG("Adding wrapper for bool mfem::Matrix::IsSquare() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::Matrix::IsSquare()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:39:9
+    t.method("IsSquare", static_cast<bool (mfem::Matrix::*)()  const>(&mfem::Matrix::IsSquare));
+
+    DEBUG_MSG("Adding wrapper for double & mfem::Matrix::Elem(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: double & mfem::Matrix::Elem(int, int)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:42:20
+    t.method("Elem", static_cast<double & (mfem::Matrix::*)(int, int) >(&mfem::Matrix::Elem));
+
+    DEBUG_MSG("Adding wrapper for const double & mfem::Matrix::Elem(int, int) (" __HERE__ ")");
+    // signature to use in the veto list: const double & mfem::Matrix::Elem(int, int)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:45:26
+    t.method("Elem", static_cast<const double & (mfem::Matrix::*)(int, int)  const>(&mfem::Matrix::Elem));
+
+    DEBUG_MSG("Adding wrapper for mfem::MatrixInverse * mfem::Matrix::Inverse() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::MatrixInverse * mfem::Matrix::Inverse()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:48:27
+    t.method("Inverse", static_cast<mfem::MatrixInverse * (mfem::Matrix::*)()  const>(&mfem::Matrix::Inverse));
+
+    DEBUG_MSG("Adding wrapper for void mfem::Matrix::Finalize(int) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::Matrix::Finalize(int)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:51:17
+    t.method("Finalize", static_cast<void (mfem::Matrix::*)(int) >(&mfem::Matrix::Finalize));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::Matrix>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_Matrix(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_Matrix(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::MatrixInverse> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::MatrixInverse> : std::false_type { };
+template<> struct SuperType<mfem::MatrixInverse> { typedef mfem::Solver type; };
+}
+
+// Class generating the wrapper for type mfem::MatrixInverse
+// signature to use in the veto file: mfem::MatrixInverse
+struct Jlmfem_MatrixInverse: public Wrapper {
+
+  Jlmfem_MatrixInverse(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::MatrixInverse (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:62:7
+    jlcxx::TypeWrapper<mfem::MatrixInverse>  t = jlModule.add_type<mfem::MatrixInverse>("mfem!MatrixInverse",
+      jlcxx::julia_base_type<mfem::Solver>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::MatrixInverse>>(new jlcxx::TypeWrapper<mfem::MatrixInverse>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::MatrixInverse>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_MatrixInverse(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_MatrixInverse(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::AbstractSparseMatrix> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::AbstractSparseMatrix> : std::false_type { };
+template<> struct SuperType<mfem::AbstractSparseMatrix> { typedef mfem::Matrix type; };
+}
+
+// Class generating the wrapper for type mfem::AbstractSparseMatrix
+// signature to use in the veto file: mfem::AbstractSparseMatrix
+struct Jlmfem_AbstractSparseMatrix: public Wrapper {
+
+  Jlmfem_AbstractSparseMatrix(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::AbstractSparseMatrix (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:73:7
+    jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>  t = jlModule.add_type<mfem::AbstractSparseMatrix>("mfem!AbstractSparseMatrix",
+      jlcxx::julia_base_type<mfem::Matrix>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>>(new jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+
+
+
+    DEBUG_MSG("Adding wrapper for int mfem::AbstractSparseMatrix::NumNonZeroElems() (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::AbstractSparseMatrix::NumNonZeroElems()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:83:16
+    t.method("NumNonZeroElems", static_cast<int (mfem::AbstractSparseMatrix::*)()  const>(&mfem::AbstractSparseMatrix::NumNonZeroElems));
+
+    DEBUG_MSG("Adding wrapper for int mfem::AbstractSparseMatrix::GetRow(const int, mfem::Array<int> &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: int mfem::AbstractSparseMatrix::GetRow(const int, mfem::Array<int> &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:89:16
+    t.method("GetRow", static_cast<int (mfem::AbstractSparseMatrix::*)(const int, mfem::Array<int> &, mfem::Vector &)  const>(&mfem::AbstractSparseMatrix::GetRow));
+
+    DEBUG_MSG("Adding wrapper for void mfem::AbstractSparseMatrix::EliminateZeroRows(const double) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::AbstractSparseMatrix::EliminateZeroRows(const double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:96:17
+    t.method("EliminateZeroRows", static_cast<void (mfem::AbstractSparseMatrix::*)(const double) >(&mfem::AbstractSparseMatrix::EliminateZeroRows));
+    t.method("EliminateZeroRows", [](mfem::AbstractSparseMatrix& a)->void { a.EliminateZeroRows(); });
+    t.method("EliminateZeroRows", [](mfem::AbstractSparseMatrix* a)->void { a->EliminateZeroRows(); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::AbstractSparseMatrix::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::AbstractSparseMatrix::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:99:17
+    t.method("Mult", static_cast<void (mfem::AbstractSparseMatrix::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::AbstractSparseMatrix::Mult));
+
+    DEBUG_MSG("Adding wrapper for void mfem::AbstractSparseMatrix::AddMult(const mfem::Vector &, mfem::Vector &, const double) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::AbstractSparseMatrix::AddMult(const mfem::Vector &, mfem::Vector &, const double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:101:17
+    t.method("AddMult", static_cast<void (mfem::AbstractSparseMatrix::*)(const mfem::Vector &, mfem::Vector &, const double)  const>(&mfem::AbstractSparseMatrix::AddMult));
+    t.method("AddMult", [](mfem::AbstractSparseMatrix const& a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a.AddMult(arg0, arg1); });
+    t.method("AddMult", [](mfem::AbstractSparseMatrix const* a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a->AddMult(arg0, arg1); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::AbstractSparseMatrix::MultTranspose(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::AbstractSparseMatrix::MultTranspose(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:104:17
+    t.method("MultTranspose", static_cast<void (mfem::AbstractSparseMatrix::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::AbstractSparseMatrix::MultTranspose));
+
+    DEBUG_MSG("Adding wrapper for void mfem::AbstractSparseMatrix::AddMultTranspose(const mfem::Vector &, mfem::Vector &, const double) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::AbstractSparseMatrix::AddMultTranspose(const mfem::Vector &, mfem::Vector &, const double)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:106:17
+    t.method("AddMultTranspose", static_cast<void (mfem::AbstractSparseMatrix::*)(const mfem::Vector &, mfem::Vector &, const double)  const>(&mfem::AbstractSparseMatrix::AddMultTranspose));
+    t.method("AddMultTranspose", [](mfem::AbstractSparseMatrix const& a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a.AddMultTranspose(arg0, arg1); });
+    t.method("AddMultTranspose", [](mfem::AbstractSparseMatrix const* a, const mfem::Vector & arg0, mfem::Vector & arg1)->void { a->AddMultTranspose(arg0, arg1); });
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_AbstractSparseMatrix(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_AbstractSparseMatrix(module));
+}
+
+namespace jlcxx {
   template<> struct IsMirroredType<mfem::RowNode> : std::false_type { };
   template<> struct DefaultConstructible<mfem::RowNode> : std::false_type { };
 }
@@ -1300,33 +2352,6 @@ private:
 };
 std::shared_ptr<Wrapper> newJlmfem_RowNode(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new Jlmfem_RowNode(module));
-}
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::AbstractSparseMatrix> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::AbstractSparseMatrix> : std::false_type { };
-}
-
-// Class generating the wrapper for type mfem::AbstractSparseMatrix
-// signature to use in the veto file: mfem::AbstractSparseMatrix
-struct Jlmfem_AbstractSparseMatrix: public Wrapper {
-
-  Jlmfem_AbstractSparseMatrix(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::AbstractSparseMatrix (" __HERE__ ")");
-    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:73:7
-    jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>  t = jlModule.add_type<mfem::AbstractSparseMatrix>("mfem!AbstractSparseMatrix");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>>(new jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::AbstractSparseMatrix>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_AbstractSparseMatrix(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_AbstractSparseMatrix(module));
 }
 
 namespace jlcxx {
@@ -2163,6 +3188,7 @@ std::shared_ptr<Wrapper> newJlmfem_SparseMatrix(jlcxx::Module& module){
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::DenseMatrix> : std::false_type { };
   template<> struct DefaultConstructible<mfem::DenseMatrix> : std::false_type { };
+template<> struct SuperType<mfem::DenseMatrix> { typedef mfem::Matrix type; };
 }
 
 // Class generating the wrapper for type mfem::DenseMatrix
@@ -2172,7 +3198,8 @@ struct Jlmfem_DenseMatrix: public Wrapper {
   Jlmfem_DenseMatrix(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type mfem::DenseMatrix (" __HERE__ ")");
     // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/densemat.hpp:23:7
-    jlcxx::TypeWrapper<mfem::DenseMatrix>  t = jlModule.add_type<mfem::DenseMatrix>("mfem!DenseMatrix");
+    jlcxx::TypeWrapper<mfem::DenseMatrix>  t = jlModule.add_type<mfem::DenseMatrix>("mfem!DenseMatrix",
+      jlcxx::julia_base_type<mfem::Matrix>());
     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::DenseMatrix>>(new jlcxx::TypeWrapper<mfem::DenseMatrix>(jlModule, t));
   }
 
@@ -2189,88 +3216,274 @@ std::shared_ptr<Wrapper> newJlmfem_DenseMatrix(jlcxx::Module& module){
 }
 
 namespace jlcxx {
-  template<> struct IsMirroredType<mfem::Operator> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::Operator> : std::false_type { };
+  template<> struct IsMirroredType<mfem::SparseSmoother> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::SparseSmoother> : std::false_type { };
+template<> struct SuperType<mfem::SparseSmoother> { typedef mfem::MatrixInverse type; };
 }
 
-// Class generating the wrapper for type mfem::Operator
-// signature to use in the veto file: mfem::Operator
-struct Jlmfem_Operator: public Wrapper {
+// Class generating the wrapper for type mfem::SparseSmoother
+// signature to use in the veto file: mfem::SparseSmoother
+struct Jlmfem_SparseSmoother: public Wrapper {
 
-  Jlmfem_Operator(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::Operator (" __HERE__ ")");
-    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:24:7
-    jlcxx::TypeWrapper<mfem::Operator>  t = jlModule.add_type<mfem::Operator>("mfem!Operator");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Operator>>(new jlcxx::TypeWrapper<mfem::Operator>(jlModule, t));
+  Jlmfem_SparseSmoother(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::SparseSmoother (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:21:7
+    jlcxx::TypeWrapper<mfem::SparseSmoother>  t = jlModule.add_type<mfem::SparseSmoother>("mfem!SparseSmoother",
+      jlcxx::julia_base_type<mfem::MatrixInverse>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::SparseSmoother>>(new jlcxx::TypeWrapper<mfem::SparseSmoother>(jlModule, t));
   }
 
   void add_methods() const{
     auto& t = *type_;
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::SparseSmoother::SetOperator(const mfem::Operator &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::SparseSmoother::SetOperator(const mfem::Operator &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:32:17
+    t.method("SetOperator", static_cast<void (mfem::SparseSmoother::*)(const mfem::Operator &) >(&mfem::SparseSmoother::SetOperator));
   }
 
 private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::Operator>> type_;
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::SparseSmoother>> type_;
 };
-std::shared_ptr<Wrapper> newJlmfem_Operator(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_Operator(module));
+std::shared_ptr<Wrapper> newJlmfem_SparseSmoother(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_SparseSmoother(module));
 }
 
 namespace jlcxx {
-  template<> struct IsMirroredType<mfem::Solver> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::Solver> : std::false_type { };
-template<> struct SuperType<mfem::Solver> { typedef mfem::Operator type; };
+  template<> struct IsMirroredType<mfem::GSSmoother> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::GSSmoother> : std::false_type { };
+template<> struct SuperType<mfem::GSSmoother> { typedef mfem::SparseSmoother type; };
 }
 
-// Class generating the wrapper for type mfem::Solver
-// signature to use in the veto file: mfem::Solver
-struct Jlmfem_Solver: public Wrapper {
+// Class generating the wrapper for type mfem::GSSmoother
+// signature to use in the veto file: mfem::GSSmoother
+struct Jlmfem_GSSmoother: public Wrapper {
 
-  Jlmfem_Solver(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::Solver (" __HERE__ ")");
-    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:682:7
-    jlcxx::TypeWrapper<mfem::Solver>  t = jlModule.add_type<mfem::Solver>("mfem!Solver",
-      jlcxx::julia_base_type<mfem::Operator>());
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::Solver>>(new jlcxx::TypeWrapper<mfem::Solver>(jlModule, t));
+  Jlmfem_GSSmoother(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::GSSmoother (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:36:7
+    jlcxx::TypeWrapper<mfem::GSSmoother>  t = jlModule.add_type<mfem::GSSmoother>("mfem!GSSmoother",
+      jlcxx::julia_base_type<mfem::SparseSmoother>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::GSSmoother>>(new jlcxx::TypeWrapper<mfem::GSSmoother>(jlModule, t));
   }
 
   void add_methods() const{
     auto& t = *type_;
+    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::GSSmoother::GSSmoother(int, int) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:44:4
+    t.constructor<int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::GSSmoother::GSSmoother(const mfem::SparseMatrix &, int, int) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:47:4
+    t.constructor<const mfem::SparseMatrix &>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<const mfem::SparseMatrix &, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<const mfem::SparseMatrix &, int, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::GSSmoother::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::GSSmoother::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:51:17
+    t.method("Mult", static_cast<void (mfem::GSSmoother::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::GSSmoother::Mult));
   }
 
 private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::Solver>> type_;
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::GSSmoother>> type_;
 };
-std::shared_ptr<Wrapper> newJlmfem_Solver(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_Solver(module));
+std::shared_ptr<Wrapper> newJlmfem_GSSmoother(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_GSSmoother(module));
 }
 
 namespace jlcxx {
-  template<> struct IsMirroredType<mfem::MatrixInverse> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::MatrixInverse> : std::false_type { };
-template<> struct SuperType<mfem::MatrixInverse> { typedef mfem::Solver type; };
+  template<> struct IsMirroredType<mfem::DSmoother> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::DSmoother> : std::false_type { };
+template<> struct SuperType<mfem::DSmoother> { typedef mfem::SparseSmoother type; };
 }
 
-// Class generating the wrapper for type mfem::MatrixInverse
-// signature to use in the veto file: mfem::MatrixInverse
-struct Jlmfem_MatrixInverse: public Wrapper {
+// Class generating the wrapper for type mfem::DSmoother
+// signature to use in the veto file: mfem::DSmoother
+struct Jlmfem_DSmoother: public Wrapper {
 
-  Jlmfem_MatrixInverse(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::MatrixInverse (" __HERE__ ")");
-    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/matrix.hpp:62:7
-    jlcxx::TypeWrapper<mfem::MatrixInverse>  t = jlModule.add_type<mfem::MatrixInverse>("mfem!MatrixInverse",
-      jlcxx::julia_base_type<mfem::Solver>());
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::MatrixInverse>>(new jlcxx::TypeWrapper<mfem::MatrixInverse>(jlModule, t));
+  Jlmfem_DSmoother(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::DSmoother (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:55:7
+    jlcxx::TypeWrapper<mfem::DSmoother>  t = jlModule.add_type<mfem::DSmoother>("mfem!DSmoother",
+      jlcxx::julia_base_type<mfem::SparseSmoother>());
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::DSmoother>>(new jlcxx::TypeWrapper<mfem::DSmoother>(jlModule, t));
   }
 
   void add_methods() const{
     auto& t = *type_;
+    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::DSmoother::DSmoother(int, double, int) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:68:4
+    t.constructor<int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<int, double, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::DSmoother::DSmoother(const mfem::SparseMatrix &, int, double, int) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:72:4
+    t.constructor<const mfem::SparseMatrix &>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<const mfem::SparseMatrix &, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<const mfem::SparseMatrix &, int, double>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<const mfem::SparseMatrix &, int, double, int>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::DSmoother::SetPositiveDiagonal(bool) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::DSmoother::SetPositiveDiagonal(bool)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:75:9
+    t.method("SetPositiveDiagonal", static_cast<void (mfem::DSmoother::*)(bool) >(&mfem::DSmoother::SetPositiveDiagonal));
+    t.method("SetPositiveDiagonal", [](mfem::DSmoother& a)->void { a.SetPositiveDiagonal(); });
+    t.method("SetPositiveDiagonal", [](mfem::DSmoother* a)->void { a->SetPositiveDiagonal(); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::DSmoother::Mult(const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::DSmoother::Mult(const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/sparsesmoothers.hpp:78:17
+    t.method("Mult", static_cast<void (mfem::DSmoother::*)(const mfem::Vector &, mfem::Vector &)  const>(&mfem::DSmoother::Mult));
   }
 
 private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::MatrixInverse>> type_;
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::DSmoother>> type_;
 };
-std::shared_ptr<Wrapper> newJlmfem_MatrixInverse(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_MatrixInverse(module));
+std::shared_ptr<Wrapper> newJlmfem_DSmoother(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_DSmoother(module));
+}
+
+namespace jlcxx {
+  template<> struct IsMirroredType<mfem::OperatorHandle> : std::false_type { };
+  template<> struct DefaultConstructible<mfem::OperatorHandle> : std::false_type { };
+}
+
+// Class generating the wrapper for type mfem::OperatorHandle
+// signature to use in the veto file: mfem::OperatorHandle
+struct Jlmfem_OperatorHandle: public Wrapper {
+
+  Jlmfem_OperatorHandle(jlcxx::Module& jlModule): Wrapper(jlModule){
+    DEBUG_MSG("Adding wrapper for type mfem::OperatorHandle (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:33:7
+    jlcxx::TypeWrapper<mfem::OperatorHandle>  t = jlModule.add_type<mfem::OperatorHandle>("mfem!OperatorHandle");
+    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>>(new jlcxx::TypeWrapper<mfem::OperatorHandle>(jlModule, t));
+  }
+
+  void add_methods() const{
+    auto& t = *type_;
+    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::OperatorHandle(mfem::Operator::Type) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:60:13
+    t.constructor<mfem::Operator::Type>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    // Custom templates
+    t.constructor<mfem::SparseMatrix*>(/*finalize=*/jlcxx::finalize_policy::yes);
+    t.constructor<mfem::SparseMatrix*, bool>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::OperatorHandle(const mfem::OperatorHandle &) (" __HERE__ ")");
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:73:4
+    t.constructor<const mfem::OperatorHandle &>(/*finalize=*/jlcxx::finalize_policy::yes);
+
+    DEBUG_MSG("Adding wrapper for mfem::OperatorHandle & mfem::OperatorHandle::operator=(const mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: mfem::OperatorHandle & mfem::OperatorHandle::operator=(const mfem::OperatorHandle &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:80:20
+    t.method("assign", static_cast<mfem::OperatorHandle & (mfem::OperatorHandle::*)(const mfem::OperatorHandle &) >(&mfem::OperatorHandle::operator=));
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator * mfem::OperatorHandle::Ptr() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator * mfem::OperatorHandle::Ptr()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:87:14
+    t.method("Ptr", static_cast<mfem::Operator * (mfem::OperatorHandle::*)()  const>(&mfem::OperatorHandle::Ptr));
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator * mfem::OperatorHandle::operator->() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator * mfem::OperatorHandle::operator->()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:90:14
+    t.method("arrow", static_cast<mfem::Operator * (mfem::OperatorHandle::*)()  const>(&mfem::OperatorHandle::operator->));
+    module_.set_override_module(jl_base_module);
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator & mfem::OperatorHandle::operator*() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator & mfem::OperatorHandle::operator*()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:93:14
+    t.method("getindex", static_cast<mfem::Operator & (mfem::OperatorHandle::*)() >(&mfem::OperatorHandle::operator*));
+
+    DEBUG_MSG("Adding wrapper for const mfem::Operator & mfem::OperatorHandle::operator*() (" __HERE__ ")");
+    // signature to use in the veto list: const mfem::Operator & mfem::OperatorHandle::operator*()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:96:20
+    t.method("getindex", static_cast<const mfem::Operator & (mfem::OperatorHandle::*)()  const>(&mfem::OperatorHandle::operator*));
+
+    module_.unset_override_module();
+
+    DEBUG_MSG("Adding wrapper for mfem::Operator::Type mfem::OperatorHandle::Type() (" __HERE__ ")");
+    // signature to use in the veto list: mfem::Operator::Type mfem::OperatorHandle::Type()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:99:19
+    t.method("Type", static_cast<mfem::Operator::Type (mfem::OperatorHandle::*)()  const>(&mfem::OperatorHandle::Type));
+
+    DEBUG_MSG("Adding wrapper for bool mfem::OperatorHandle::OwnsOperator() (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::OperatorHandle::OwnsOperator()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:117:9
+    t.method("OwnsOperator", static_cast<bool (mfem::OperatorHandle::*)()  const>(&mfem::OperatorHandle::OwnsOperator));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::SetOperatorOwner(bool) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::SetOperatorOwner(bool)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:120:9
+    t.method("SetOperatorOwner", static_cast<void (mfem::OperatorHandle::*)(bool) >(&mfem::OperatorHandle::SetOperatorOwner));
+    t.method("SetOperatorOwner", [](mfem::OperatorHandle& a)->void { a.SetOperatorOwner(); });
+    t.method("SetOperatorOwner", [](mfem::OperatorHandle* a)->void { a->SetOperatorOwner(); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::Clear() (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::Clear()
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:124:9
+    t.method("Clear", static_cast<void (mfem::OperatorHandle::*)() >(&mfem::OperatorHandle::Clear));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::SetType(mfem::Operator::Type) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::SetType(mfem::Operator::Type)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:132:9
+    t.method("SetType", static_cast<void (mfem::OperatorHandle::*)(mfem::Operator::Type) >(&mfem::OperatorHandle::SetType));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::MakePtAP(mfem::OperatorHandle &, mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::MakePtAP(mfem::OperatorHandle &, mfem::OperatorHandle &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:169:9
+    t.method("MakePtAP", static_cast<void (mfem::OperatorHandle::*)(mfem::OperatorHandle &, mfem::OperatorHandle &) >(&mfem::OperatorHandle::MakePtAP));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::MakeRAP(mfem::OperatorHandle &, mfem::OperatorHandle &, mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::MakeRAP(mfem::OperatorHandle &, mfem::OperatorHandle &, mfem::OperatorHandle &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:175:9
+    t.method("MakeRAP", static_cast<void (mfem::OperatorHandle::*)(mfem::OperatorHandle &, mfem::OperatorHandle &, mfem::OperatorHandle &) >(&mfem::OperatorHandle::MakeRAP));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::ConvertFrom(mfem::OperatorHandle &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::ConvertFrom(mfem::OperatorHandle &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:181:9
+    t.method("ConvertFrom", static_cast<void (mfem::OperatorHandle::*)(mfem::OperatorHandle &) >(&mfem::OperatorHandle::ConvertFrom));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::EliminateRowsCols(mfem::OperatorHandle &, const mfem::Array<int> &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::EliminateRowsCols(mfem::OperatorHandle &, const mfem::Array<int> &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:195:9
+    t.method("EliminateRowsCols", static_cast<void (mfem::OperatorHandle::*)(mfem::OperatorHandle &, const mfem::Array<int> &) >(&mfem::OperatorHandle::EliminateRowsCols));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::EliminateRows(const mfem::Array<int> &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::EliminateRows(const mfem::Array<int> &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:198:9
+    t.method("EliminateRows", static_cast<void (mfem::OperatorHandle::*)(const mfem::Array<int> &) >(&mfem::OperatorHandle::EliminateRows));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::EliminateCols(const mfem::Array<int> &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::EliminateCols(const mfem::Array<int> &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:201:9
+    t.method("EliminateCols", static_cast<void (mfem::OperatorHandle::*)(const mfem::Array<int> &) >(&mfem::OperatorHandle::EliminateCols));
+
+    DEBUG_MSG("Adding wrapper for void mfem::OperatorHandle::EliminateBC(const mfem::OperatorHandle &, const mfem::Array<int> &, const mfem::Vector &, mfem::Vector &) (" __HERE__ ")");
+    // signature to use in the veto list: void mfem::OperatorHandle::EliminateBC(const mfem::OperatorHandle &, const mfem::Array<int> &, const mfem::Vector &, mfem::Vector &)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:206:9
+    t.method("EliminateBC", static_cast<void (mfem::OperatorHandle::*)(const mfem::OperatorHandle &, const mfem::Array<int> &, const mfem::Vector &, mfem::Vector &)  const>(&mfem::OperatorHandle::EliminateBC));
+  }
+
+private:
+  std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>> type_;
+};
+std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module& module){
+  return std::shared_ptr<Wrapper>(new Jlmfem_OperatorHandle(module));
 }
 
 namespace jlcxx {
@@ -2630,6 +3843,7 @@ std::shared_ptr<Wrapper> newJlmfem_OperatorJacobiSmoother(jlcxx::Module& module)
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::BilinearForm> : std::false_type { };
   template<> struct DefaultConstructible<mfem::BilinearForm> : std::false_type { };
+template<> struct SuperType<mfem::BilinearForm> { typedef mfem::Matrix type; };
 }
 
 // Class generating the wrapper for type mfem::BilinearForm
@@ -2639,7 +3853,8 @@ struct Jlmfem_BilinearForm: public Wrapper {
   Jlmfem_BilinearForm(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type mfem::BilinearForm (" __HERE__ ")");
     // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/fem/bilinearform.hpp:60:7
-    jlcxx::TypeWrapper<mfem::BilinearForm>  t = jlModule.add_type<mfem::BilinearForm>("mfem!BilinearForm");
+    jlcxx::TypeWrapper<mfem::BilinearForm>  t = jlModule.add_type<mfem::BilinearForm>("mfem!BilinearForm",
+      jlcxx::julia_base_type<mfem::Matrix>());
     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::BilinearForm>>(new jlcxx::TypeWrapper<mfem::BilinearForm>(jlModule, t));
   }
 
@@ -2953,6 +4168,12 @@ struct Jlmfem_BilinearForm: public Wrapper {
     t.method("FormLinearSystem", static_cast<void (mfem::BilinearForm::*)(const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::OperatorHandle &, mfem::Vector &, mfem::Vector &, int) >(&mfem::BilinearForm::FormLinearSystem));
     t.method("FormLinearSystem", [](mfem::BilinearForm& a, const mfem::Array<int> & arg0, mfem::Vector & arg1, mfem::Vector & arg2, mfem::OperatorHandle & arg3, mfem::Vector & arg4, mfem::Vector & arg5)->void { a.FormLinearSystem(arg0, arg1, arg2, arg3, arg4, arg5); });
     t.method("FormLinearSystem", [](mfem::BilinearForm* a, const mfem::Array<int> & arg0, mfem::Vector & arg1, mfem::Vector & arg2, mfem::OperatorHandle & arg3, mfem::Vector & arg4, mfem::Vector & arg5)->void { a->FormLinearSystem(arg0, arg1, arg2, arg3, arg4, arg5); });
+
+    DEBUG_MSG("Adding wrapper for void mfem::BilinearForm::FormLinearSystem(const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::SparseMatrix &, mfem::Vector &, mfem::Vector &, int) (" __HERE__ ")");
+    // Template stuff
+    t.method("FormLinearSystem", static_cast<void (mfem::BilinearForm::*)(const mfem::Array<int> &, mfem::Vector &, mfem::Vector &, mfem::SparseMatrix &, mfem::Vector &, mfem::Vector &, int) >(&mfem::BilinearForm::FormLinearSystem));
+    t.method("FormLinearSystem", [](mfem::BilinearForm& a, const mfem::Array<int> & arg0, mfem::Vector & arg1, mfem::Vector & arg2, mfem::SparseMatrix & arg3, mfem::Vector & arg4, mfem::Vector & arg5)->void { a.FormLinearSystem(arg0, arg1, arg2, arg3, arg4, arg5); });
+    t.method("FormLinearSystem", [](mfem::BilinearForm* a, const mfem::Array<int> & arg0, mfem::Vector & arg1, mfem::Vector & arg2, mfem::SparseMatrix & arg3, mfem::Vector & arg4, mfem::Vector & arg5)->void { a->FormLinearSystem(arg0, arg1, arg2, arg3, arg4, arg5); });
 
     DEBUG_MSG("Adding wrapper for void mfem::BilinearForm::FormSystemMatrix(const mfem::Array<int> &, mfem::OperatorHandle &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::BilinearForm::FormSystemMatrix(const mfem::Array<int> &, mfem::OperatorHandle &)
@@ -8321,6 +9542,7 @@ std::shared_ptr<Wrapper> newJlmfem_SymmetricMatrixCoefficient(jlcxx::Module& mod
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::DenseSymmetricMatrix> : std::false_type { };
   template<> struct DefaultConstructible<mfem::DenseSymmetricMatrix> : std::false_type { };
+template<> struct SuperType<mfem::DenseSymmetricMatrix> { typedef mfem::Matrix type; };
 }
 
 // Class generating the wrapper for type mfem::DenseSymmetricMatrix
@@ -8330,7 +9552,8 @@ struct Jlmfem_DenseSymmetricMatrix: public Wrapper {
   Jlmfem_DenseSymmetricMatrix(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type mfem::DenseSymmetricMatrix (" __HERE__ ")");
     // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/symmat.hpp:24:7
-    jlcxx::TypeWrapper<mfem::DenseSymmetricMatrix>  t = jlModule.add_type<mfem::DenseSymmetricMatrix>("mfem!DenseSymmetricMatrix");
+    jlcxx::TypeWrapper<mfem::DenseSymmetricMatrix>  t = jlModule.add_type<mfem::DenseSymmetricMatrix>("mfem!DenseSymmetricMatrix",
+      jlcxx::julia_base_type<mfem::Matrix>());
     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::DenseSymmetricMatrix>>(new jlcxx::TypeWrapper<mfem::DenseSymmetricMatrix>(jlModule, t));
   }
 
@@ -13780,34 +15003,6 @@ private:
 };
 std::shared_ptr<Wrapper> newJlmfem_DofTransformation(jlcxx::Module& module){
   return std::shared_ptr<Wrapper>(new Jlmfem_DofTransformation(module));
-}
-
-namespace jlcxx {
-  template<> struct IsMirroredType<mfem::OperatorHandle> : std::false_type { };
-  template<> struct DefaultConstructible<mfem::OperatorHandle> : std::false_type { };
-}
-
-// Class generating the wrapper for type mfem::OperatorHandle
-// signature to use in the veto file: mfem::OperatorHandle
-struct Jlmfem_OperatorHandle: public Wrapper {
-
-  Jlmfem_OperatorHandle(jlcxx::Module& jlModule): Wrapper(jlModule){
-    DEBUG_MSG("Adding wrapper for type mfem::OperatorHandle (" __HERE__ ")");
-    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/handle.hpp:33:7
-    jlcxx::TypeWrapper<mfem::OperatorHandle>  t = jlModule.add_type<mfem::OperatorHandle>("mfem!OperatorHandle");
-    type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>>(new jlcxx::TypeWrapper<mfem::OperatorHandle>(jlModule, t));
-  }
-
-  void add_methods() const{
-    auto& t = *type_;
-    t.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
-  }
-
-private:
-  std::unique_ptr<jlcxx::TypeWrapper<mfem::OperatorHandle>> type_;
-};
-std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module& module){
-  return std::shared_ptr<Wrapper>(new Jlmfem_OperatorHandle(module));
 }
 
 namespace jlcxx {
@@ -20606,6 +21801,7 @@ std::shared_ptr<Wrapper> newJlmfem_Hybridization(jlcxx::Module& module){
 namespace jlcxx {
   template<> struct IsMirroredType<mfem::MixedBilinearForm> : std::false_type { };
   template<> struct DefaultConstructible<mfem::MixedBilinearForm> : std::false_type { };
+template<> struct SuperType<mfem::MixedBilinearForm> { typedef mfem::Matrix type; };
 }
 
 // Class generating the wrapper for type mfem::MixedBilinearForm
@@ -20615,7 +21811,8 @@ struct Jlmfem_MixedBilinearForm: public Wrapper {
   Jlmfem_MixedBilinearForm(jlcxx::Module& jlModule): Wrapper(jlModule){
     DEBUG_MSG("Adding wrapper for type mfem::MixedBilinearForm (" __HERE__ ")");
     // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/fem/bilinearform.hpp:733:7
-    jlcxx::TypeWrapper<mfem::MixedBilinearForm>  t = jlModule.add_type<mfem::MixedBilinearForm>("mfem!MixedBilinearForm");
+    jlcxx::TypeWrapper<mfem::MixedBilinearForm>  t = jlModule.add_type<mfem::MixedBilinearForm>("mfem!MixedBilinearForm",
+      jlcxx::julia_base_type<mfem::Matrix>());
     type_ = std::unique_ptr<jlcxx::TypeWrapper<mfem::MixedBilinearForm>>(new jlcxx::TypeWrapper<mfem::MixedBilinearForm>(jlModule, t));
   }
 
@@ -21745,6 +22942,11 @@ struct JlGlobal: public Wrapper {
     // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../linalg/vector.hpp:684:15
     t.method("mfem!InnerProduct", static_cast<double (*)(const mfem::Vector &, const mfem::Vector &) >(&mfem::InnerProduct));
 
+    DEBUG_MSG("Adding wrapper for bool mfem::IsIdentityProlongation(const mfem::Operator *) (" __HERE__ ")");
+    // signature to use in the veto list: bool mfem::IsIdentityProlongation(const mfem::Operator *)
+    // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:720:13
+    t.method("mfem!IsIdentityProlongation", static_cast<bool (*)(const mfem::Operator *) >(&mfem::IsIdentityProlongation));
+
     DEBUG_MSG("Adding wrapper for void mfem::SparseMatrixFunction(mfem::SparseMatrix &, double (*)(double)) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::SparseMatrixFunction(mfem::SparseMatrix &, double (*)(double))
     // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/../linalg/sparsemat.hpp:718:6
@@ -22039,13 +23241,30 @@ class Jlmfem_Array;
 class Jlmfem_Array2D;
 class Jlmfem_Vector;
 class Jlmfem_Memory;
-class Jlmfem_RowNode;
+class Jlmfem_Operator;
+class Jlmfem_TimeDependentOperator;
+class Jlmfem_TimeDependentAdjointOperator;
+class Jlmfem_SecondOrderTimeDependentOperator;
+class Jlmfem_Solver;
+class Jlmfem_IdentityOperator;
+class Jlmfem_ScaledOperator;
+class Jlmfem_TransposeOperator;
+class Jlmfem_ProductOperator;
+class Jlmfem_RAPOperator;
+class Jlmfem_TripleProductOperator;
+class Jlmfem_ConstrainedOperator;
+class Jlmfem_RectangularConstrainedOperator;
+class Jlmfem_PowerMethod;
+class Jlmfem_Matrix;
+class Jlmfem_MatrixInverse;
 class Jlmfem_AbstractSparseMatrix;
+class Jlmfem_RowNode;
 class Jlmfem_SparseMatrix;
 class Jlmfem_DenseMatrix;
-class Jlmfem_Operator;
-class Jlmfem_Solver;
-class Jlmfem_MatrixInverse;
+class Jlmfem_SparseSmoother;
+class Jlmfem_GSSmoother;
+class Jlmfem_DSmoother;
+class Jlmfem_OperatorHandle;
 class Jlmfem_IterativeSolverMonitor;
 class Jlmfem_IterativeSolver;
 class Jlmfem_IterativeSolver_PrintLevel;
@@ -22203,7 +23422,6 @@ class Jlmfem_QuadratureInterpolator;
 class Jlmfem_QuadratureSpace;
 class Jlmfem_FaceQuadratureInterpolator;
 class Jlmfem_DofTransformation;
-class Jlmfem_OperatorHandle;
 class Jlmfem_NonlinearFormIntegrator;
 class Jlmfem_ceed_Operator;
 class Jlmfem_BlockNonlinearFormIntegrator;
@@ -22346,13 +23564,30 @@ std::shared_ptr<Wrapper> newJlmfem_Array(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Array2D(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Vector(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_Memory(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_RowNode(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Operator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_TimeDependentOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_TimeDependentAdjointOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_SecondOrderTimeDependentOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Solver(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_IdentityOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ScaledOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_TransposeOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ProductOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RAPOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_TripleProductOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_ConstrainedOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RectangularConstrainedOperator(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_PowerMethod(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_Matrix(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_MatrixInverse(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_AbstractSparseMatrix(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_RowNode(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_SparseMatrix(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_DenseMatrix(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_Operator(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_Solver(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_MatrixInverse(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_SparseSmoother(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_GSSmoother(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_DSmoother(jlcxx::Module&);
+std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_IterativeSolverMonitor(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_IterativeSolver(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_IterativeSolver_PrintLevel(jlcxx::Module&);
@@ -22510,7 +23745,6 @@ std::shared_ptr<Wrapper> newJlmfem_QuadratureInterpolator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_QuadratureSpace(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_FaceQuadratureInterpolator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_DofTransformation(jlcxx::Module&);
-std::shared_ptr<Wrapper> newJlmfem_OperatorHandle(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_NonlinearFormIntegrator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_ceed_Operator(jlcxx::Module&);
 std::shared_ptr<Wrapper> newJlmfem_BlockNonlinearFormIntegrator(jlcxx::Module&);
@@ -22696,6 +23930,13 @@ throw_if_version_incompatibility();
   jlModule.set_const("mfem!MemoryType!PRESERVE", mfem::MemoryType::PRESERVE);
   jlModule.set_const("mfem!MemoryType!DEFAULT", mfem::MemoryType::DEFAULT);
 
+  DEBUG_MSG("Adding wrapper for enum mfem::Operator::DiagonalPolicy (" __HERE__ ")");
+  // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:47:9
+  jlModule.add_bits<mfem::Operator::DiagonalPolicy>("mfem!Operator!DiagonalPolicy", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!Operator!DIAG_ZERO", mfem::Operator::DIAG_ZERO);
+  jlModule.set_const("mfem!Operator!DIAG_ONE", mfem::Operator::DIAG_ONE);
+  jlModule.set_const("mfem!Operator!DIAG_KEEP", mfem::Operator::DIAG_KEEP);
+
   DEBUG_MSG("Adding wrapper for enum mfem::MemoryClass (" __HERE__ ")");
   // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/../general/mem_manager.hpp:73:12
   jlModule.add_bits<mfem::MemoryClass>("mfem!MemoryClass", jlcxx::julia_type("CppEnum"));
@@ -22704,13 +23945,6 @@ throw_if_version_incompatibility();
   jlModule.set_const("mfem!MemoryClass!HOST_64", mfem::MemoryClass::HOST_64);
   jlModule.set_const("mfem!MemoryClass!DEVICE", mfem::MemoryClass::DEVICE);
   jlModule.set_const("mfem!MemoryClass!MANAGED", mfem::MemoryClass::MANAGED);
-
-  DEBUG_MSG("Adding wrapper for enum mfem::Operator::DiagonalPolicy (" __HERE__ ")");
-  // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:47:9
-  jlModule.add_bits<mfem::Operator::DiagonalPolicy>("mfem!Operator!DiagonalPolicy", jlcxx::julia_type("CppEnum"));
-  jlModule.set_const("mfem!Operator!DIAG_ZERO", mfem::Operator::DIAG_ZERO);
-  jlModule.set_const("mfem!Operator!DIAG_ONE", mfem::Operator::DIAG_ONE);
-  jlModule.set_const("mfem!Operator!DIAG_KEEP", mfem::Operator::DIAG_KEEP);
 
   DEBUG_MSG("Adding wrapper for enum mfem::Operator::Type (" __HERE__ ")");
   // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:283:9
@@ -22730,6 +23964,20 @@ throw_if_version_incompatibility();
   jlModule.set_const("mfem!Operator!Complex_DenseMat", mfem::Operator::Complex_DenseMat);
   jlModule.set_const("mfem!Operator!MFEM_Block_Matrix", mfem::Operator::MFEM_Block_Matrix);
   jlModule.set_const("mfem!Operator!MFEM_Block_Operator", mfem::Operator::MFEM_Block_Operator);
+
+  DEBUG_MSG("Adding wrapper for enum mfem::TimeDependentOperator::Type (" __HERE__ ")");
+  // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:319:9
+  jlModule.add_bits<mfem::TimeDependentOperator::Type>("mfem!TimeDependentOperator!Type", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!TimeDependentOperator!EXPLICIT", mfem::TimeDependentOperator::EXPLICIT);
+  jlModule.set_const("mfem!TimeDependentOperator!IMPLICIT", mfem::TimeDependentOperator::IMPLICIT);
+  jlModule.set_const("mfem!TimeDependentOperator!HOMOGENEOUS", mfem::TimeDependentOperator::HOMOGENEOUS);
+
+  DEBUG_MSG("Adding wrapper for enum mfem::TimeDependentOperator::EvalMode (" __HERE__ ")");
+  // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/mesh/../fem/ceed/interface/../../../linalg/operator.hpp:327:9
+  jlModule.add_bits<mfem::TimeDependentOperator::EvalMode>("mfem!TimeDependentOperator!EvalMode", jlcxx::julia_type("CppEnum"));
+  jlModule.set_const("mfem!TimeDependentOperator!NORMAL", mfem::TimeDependentOperator::NORMAL);
+  jlModule.set_const("mfem!TimeDependentOperator!ADDITIVE_TERM_1", mfem::TimeDependentOperator::ADDITIVE_TERM_1);
+  jlModule.set_const("mfem!TimeDependentOperator!ADDITIVE_TERM_2", mfem::TimeDependentOperator::ADDITIVE_TERM_2);
 
   DEBUG_MSG("Adding wrapper for enum mfem::BlockILU::Reordering (" __HERE__ ")");
   // defined in /home/dogiermann/Builds/mfem-test/install/include/mfem/linalg/solvers.hpp:968:15
@@ -22931,13 +24179,30 @@ throw_if_version_incompatibility();
     std::shared_ptr<Wrapper>(newJlmfem_IntegrationPoint(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Vector(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Memory(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_RowNode(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Operator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_TimeDependentOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_TimeDependentAdjointOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_SecondOrderTimeDependentOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Solver(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_IdentityOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ScaledOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_TransposeOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ProductOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RAPOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_TripleProductOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_ConstrainedOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RectangularConstrainedOperator(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_PowerMethod(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Matrix(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_MatrixInverse(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_AbstractSparseMatrix(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_RowNode(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_SparseMatrix(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_DenseMatrix(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_Operator(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_Solver(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_MatrixInverse(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_SparseSmoother(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_GSSmoother(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_DSmoother(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_OperatorHandle(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_IterativeSolverMonitor(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_IterativeSolver(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_IterativeSolver_PrintLevel(jlModule)),
@@ -23095,7 +24360,6 @@ throw_if_version_incompatibility();
     std::shared_ptr<Wrapper>(newJlmfem_QuadratureSpace(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_FaceQuadratureInterpolator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_DofTransformation(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_OperatorHandle(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_NonlinearFormIntegrator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_ceed_Operator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_BlockNonlinearFormIntegrator(jlModule)),

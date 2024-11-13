@@ -17,3 +17,7 @@
 #include "mfem/linalg/vector.hpp"
 #include "mfem/linalg/sparsemat.hpp"
 #include "mfem/linalg/solvers.hpp"
+#include "mfem/linalg/handle.hpp"
+#include "mfem/linalg/operator.hpp"
+#include "mfem/linalg/matrix.hpp"
+#include "mfem/linalg/sparsesmoothers.hpp"
