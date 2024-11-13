@@ -1,12 +1,13 @@
-JL_SHARE = $(shell julia -e 'print(joinpath(Sys.BINDIR, Base.DATAROOTDIR, "julia"))')
+JL_SHARE = $(shell julia --project -e 'print(joinpath(Sys.BINDIR, Base.DATAROOTDIR, "julia"))')
 CXXFLAGS += $(patsubst -std=gnu%,,$(shell $(JL_SHARE)/julia-config.jl --cflags))
-# CXXFLAGS += -DVERBOSE_IMPORT #To enable the verbose mode of the libray loading
+CXXFLAGS += -DJLCXX_USE_TYPE_MAP
+CXXFLAGS += -DVERBOSE_IMPORT #To enable the verbose mode of the libray loading
 # CXXFLAGS += -Wall -O0 -g     #To compile with debugger infomation
 CXXFLAGS += -O0 -g     #To compile with debugger infomation
 LDFLAGS  += $(shell $(JL_SHARE)/julia-config.jl --ldflags)
 LDLIBS   += $(shell $(JL_SHARE)/julia-config.jl --ldlibs)
 
-CXXWRAP_CPPFLAGS=-I $(shell julia -e 'using CxxWrap; print(CxxWrap.prefix_path() * "/include")') -I $(shell pwd) -std=c++17
+CXXWRAP_CPPFLAGS=-I $(shell julia --project -e 'using CxxWrap; print(CxxWrap.prefix_path() * "/include")') -I $(shell pwd) -std=c++20
 
 
 CPPFLAGS += -MMD -I $(MFEM_INC_DIR)
@@ -45,13 +46,13 @@ ifeq ($(MFEM_INC_DIR),)
 endif
 
 run_demo: all
-	. ./setup.sh && julia -i demo_MFEM.jl
+	. ./setup.sh && julia --project -i demo_MFEM.jl
 
 test: all
-	. ./setup.sh && julia demo_MFEM.jl
+	. ./setup.sh && julia --project demo_MFEM.jl
 
 libMFEM/src/generated_cxx: MFEM-generated.wit jlMFEM-veto.h
-	/home/dogiermann/Repos/wrapit/build/wrapit -v 10 --force $<
+	/home/dogiermann/Tools/wrapit/wrapit -v 10 --force $<
 	$(eval GENERATED_CXX:=$(file < libMFEM/src/generated_cxx))
 	$(eval OBJS:=$(addprefix libMFEM/build/, $(patsubst %.cxx,%.o, $(GENERATED_CXX))))
 
