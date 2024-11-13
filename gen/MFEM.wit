@@ -1,9 +1,8 @@
 module_name         = "MFEM"
 
-#input               = ["templates.h", "mfem/general/array.hpp", "mfem/mesh/mesh.hpp", "mfem/fem/fe_coll.hpp", "mfem/fem/fespace.hpp", "mfem/fem/intrules.hpp", "mfem/fem/coefficient.hpp", "mfem/fem/bilinearform.hpp", "mfem/fem/linearform.hpp", "mfem/fem/datacollection.hpp", "mfem/linalg/vector.hpp", "mfem/linalg/sparsemat.hpp", "mfem/linalg/solvers.hpp"]
-input               = ["mfem/general/array.hpp", "mfem/fem/qspace.hpp", "mfem/fem/qfunction.hpp", "mfem/fem/quadinterpolator.hpp", "mfem/fem/quadinterpolator_face.hpp", "mfem/fem/fe_coll.hpp", "mfem/fem/fespace.hpp", "mfem/fem/gridfunc.hpp", "mfem/mesh/nurbs.hpp", "mfem/mesh/mesh.hpp", "mfem/mesh/ncmesh.hpp"]
+input               = ["mfem/general/array.hpp", "mfem/mesh/mesh.hpp", "mfem/mesh/ncmesh.hpp", "mfem/fem/fe_coll.hpp", "mfem/fem/fespace.hpp", "mfem/fem/intrules.hpp", "mfem/fem/coefficient.hpp", "mfem/fem/gridfunc.hpp", "mfem/fem/bilinearform.hpp", "mfem/fem/bilininteg.hpp", "mfem/fem/linearform.hpp", "mfem/fem/lininteg.hpp", "mfem/fem/nonlinearform.hpp", "mfem/fem/nonlininteg.hpp", "mfem/fem/datacollection.hpp", "mfem/linalg/vector.hpp", "mfem/linalg/sparsemat.hpp", "mfem/linalg/solvers.hpp"]
 
-extra_headers       = ["templates.h", "mfem/general/array.hpp"]
+extra_headers       = ["templates.h"]
 
 include_dirs        = [".", "%MFEM_INC_DIR%" ]
 

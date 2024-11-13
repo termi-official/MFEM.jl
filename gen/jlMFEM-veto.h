@@ -21,6 +21,9 @@ mfem::BlockArray::iterator
 mfem::BlockArray::const_iterator
 mfem::BlockArray
 
+// std::map blacklist
+std::map
+
 // I think these are accidentally exposed in the C++ API
 mfem::Mesh::ncmesh
 // NOTE: int mfem::CheckFinite(const double *, const int) is generated twice
@@ -85,6 +88,8 @@ void mfem::GridFunction::ComputeElementL2Errors(mfem::VectorCoefficient &, mfem:
 void mfem::GridFunction::ComputeElementMaxErrors(mfem::VectorCoefficient &, mfem::Vector &, const IntegrationRule *[])
 void mfem::GridFunction::ComputeElementLpErrors(const double, mfem::VectorCoefficient &, mfem::Vector &, mfem::Coefficient *, mfem::VectorCoefficient *, const IntegrationRule *[])
 double mfem::GridFunction::ComputeLpError(const double, mfem::VectorCoefficient &, mfem::Coefficient *, mfem::VectorCoefficient *, const IntegrationRule *[])
+double mfem::ComputeLpNorm(double, mfem::Coefficient &, mfem::Mesh &, const IntegrationRule *[])
+double mfem::ComputeLpNorm(double, mfem::VectorCoefficient &, mfem::Mesh &, const IntegrationRule *[])
 // Ctor not correctly recognized
 mfem::NCMesh::NCList::MeshIdAndType
 
@@ -104,6 +109,7 @@ T mfem::Array::Max()
 int mfem::Array::IsSorted()
 void mfem::Array::PartialSum()
 T mfem::Array::Sum()
+void mfem::Array2D::Load(const char *, int)
 std::basic_ostream
 std::basic_istream
 
