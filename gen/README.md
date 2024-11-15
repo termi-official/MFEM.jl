@@ -19,12 +19,7 @@ Make sure julia is in the PATH otherwise it won't work.
 # Write up issues
 
 * Forward declarations of templated classes lead to duplicated codegen for some reason.
-* Setters for constant global variables are generated
-* `*[]` breaks namespaces
 * How to enforce codegen for templated methods and constructors?
 * global include path should be excluded from files (at least I need the option)
 * option to ignore or propagate deprecations
-* wrappers should be generated after enums#
-* wrappers need to be sorted to generate code for templated classes correctly
-* `t.apply` needs to be sorted
 * basic types are ignored in `t.apply` list codegen
