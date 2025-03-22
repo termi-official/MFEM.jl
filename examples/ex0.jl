@@ -1,7 +1,7 @@
 using MFEM, CxxWrap
 
 order = 1
-mesh_file = "../data/star.mesh"
+mesh_file = "data/star.mesh"
 
 mesh = MFEM.mfem!Mesh(mesh_file)
 UniformRefinement(mesh)
@@ -32,7 +32,7 @@ MFEM.Assemble(a)
 A = MFEM.mfem!SparseMatrix()
 B = MFEM.mfem!Vector()
 X = MFEM.mfem!Vector()
-MFEM.FormLinearSystem(a, boundary_dofs, x, b, A, X, B)
+MFEM.FormLinearSystem(a, boundary_dofs, x, b, A, X, B) # Breaks
 
 M = MFEM.mfem!GSSmoother(A)
 MFEM.mfem!PCG(A, M, B, X, 1, 200, 1e-12, 0.0)
