@@ -3,39 +3,34 @@ CXXFLAGS += $(patsubst -std=gnu%,,$(shell $(JL_SHARE)/julia-config.jl --cflags))
 CXXFLAGS += -DJLCXX_USE_TYPE_MAP
 CXXFLAGS += -DVERBOSE_IMPORT #To enable the verbose mode of the libray loading
 # CXXFLAGS += -Wall -O0 -g     #To compile with debugger infomation
-CXXFLAGS += -O0 -g     #To compile with debugger infomation
-LDFLAGS  += $(shell $(JL_SHARE)/julia-config.jl --ldflags)
-LDLIBS   += $(shell $(JL_SHARE)/julia-config.jl --ldlibs)
+# CXXFLAGS += -O0 -g     #To compile with debugger infomation
+CXXWRAP_PREFIX = $(shell julia --project -e "import CxxWrap; print(CxxWrap.prefix_path())")
+LDLIBS    	   = $(shell $(JL_SHARE)/julia-config.jl --ldlibs) -L$(CXXWRAP_PREFIX)/lib -lcxxwrap_julia -lcxxwrap_julia_stl
+LDLIBS        += $(shell $(JL_SHARE)/julia-config.jl --ldlibs)
+LDFLAGS       += $(shell $(JL_SHARE)/julia-config.jl --ldflags)
+CXXWRAP_CPPFLAGS=-I $(shell echo $(CXXWRAP_PREFIX)"/include") -I $(shell pwd) -std=c++20
 
-CXXWRAP_CPPFLAGS=-I $(shell julia --project -e 'using CxxWrap; print(CxxWrap.prefix_path() * "/include")') -I $(shell pwd) -std=c++20
+MFEM_LIBS?=$(shell julia --project -e 'using MFEM_seq_jll; print(MFEM_seq_jll.libmfem_path)')
+MFEM_INC_DIR?=$(shell julia --project -e 'using MFEM_seq_jll; print(joinpath(MFEM_seq_jll.artifact_dir, "include"))')
 
-
-CPPFLAGS += -MMD -I $(MFEM_INC_DIR)
-
-MFEM_LIBS?=/home/dogiermann/Builds/mfem-test/install/lib/libmfem.a
-MFEM_INC_DIR?=/home/dogiermann/Builds/mfem-test/install/include/
+CPPFLAGS += -MMD -I $(MFEM_INC_DIR) -I ./libMFEM/src
 
 LINK.o = $(CXX) $(LDFLAGS) $(TARGET_ARCH)
 
-.PHONY: all clean run_demo check_mfem make_lib_from_objs
+.PHONY: all check_mfem make_lib_from_objs
 
-.PRECIOUS: $(GENERATED_CXX) MFEM-generated.wit
+# .PRECIOUS: $(GENERATED_CXX) MFEM.wit
 
-PRODUCTS=libMFEM/libjlMFEM.so
+PRODUCTS=libMFEM/libMFEM.so
 GENERATED_CXX:=$(file < libMFEM/src/generated_cxx)
 OBJS=$(addprefix libMFEM/build/, $(patsubst %.cxx,%.o, $(GENERATED_CXX)))
-DEPS=$(patsubst %.o,%.d, $(OBJS))
+# DEPS=$(patsubst %.o,%.d, $(OBJS))
 
 all: $(PRODUCTS)
 
-clean:
-	-$(RM) $(PRODUCTS) jlMFEM-report.txt jlMFEM.o jlMFEM.d $(GENERATED_CXX) MFEM-generated.jl MFEM-generated.wit $(OBJS) \
-libMFEM/src/generated_cxx
-
-MFEM-generated.wit: MFEM.wit
-	$(MAKE) check_mfem
-	$(shell echo "#\n# Warning: file generated automatically from $<\n#" > $@)
-	$(shell sed "s@%MFEM_INC_DIR%@$(MFEM_INC_DIR)@" $< >> $@ || rm $@)
+libMFEM/templates.h:
+	-mkdir -p libMFEM/build
+	echo "Makefiles are painful."
 
 check_mfem:
 ifeq ($(MFEM_LIBS),)
@@ -45,29 +40,14 @@ ifeq ($(MFEM_INC_DIR),)
 	$(error ERROR: "MFEM_INC_DIR not set.")
 endif
 
-run_demo: all
-	. ./setup.sh && julia --project -i demo_MFEM.jl
-
-test: all
-	. ./setup.sh && julia --project demo_MFEM.jl
-
-libMFEM/src/generated_cxx: MFEM-generated.wit jlMFEM-veto.h
-	/home/dogiermann/Tools/wrapit/wrapit -v 10 --force $<
-	$(eval GENERATED_CXX:=$(file < libMFEM/src/generated_cxx))
-	$(eval OBJS:=$(addprefix libMFEM/build/, $(patsubst %.cxx,%.o, $(GENERATED_CXX))))
-
 libMFEM/build/%.o: libMFEM/src/%.cxx
-	-mkdir -p libMFEM/build
 	$(COMPILE.cc) $(CXXWRAP_CPPFLAGS) -o $@ $<
 
-libMFEM/libjlMFEM.so: libMFEM/src/generated_cxx
+make_lib_from_objs: $(OBJS)
+	$(LINK.o) -o libMFEM/libMFEM.so --shared -fPIC $(OBJS) $(MFEM_LIBS) $(LDLIBS) 
+
+libMFEM/libMFEM.so:
 	$(MAKE) check_mfem
 	$(MAKE) make_lib_from_objs
 
-make_lib_from_objs: $(OBJS)
-	$(LINK.o) -o libMFEM/libjlMFEM.so --shared -fPIC $(OBJS) $(MFEM_LIBS)
-
-echo_%:
-	@echo "$* = $(subst ",\",$($*))"
-
--include $(DEPS)
+# -include $(DEPS)

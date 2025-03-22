@@ -1,0 +1,48 @@
+module_name         = "libMFEM"
+export_jl_fname     = "libMFEM-export.jl"
+module_jl_fname     = "libMFEM-generated.jl"
+uuid                = "cc3c9350-3519-1407-eddb-6bb9cbd57b93"
+
+out_cxx_dir         = "libMFEM/src"
+out_jl_dir          = "libMFEM/jl"
+
+input               = [ "mfem/general/array.hpp",
+                        "mfem/mesh/mesh.hpp",
+                        "mfem/mesh/ncmesh.hpp",
+                        "mfem/fem/fe_coll.hpp",
+                        "mfem/fem/fespace.hpp",
+                        "mfem/fem/intrules.hpp",
+                        "mfem/fem/coefficient.hpp",
+                        "mfem/fem/gridfunc.hpp",
+                        "mfem/fem/bilinearform.hpp",
+                        "mfem/fem/bilininteg.hpp",
+                        "mfem/fem/linearform.hpp",
+                        "mfem/fem/lininteg.hpp",
+                        "mfem/fem/nonlinearform.hpp",
+                        "mfem/fem/nonlininteg.hpp",
+                        "mfem/fem/datacollection.hpp",
+                        "mfem/linalg/vector.hpp",
+                        "mfem/linalg/sparsemat.hpp",
+                        "mfem/linalg/solvers.hpp",
+                        "mfem/linalg/handle.hpp",
+                        "mfem/linalg/operator.hpp",
+                        "mfem/linalg/matrix.hpp",
+                        "mfem/linalg/sparsesmoothers.hpp"
+                    ]
+
+extra_headers       = ["templates.h"]
+
+include_dirs        = ["./libMFEM/src", "%MFEM_INC_DIR%" ]
+
+cxx-std             = "c++20"
+
+veto_list           = "jlMFEM-veto.h"
+
+auto_veto           = true # Setting this to false leads to the error that a class called "So" is not found. 
+
+export              = "all"
+
+export_blacklist    = [ "begin", "end", "<<", "x", "x!", "y", "y!", "z", "z!"]
+
+# all generated code in a single file:
+# n_classes_per_file = 0

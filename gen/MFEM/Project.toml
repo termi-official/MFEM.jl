@@ -1,5 +1,5 @@
 name = "MFEM"
-uuid = "d6659b56-aeb8-74a3-ac5e-ce30731fe51c"
+uuid = "cc3c9350-3519-1407-eddb-6bb9cbd57b93"
 
 [deps]
 CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"

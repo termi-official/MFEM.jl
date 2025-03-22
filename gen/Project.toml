@@ -1,4 +1,5 @@
 [deps]
 CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
 MFEM = "33cdfed9-8501-c837-8366-ebaff9303166"
+MFEM_seq_jll = "3cf6f5a4-34a7-5d62-9a78-d5aadfae302d"
 WrapIt = "962878d8-9763-11ee-8c14-fbf60c98afae"
