@@ -1,6 +1,6 @@
 JL_SHARE = $(shell julia --project -e 'print(joinpath(Sys.BINDIR, Base.DATAROOTDIR, "julia"))')
 CXXFLAGS += $(patsubst -std=gnu%,,$(shell $(JL_SHARE)/julia-config.jl --cflags))
-CXXFLAGS += -DJLCXX_USE_TYPE_MAP
+# CXXFLAGS += -DJLCXX_USE_TYPE_MAP
 CXXFLAGS += -DVERBOSE_IMPORT #To enable the verbose mode of the libray loading
 # CXXFLAGS += -Wall -O0 -g     #To compile with debugger infomation
 # CXXFLAGS += -O0 -g     #To compile with debugger infomation
@@ -13,7 +13,7 @@ CXXWRAP_CPPFLAGS=-I $(shell echo $(CXXWRAP_PREFIX)"/include") -I $(shell pwd) -s
 MFEM_LIBS?=$(shell julia --project -e 'using MFEM_seq_jll; print(MFEM_seq_jll.libmfem_path)')
 MFEM_INC_DIR?=$(shell julia --project -e 'using MFEM_seq_jll; print(joinpath(MFEM_seq_jll.artifact_dir, "include"))')
 
-CPPFLAGS += -MMD -I $(MFEM_INC_DIR) -I ./libMFEM/src
+CPPFLAGS += -I $(MFEM_INC_DIR) -I ./libMFEM/src #-MMD 
 
 LINK.o = $(CXX) $(LDFLAGS) $(TARGET_ARCH)
 

@@ -743,11 +743,11 @@ struct Jlmfem_Mesh: public Wrapper {
     t.method("GetNumGeometries", [](mfem::Mesh const& a, int arg0)->int { return a.GetNumGeometries(arg0); });
     t.method("GetNumGeometries", [](mfem::Mesh const* a, int arg0)->int { return a->GetNumGeometries(arg0); });
 
-    DEBUG_MSG("Adding wrapper for void mfem::Mesh::GetGeometries(int, mfem::Array<mfem::Geometry::Type> &) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::Mesh::GetGeometries(int, mfem::Array<mfem::Geometry::Type> &)
-    // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/mesh/mesh.hpp:1082:9
-    t.method("GetGeometries", [](mfem::Mesh const& a, int arg0, mfem::Array<mfem::Geometry::Type> & arg1)->void { a.GetGeometries(arg0, arg1); });
-    t.method("GetGeometries", [](mfem::Mesh const* a, int arg0, mfem::Array<mfem::Geometry::Type> & arg1)->void { a->GetGeometries(arg0, arg1); });
+    // DEBUG_MSG("Adding wrapper for void mfem::Mesh::GetGeometries(int, mfem::Array<mfem::Geometry::Type> &) (" __HERE__ ")");
+    // // signature to use in the veto list: void mfem::Mesh::GetGeometries(int, mfem::Array<mfem::Geometry::Type> &)
+    // // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/mesh/mesh.hpp:1082:9
+    // t.method("GetGeometries", [](mfem::Mesh const& a, int arg0, mfem::Array<mfem::Geometry::Type> & arg1)->void { a.GetGeometries(arg0, arg1); });
+    // t.method("GetGeometries", [](mfem::Mesh const* a, int arg0, mfem::Array<mfem::Geometry::Type> & arg1)->void { a->GetGeometries(arg0, arg1); });
 
     DEBUG_MSG("Adding wrapper for void mfem::Mesh::GetElementVertices(int, mfem::Array<int> &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::Mesh::GetElementVertices(int, mfem::Array<int> &)
@@ -1300,11 +1300,11 @@ struct Jlmfem_Mesh: public Wrapper {
     t.method("DerefineByError", [](mfem::Mesh* a, const mfem::Vector & arg0, double arg1, int arg2)->bool { return a->DerefineByError(arg0, arg1, arg2); });
     t.method("DerefineByError", [](mfem::Mesh* a, const mfem::Vector & arg0, double arg1, int arg2, int arg3)->bool { return a->DerefineByError(arg0, arg1, arg2, arg3); });
 
-    DEBUG_MSG("Adding wrapper for void mfem::Mesh::KnotInsert(mfem::Array<mfem::KnotVector *> &) (" __HERE__ ")");
-    // signature to use in the veto list: void mfem::Mesh::KnotInsert(mfem::Array<mfem::KnotVector *> &)
-    // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/mesh/mesh.hpp:1613:9
-    t.method("KnotInsert", [](mfem::Mesh& a, mfem::Array<mfem::KnotVector *> & arg0)->void { a.KnotInsert(arg0); });
-    t.method("KnotInsert", [](mfem::Mesh* a, mfem::Array<mfem::KnotVector *> & arg0)->void { a->KnotInsert(arg0); });
+    // DEBUG_MSG("Adding wrapper for void mfem::Mesh::KnotInsert(mfem::Array<mfem::KnotVector *> &) (" __HERE__ ")");
+    // // signature to use in the veto list: void mfem::Mesh::KnotInsert(mfem::Array<mfem::KnotVector *> &)
+    // // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/mesh/mesh.hpp:1613:9
+    // t.method("KnotInsert", [](mfem::Mesh& a, mfem::Array<mfem::KnotVector *> & arg0)->void { a.KnotInsert(arg0); });
+    // t.method("KnotInsert", [](mfem::Mesh* a, mfem::Array<mfem::KnotVector *> & arg0)->void { a->KnotInsert(arg0); });
 
     DEBUG_MSG("Adding wrapper for void mfem::Mesh::KnotInsert(mfem::Array<mfem::Vector *> &) (" __HERE__ ")");
     // signature to use in the veto list: void mfem::Mesh::KnotInsert(mfem::Array<mfem::Vector *> &)

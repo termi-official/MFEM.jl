@@ -647,10 +647,6 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_Embedding(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Refinement(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_IntegrationPoint(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_Array(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_Array2D(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_Vector(jlModule)),
-    std::shared_ptr<Wrapper>(newJlmfem_Memory(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_Operator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_TimeDependentOperator(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_TimeDependentAdjointOperator(jlModule)),
@@ -709,6 +705,7 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_ConstantCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWConstCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_PWCoefficient(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Vector(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_GridFunctionCoefficient(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_GridFunction(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_TransformedCoefficient(jlModule)),
@@ -940,6 +937,9 @@ JLCXX_MODULE define_julia_module(jlcxx::Module& jlModule){
     std::shared_ptr<Wrapper>(newJlmfem_VisItFieldInfo(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_VisItDataCollection(jlModule)),
     std::shared_ptr<Wrapper>(newJlmfem_ParaViewDataCollection(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Array(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Array2D(jlModule)),
+    std::shared_ptr<Wrapper>(newJlmfem_Memory(jlModule)),
     std::shared_ptr<Wrapper>(newJlGlobal(jlModule))
   };
 

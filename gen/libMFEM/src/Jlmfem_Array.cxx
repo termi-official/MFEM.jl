@@ -34,9 +34,9 @@ struct Jlmfem_Array: public Wrapper {
       wrapped.template constructor<>(/*finalize=*/jlcxx::finalize_policy::yes);
 
 
-      DEBUG_MSG("Adding wrapper for void mfem::Array::Array<T>(mfem::MemoryType) (" __HERE__ ")");
-      // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/general/array.hpp:67:11
-      wrapped.template constructor<mfem::MemoryType>(/*finalize=*/jlcxx::finalize_policy::yes);
+      // DEBUG_MSG("Adding wrapper for void mfem::Array::Array<T>(mfem::MemoryType) (" __HERE__ ")");
+      // // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/general/array.hpp:67:11
+      // wrapped.template constructor<mfem::MemoryType>(/*finalize=*/jlcxx::finalize_policy::yes);
 
 
       DEBUG_MSG("Adding wrapper for void mfem::Array::Array<T>(int) (" __HERE__ ")");
@@ -44,9 +44,9 @@ struct Jlmfem_Array: public Wrapper {
       wrapped.template constructor<int>(/*finalize=*/jlcxx::finalize_policy::yes);
 
 
-      DEBUG_MSG("Adding wrapper for void mfem::Array::Array<T>(int, mfem::MemoryType) (" __HERE__ ")");
-      // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/general/array.hpp:74:11
-      wrapped.template constructor<int, mfem::MemoryType>(/*finalize=*/jlcxx::finalize_policy::yes);
+      // DEBUG_MSG("Adding wrapper for void mfem::Array::Array<T>(int, mfem::MemoryType) (" __HERE__ ")");
+      // // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/general/array.hpp:74:11
+      // wrapped.template constructor<int, mfem::MemoryType>(/*finalize=*/jlcxx::finalize_policy::yes);
 
 
       DEBUG_MSG("Adding wrapper for void mfem::Array::Array<T>(T *, int) (" __HERE__ ")");
@@ -113,11 +113,11 @@ struct Jlmfem_Array: public Wrapper {
       wrapped.method("SetSize", [](WrappedType& a, int arg0, const T & arg1)->void { a.SetSize(arg0, arg1); });
       wrapped.method("SetSize", [](WrappedType* a, int arg0, const T & arg1)->void { a->SetSize(arg0, arg1); });
 
-      DEBUG_MSG("Adding wrapper for void mfem::Array::SetSize(int, mfem::MemoryType) (" __HERE__ ")");
-      // signature to use in the veto list: void mfem::Array::SetSize(int, mfem::MemoryType)
-      // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/general/array.hpp:149:16
-      wrapped.method("SetSize", [](WrappedType& a, int arg0, mfem::MemoryType arg1)->void { a.SetSize(arg0, arg1); });
-      wrapped.method("SetSize", [](WrappedType* a, int arg0, mfem::MemoryType arg1)->void { a->SetSize(arg0, arg1); });
+      // DEBUG_MSG("Adding wrapper for void mfem::Array::SetSize(int, mfem::MemoryType) (" __HERE__ ")");
+      // // signature to use in the veto list: void mfem::Array::SetSize(int, mfem::MemoryType)
+      // // defined in /home/dogiermann/.julia/artifacts/820df874853553756f46ac6dc23173c05d8db01a/include/mfem/general/array.hpp:149:16
+      // wrapped.method("SetSize", [](WrappedType& a, int arg0, mfem::MemoryType arg1)->void { a.SetSize(arg0, arg1); });
+      // wrapped.method("SetSize", [](WrappedType* a, int arg0, mfem::MemoryType arg1)->void { a->SetSize(arg0, arg1); });
 
       DEBUG_MSG("Adding wrapper for int mfem::Array::Capacity() (" __HERE__ ")");
       // signature to use in the veto list: int mfem::Array::Capacity()
@@ -258,7 +258,7 @@ struct Jlmfem_Array: public Wrapper {
       wrapped.method("HostReadWrite", [](WrappedType& a)->T * { return a.HostReadWrite(); });
       wrapped.method("HostReadWrite", [](WrappedType* a)->T * { return a->HostReadWrite(); });
     };
-    t.apply<mfem::Array<mfem::FiniteElementSpace *>, mfem::Array<mfem::NonlinearFormIntegrator *>, mfem::Array<mfem::BilinearFormIntegrator *>, mfem::Array<mfem::Array<int> *>, mfem::Array<mfem::DeltaLFIntegrator *>, mfem::Array<mfem::LinearFormIntegrator *>, mfem::Array<mfem::IntegrationPoint>, mfem::Array<mfem::Vector *>, mfem::Array<mfem::KnotVector *>, mfem::Array<mfem::Geometry::Type>, mfem::Array<mfem::FaceGeometricFactors *>, mfem::Array<mfem::GeometricFactors *>, mfem::Array<mfem::Coefficient *>, mfem::Array<mfem::DenseMatrix *>, mfem::Array<mfem::NCMesh::Slave>, mfem::Array<mfem::NCMesh::Master>, mfem::Array<mfem::NCMesh::MeshId>, mfem::Array<mfem::Refinement>, mfem::Array<mfem::Embedding>, mfem::Array<mfem::SparseMatrix *>, mfem::Array<int>>(t1_decl_methods);
+    t.apply<mfem::Array<mfem::FiniteElementSpace *>, mfem::Array<mfem::NonlinearFormIntegrator *>, mfem::Array<mfem::BilinearFormIntegrator *>, mfem::Array<mfem::DeltaLFIntegrator *>, mfem::Array<mfem::LinearFormIntegrator *>, mfem::Array<mfem::IntegrationPoint>, mfem::Array<mfem::Vector *>, /* mfem::Array<mfem::KnotVector *>, mfem::Array<mfem::Geometry::Type>, mfem::Array<mfem::FaceGeometricFactors *>, mfem::Array<mfem::GeometricFactors *>, */ mfem::Array <mfem::Coefficient *>, mfem::Array<mfem::DenseMatrix *>, /*mfem::Array<mfem::NCMesh::Slave>, mfem::Array<mfem::NCMesh::Master>, mfem::Array<mfem::NCMesh::MeshId>,*/ mfem::Array<mfem::Refinement>, mfem::Array<mfem::Embedding>, mfem::Array<mfem::SparseMatrix *>, mfem::Array<double>, mfem::Array<int>, mfem::Array<mfem::Array<int> *>>(t1_decl_methods);
   }
 
   void add_methods() const{
