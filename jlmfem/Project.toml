@@ -1,0 +1,14 @@
+[deps]
+CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
+HYPRE_jll = "0a602bbd-b08b-5d75-8d32-0de6eef44785"
+METIS_jll = "d00139f3-1899-568f-a2f0-47f597d42d70"
+MPICH_jll = "7cb0a576-ebde-5e09-9194-50597f1243b4"
+MPIPreferences = "3da0fdf6-3ccc-4f1b-acd9-58baa6c99267"
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+WrapIt_jll = "c56a8eb6-3dd0-5432-903d-1a19a3d2a949"
+
+[compat]
+CxxWrap = "0.17"
+HYPRE_jll = "3.1"
+METIS_jll = "5.1"
+WrapIt_jll = "1.8"
