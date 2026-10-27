@@ -1,0 +1,24 @@
+# Common WrapIt configuration. build.jl adds the variant specific entries
+# (input, include_dirs, out_cxx_dir, out_jl_dir, veto_list) and writes jlmfem-<variant>.wit.
+module_name         = "LibMFEM"
+module_jl_fname     = "LibMFEM-generated.jl"
+export_jl_fname     = "LibMFEM-export.jl"
+uuid                = "cc3c9350-3519-1407-eddb-6bb9cbd57b93"
+lib_basename        = "libjlmfem"
+
+cxx-std             = "c++17"
+cxxwrap_version     = "0.17"
+
+extra_headers       = ["templates.hpp"]
+
+auto_veto           = true
+
+export              = "none"
+
+n_classes_per_file  = 10
+
+# Classes with non-copyable members.
+vetoed_copy_ctor_classes = ["mfem::IntegrationRules"]
+
+julia_names         = ["jlmfem::FormLinearSystem -> FormLinearSystem", "jlmfem::FormSystemMatrix -> FormSystemMatrix",
+                       "jlmfem::ComputeL2Error -> ComputeL2Error"]

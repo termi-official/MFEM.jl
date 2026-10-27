@@ -1,41 +1,40 @@
-using MFEM, CxxWrap
+# MFEM Example 0: solve -Δu = 1 with homogeneous Dirichlet boundary conditions.
+#
+#   julia --project examples/ex0.jl [mesh_file] [order]
+using MFEM
 
-order = 1
-mesh_file = "data/star.mesh"
+mesh_file = get(ARGS, 1, joinpath(@__DIR__, "..", "data", "star.mesh"))
+order = parse(Int, get(ARGS, 2, "1"))
 
-mesh = MFEM.mfem!Mesh(mesh_file)
-UniformRefinement(mesh)
+mesh = MFEM.Mesh(mesh_file)
+MFEM.UniformRefinement(mesh)
 
-fec = MFEM.mfem!H1_FECollection(order, Dimension(mesh))
-fespace = MFEM.mfem!FiniteElementSpace(CxxPtr(mesh), CxxPtr(fec))
-println("Number of unknowns: $(GetTrueVSize(fespace))")
+fec = MFEM.H1_FECollection(order, MFEM.Dimension(mesh))
+fespace = MFEM.FiniteElementSpace(mesh, fec)
+println("Number of unknowns: ", MFEM.GetTrueVSize(fespace))
 
-boundary_dofs = MFEM.mfem!Array{Int32}(0)
-GetBoundaryTrueDofs(fespace, boundary_dofs)
-println("Num true boundry dofs: $(MFEM.Size(boundary_dofs))")
+boundary_dofs = MFEM.Array{Int32}()
+MFEM.GetBoundaryTrueDofs(fespace, boundary_dofs)
 
-x = MFEM.mfem!GridFunction(CxxPtr(fespace))
-assign(x, 0.0)
+x = MFEM.GridFunction(fespace)
+MFEM.assign(x, 0.0)
 
-one = MFEM.mfem!ConstantCoefficient(1.0)
-
-b   = MFEM.mfem!LinearForm(CxxPtr(fespace))
-lfi = MFEM.mfem!DomainLFIntegrator(one)
-MFEM.AddDomainIntegrator(b, CxxPtr(lfi))
+one = MFEM.ConstantCoefficient(1.0)
+b = MFEM.LinearForm(fespace)
+MFEM.AddDomainIntegrator(b, MFEM.DomainLFIntegrator(one))
 MFEM.Assemble(b)
 
-a   = MFEM.mfem!BilinearForm(CxxPtr(fespace))
-bfi = MFEM.mfem!DiffusionIntegrator()
-MFEM.AddDomainIntegrator(a, CxxPtr(bfi))
+a = MFEM.BilinearForm(fespace)
+MFEM.AddDomainIntegrator(a, MFEM.DiffusionIntegrator())
 MFEM.Assemble(a)
 
-A = MFEM.mfem!SparseMatrix()
-B = MFEM.mfem!Vector()
-X = MFEM.mfem!Vector()
-MFEM.FormLinearSystem(a, boundary_dofs, x, b, A, X, B) # Breaks
+A = MFEM.SparseMatrix()
+B = MFEM.Vector()
+X = MFEM.Vector()
+MFEM.FormLinearSystem(a, boundary_dofs, x, b, A, X, B)
 
-M = MFEM.mfem!GSSmoother(A)
-MFEM.mfem!PCG(A, M, B, X, 1, 200, 1e-12, 0.0)
+M = MFEM.GSSmoother(A)
+MFEM.PCG(A, M, B, X, 1, 200, 1e-12, 0.0)
 
 MFEM.RecoverFEMSolution(a, X, b, x)
 MFEM.Save(x, "sol.gf")
